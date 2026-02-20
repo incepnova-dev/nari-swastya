@@ -1,11 +1,5 @@
 import React from 'react';
-
-export interface CTAButtonData {
-  href: string;
-  label: string;
-  icon: string;
-  variant: 'primary' | 'secondary';
-}
+import { CTAButtonData } from '../../../data';
 
 export interface HeroCTAButtonProps extends CTAButtonData {
   className?: string;

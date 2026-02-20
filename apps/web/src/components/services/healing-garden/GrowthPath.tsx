@@ -1,5 +1,5 @@
 import React from 'react';
-import { growthSteps } from '../servicesData';
+import { growthSteps } from '../../../data';
 import { GrowthStepItem } from './GrowthStepItem';
 
 // =========================================

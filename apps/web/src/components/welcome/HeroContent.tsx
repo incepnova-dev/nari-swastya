@@ -1,5 +1,5 @@
 import React from 'react';
-import { heroBadge, heroTitle, heroSubtitle, heroCTAs, heroTrust } from './welcomeData';
+import { heroBadge, heroTitle, heroSubtitle, heroCTAs, heroTrust } from '../../data';
 
 interface HeroContentProps {
   onBeginJourney: () => void;

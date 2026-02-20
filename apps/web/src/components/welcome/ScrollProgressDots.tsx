@@ -1,5 +1,5 @@
 import React from 'react';
-import { scrollProgressDots } from './welcomeData';
+import { scrollProgressDots } from '../../data';
 
 /**
  * ScrollProgressDots

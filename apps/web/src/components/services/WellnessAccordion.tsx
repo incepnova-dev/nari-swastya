@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {
   wellnessAccordionItems,
   WellnessAccordionItem
-} from './servicesData';
+} from '../../data';
 
 interface WellnessAccordionProps {
   defaultOpenId?: string;

@@ -1,5 +1,8 @@
-import { DropdownEntry } from './NavDropdown';
-import { ActionButton } from './NavActions';
+import {
+  DropdownEntry,
+  SimpleNavLink,
+  ActionButton,
+} from './headerTypes';
 
 /**
  * Navigation data for SiteHeader
@@ -357,12 +360,6 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
 ];
 
 // Simple nav links
-export interface SimpleNavLink {
-  href: string;
-  label: string;
-  isActive?: boolean;
-}
-
 export const simpleNavLinks: SimpleNavLink[] = [
   { href: 'index.html', label: 'Home', isActive: true },
 ];

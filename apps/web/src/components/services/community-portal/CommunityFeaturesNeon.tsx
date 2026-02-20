@@ -1,5 +1,5 @@
 import React from 'react';
-import { communityFeatures } from '../servicesData';
+import { communityFeatures } from '../../../data';
 
 // =========================================
 // COMMUNITY FEATURES WITH NEON GLOW

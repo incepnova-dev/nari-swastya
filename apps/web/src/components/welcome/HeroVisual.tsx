@@ -1,5 +1,5 @@
 import React from 'react';
-import { emotionWords, heroCore } from './welcomeData';
+import { emotionWords, heroCore } from '../../data';
 
 interface HeroVisualProps {
   onCoreClick: () => void;

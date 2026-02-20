@@ -1,5 +1,5 @@
 import React from 'react';
-import { StageKey, planningServices } from './servicesData';
+import { StageKey, planningServices } from '../../data';
 import { ServicesSection } from './ServicesSection';
 
 // =========================================

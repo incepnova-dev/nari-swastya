@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MenopauseSymptom, menopauseSymptoms } from './servicesData';
+import { MenopauseSymptom, menopauseSymptoms } from '../../data';
 import { ServicesSection } from './ServicesSection';
 import { MenopauseSymptomPopup } from './menopause/MenopauseSymptomPopup';
 import { MenopausePillars } from './menopause/MenopausePillars';

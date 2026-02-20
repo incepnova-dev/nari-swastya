@@ -1,5 +1,5 @@
 import React from 'react';
-import { communityFloatCards } from '../servicesData';
+import { communityFloatCards } from '../../../data';
 
 // =========================================
 // FLOATING COMMUNITY CARDS

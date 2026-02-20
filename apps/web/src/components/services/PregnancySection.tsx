@@ -1,5 +1,5 @@
 import React from 'react';
-import { pregnancyTimeline } from './servicesData';
+import { pregnancyTimeline } from '../../data';
 import { ServicesSection } from './ServicesSection';
 
 // =========================================

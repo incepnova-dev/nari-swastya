@@ -1,6 +1,6 @@
 import React from 'react';
 import { TestimonialCard } from './TestimonialCard';
-import { testimonials } from '../welcomeData';
+import { testimonials } from '../../../data';
 
 /**
  * TestimonialGrid

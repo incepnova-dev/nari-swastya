@@ -1,5 +1,5 @@
 import React from 'react';
-import { menopausePillars } from '../servicesData';
+import { menopausePillars } from '../../../data';
 
 // Menopause Resource Links section
 // Mirrors the markup under <!-- Menopause Resource Links --> in services.html

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StageKey, stageFilters } from './servicesData';
+import { StageKey, stageFilters } from '../../data';
 
 // STAGE FILTER BUTTONS
 // (from services.html)

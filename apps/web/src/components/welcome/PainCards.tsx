@@ -1,5 +1,5 @@
 import React from 'react';
-import { painCardsData } from './welcomeData';
+import { painCardsData } from '../../data';
 
 export const PainCards: React.FC = () => {
   return (

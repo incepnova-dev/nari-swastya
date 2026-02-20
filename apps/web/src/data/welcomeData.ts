@@ -1,21 +1,27 @@
-// Shared types and data for the Welcome page
-// Source: Welcome.html content
+import {
+  StoryCardData,
+  PainCardData,
+  NucleusBadge,
+  HeroBadge,
+  HeroTitle,
+  HeroSubtitle,
+  HeroCTA,
+  HeroTrust,
+  EmotionWord,
+  HeroCore,
+  Milestone,
+  Testimonial,
+  ScrollProgressDot,
+} from './welcomeTypes';
+
+/**
+ * Welcome page data
+ * Source: Welcome.html content
+ */
 
 // ============================
 // Story Cards Section (SECTION NEW-A)
 // ============================
-
-export interface StoryCardData {
-  tag: 'research' | 'cancer' | 'recovery' | 'peer';
-  tagIcon: string;
-  tagLabel: string;
-  title: string;
-  description: string;
-  avatar: string;
-  authorName: string;
-  authorSub: string;
-  transitionDelay: string;
-}
 
 export const storyCardsData: StoryCardData[] = [
   {
@@ -72,17 +78,6 @@ export const storyCardsData: StoryCardData[] = [
 // Pain Cards Section (SECTION 1)
 // ============================
 
-export interface PainCardData {
-  id: string;
-  icon: string;
-  iconBg: string;
-  iconColor: string;
-  title: string;
-  body: string;
-  quote: string;
-  delay: string;
-}
-
 export const painCardsData: PainCardData[] = [
   {
     id: 'midnight-fear',
@@ -133,12 +128,6 @@ export const painCardsData: PainCardData[] = [
 // Nucleus Visual Section
 // ============================
 
-export interface NucleusBadge {
-  emoji: string;
-  text: string;
-  className: string;
-}
-
 export const nucleusBadges: NucleusBadge[] = [
   { emoji: '🧬', text: 'PCOS Breakthroughs', className: 'nb1' },
   { emoji: '🎗️', text: 'Breast Cancer Survival', className: 'nb2' },
@@ -152,22 +141,10 @@ export const nucleusBadges: NucleusBadge[] = [
 // Hero Section
 // ============================
 
-export interface HeroBadge {
-  icon: string;
-  text: string;
-}
-
 export const heroBadge: HeroBadge = {
   icon: 'fa-heart-pulse',
   text: 'For Every Woman. Every Stage.',
 };
-
-export interface HeroTitle {
-  line1: string;
-  line2: string;
-  emphasis: string;
-  line3: string;
-}
 
 export const heroTitle: HeroTitle = {
   line1: 'You Deserve to',
@@ -176,21 +153,10 @@ export const heroTitle: HeroTitle = {
   line3: '& Never Alone.',
 };
 
-export interface HeroSubtitle {
-  text: string;
-}
-
 export const heroSubtitle: HeroSubtitle = {
   text:
     "From your first missed period to your child's first steps — Nari Swasthya walks every path with you. Evidence-based, emotionally intelligent women's health, built for India's 350 million mothers.",
 };
-
-export interface HeroCTA {
-  id: string;
-  type: 'primary' | 'secondary';
-  icon: string;
-  label: string;
-}
 
 export const heroCTAs: HeroCTA[] = [
   {
@@ -207,13 +173,6 @@ export const heroCTAs: HeroCTA[] = [
   },
 ];
 
-export interface HeroTrust {
-  avatars: string[];
-  text: string;
-  highlight: string;
-  suffix: string;
-}
-
 export const heroTrust: HeroTrust = {
   avatars: ['P', 'A', 'S', 'R', 'M'],
   text: 'Joined by',
@@ -224,14 +183,6 @@ export const heroTrust: HeroTrust = {
 // ============================
 // Hero Visual Section
 // ============================
-
-export interface EmotionWord {
-  id: string;
-  className: string;
-  icon?: string;
-  iconColor?: string;
-  text: string;
-}
 
 export const emotionWords: EmotionWord[] = [
   {
@@ -270,12 +221,6 @@ export const emotionWords: EmotionWord[] = [
   },
 ];
 
-export interface HeroCore {
-  icon: string;
-  line1: string;
-  line2: string;
-}
-
 export const heroCore: HeroCore = {
   icon: '🩷',
   line1: 'Your health',
@@ -285,17 +230,6 @@ export const heroCore: HeroCore = {
 // ============================
 // Journey Section (SECTION 3)
 // ============================
-
-export interface Milestone {
-  id: string;
-  week: string;
-  title: string;
-  description: string;
-  statIcon: string;
-  statText: string;
-  nodeIcon: string;
-  animationDelay: string;
-}
 
 export const milestoneData: Milestone[] = [
   {
@@ -359,17 +293,6 @@ export const milestoneData: Milestone[] = [
 // CTA Section (SECTION 4)
 // ============================
 
-export interface Testimonial {
-  id: string;
-  avatar: string;
-  avatarAnimationDelay?: string;
-  stars: string;
-  text: string;
-  name: string;
-  role: string;
-  transitionDelay?: string;
-}
-
 export const testimonials: Testimonial[] = [
   {
     id: 'priya-nair',
@@ -408,13 +331,6 @@ export const testimonials: Testimonial[] = [
 // Scroll Progress Dots
 // ============================
 
-export interface ScrollProgressDot {
-  id: string;
-  section: string;
-  title: string;
-  active?: boolean;
-}
-
 export const scrollProgressDots: ScrollProgressDot[] = [
   { id: 'hero', section: 'hero', title: 'Home', active: true },
   { id: 's1', section: 's1', title: 'Pain Points' },
@@ -424,4 +340,3 @@ export const scrollProgressDots: ScrollProgressDot[] = [
   { id: 's3', section: 's3', title: 'Journey' },
   { id: 's4', section: 's4', title: 'Join Us' },
 ];
-

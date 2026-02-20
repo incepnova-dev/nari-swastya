@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenopauseSymptom, menopauseSymptoms } from '../servicesData';
+import { MenopauseSymptom, menopauseSymptoms } from '../../../data';
 import { SymptomBubble } from './SymptomBubble';
 
 // =========================================

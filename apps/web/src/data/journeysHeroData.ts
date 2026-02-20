@@ -1,18 +1,20 @@
-import { HeroBadgeProps } from './HeroBadge';
-import { HeroTitleProps } from './HeroTitle';
-import { StatItem } from './HeroStatCard';
-import { CTAButtonData } from './HeroCTAButton';
+import {
+  HeroBadgeData,
+  HeroTitleData,
+  StatItem,
+  CTAButtonData,
+} from './journeysHeroTypes';
 
 /**
  * Default data for the Journeys Hero section
  */
 
-export const defaultBadge: HeroBadgeProps = {
+export const defaultBadge: HeroBadgeData = {
   icon: 'fa-solid fa-heart-pulse',
   text: "India's #1 Women's Health Platform",
 };
 
-export const defaultTitle: Omit<HeroTitleProps, 'className'> = {
+export const defaultTitle: HeroTitleData = {
   line1: 'Every Stage of',
   emphasis: 'Her Journey',
   line3: 'Celebrated',
@@ -41,4 +43,3 @@ export const defaultCTAButtons: CTAButtonData[] = [
     variant: 'secondary',
   },
 ];
-

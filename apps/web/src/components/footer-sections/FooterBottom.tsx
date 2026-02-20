@@ -1,5 +1,5 @@
 import React from 'react';
-import { bottomLinks, copyrightText, FooterLink } from './footerData';
+import { bottomLinks, copyrightText, FooterLink } from '../../data';
 
 export interface FooterBottomProps {
   links?: FooterLink[];

@@ -1,6 +1,6 @@
 import React from 'react';
 import { FooterColumn } from './FooterColumn';
-import { evidenceSources } from './footerData';
+import { evidenceSources } from '../../data';
 
 export interface FooterEvidenceSourcesProps {
   title?: string;

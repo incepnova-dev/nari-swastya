@@ -1,8 +1,7 @@
 import React from 'react';
+import { HeroBadgeData } from '../../../data';
 
-export interface HeroBadgeProps {
-  icon?: string;
-  text: string;
+export interface HeroBadgeProps extends HeroBadgeData {
   className?: string;
 }
 

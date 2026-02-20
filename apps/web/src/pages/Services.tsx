@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SiteHeader } from '../components/SiteHeader';
 import { Footer } from '../components/Footer';
-import { StageKey } from '../components/services/servicesData';
+import { StageKey } from '../data';
 import { ServicesHero } from '../components/services/ServicesHero';
 import { StageFilters } from '../components/services/StageFilters';
 import { PlanningSection } from '../components/services/PlanningSection';

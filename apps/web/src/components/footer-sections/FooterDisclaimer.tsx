@@ -1,6 +1,6 @@
 import React from 'react';
 import { FooterColumn } from './FooterColumn';
-import { disclaimerContent } from './footerData';
+import { disclaimerContent } from '../../data';
 
 export interface FooterDisclaimerProps {
   title?: string;

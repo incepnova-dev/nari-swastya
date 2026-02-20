@@ -1,5 +1,5 @@
 import React from 'react';
-import { Milestone } from '../welcomeData';
+import { Milestone } from '../../../data';
 
 interface MilestoneRowProps {
   milestone: Milestone;

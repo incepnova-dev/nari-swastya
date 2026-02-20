@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { initNucleusCanvas } from '../../scripts/welcome';
-import { nucleusBadges } from './welcomeData';
+import { nucleusBadges } from '../../data';
 
 /**
  * NucleusVisual

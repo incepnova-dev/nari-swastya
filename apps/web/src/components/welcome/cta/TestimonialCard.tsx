@@ -1,5 +1,5 @@
 import React from 'react';
-import { Testimonial } from '../welcomeData';
+import { Testimonial } from '../../../data';
 
 interface TestimonialCardProps {
   testimonial: Testimonial;

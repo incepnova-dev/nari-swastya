@@ -6,13 +6,13 @@ export { HeroTitle } from './HeroTitle';
 export type { HeroTitleProps } from './HeroTitle';
 
 export { HeroStatCard } from './HeroStatCard';
-export type { StatItem, HeroStatCardProps } from './HeroStatCard';
+export type { HeroStatCardProps } from './HeroStatCard';
 
 export { HeroStats } from './HeroStats';
 export type { HeroStatsProps } from './HeroStats';
 
 export { HeroCTAButton } from './HeroCTAButton';
-export type { CTAButtonData, HeroCTAButtonProps } from './HeroCTAButton';
+export type { HeroCTAButtonProps } from './HeroCTAButton';
 
 export { HeroCTARow } from './HeroCTARow';
 export type { HeroCTARowProps } from './HeroCTARow';
@@ -26,12 +26,19 @@ export type { LifecycleVisualProps } from './LifecycleVisual';
 export { HeroContent } from './HeroContent';
 export type { HeroContentProps } from './HeroContent';
 
-// Default data
+// Data re-exports (from src/data)
 export {
   defaultBadge,
   defaultTitle,
   defaultSubtitle,
   defaultStats,
   defaultCTAButtons,
-} from './journeysHeroData';
+} from '../../../data';
+
+export type {
+  HeroBadgeData,
+  HeroTitleData,
+  StatItem,
+  CTAButtonData,
+} from '../../../data';
 

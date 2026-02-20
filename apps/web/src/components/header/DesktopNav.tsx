@@ -1,13 +1,13 @@
 import React from 'react';
 import { NavLink } from './NavLink';
-import { NavDropdown, DropdownEntry } from './NavDropdown';
+import { NavDropdown } from './NavDropdown';
 import {
   journeysDropdownEntries,
   servicesDropdownEntries,
   additionalInfoDropdownEntries,
   simpleNavLinks,
   rightNavLinks,
-} from './headerData';
+} from '../../data';
 
 export interface DesktopNavProps {
   className?: string;

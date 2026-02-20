@@ -1,5 +1,5 @@
 import React from 'react';
-import { storyCardsData } from './welcomeData';
+import { storyCardsData } from '../../data';
 
 /**
  * StoryCards

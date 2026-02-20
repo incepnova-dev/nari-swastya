@@ -1,6 +1,6 @@
 import React from 'react';
 import { FooterColumn } from './FooterColumn';
-import { aboutContent } from './footerData';
+import { aboutContent } from '../../data';
 
 export interface FooterAboutProps {
   title?: string;

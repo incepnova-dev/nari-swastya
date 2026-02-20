@@ -1,5 +1,5 @@
 import React from 'react';
-import { severityCards, trustIndicators } from './servicesData';
+import { severityCards, trustIndicators } from '../../data';
 
 // =========================================
 // SYMPTOM DETECTION CTA SECTION

@@ -1,12 +1,26 @@
-// Shared types and data for the Services page
-// Source: services.html content
+import {
+  StageFilter,
+  PlanningService,
+  TimelineItem,
+  CarouselItem,
+  WellnessAccordionItem,
+  MenopauseSymptom,
+  MenopausePillar,
+  FlowStep,
+  GrowthStep,
+  SeverityCard,
+  TrustIndicator,
+  FeatureOrb,
+  TrackingBenefit,
+  CommunityFloatCard,
+  CommunityFeature,
+  TickerItem,
+} from './servicesTypes';
 
-export type StageKey = 'all' | 'planning' | 'pregnancy' | 'postpartum' | 'menopause' | 'wellness';
-
-export interface StageFilter {
-  id: StageKey;
-  label: string;
-}
+/**
+ * Services page data
+ * Source: services.html content
+ */
 
 export const stageFilters: StageFilter[] = [
   { id: 'all', label: 'All Services' },
@@ -16,15 +30,6 @@ export const stageFilters: StageFilter[] = [
   { id: 'menopause', label: 'Menopause' },
   { id: 'wellness', label: 'Wellness' }
 ];
-
-export interface PlanningService {
-  id: string;
-  emoji: string;
-  title: string;
-  description: string;
-  badge: string;
-  stage: Exclude<StageKey, 'all'>;
-}
 
 export const planningServices: PlanningService[] = [
   {
@@ -54,14 +59,6 @@ export const planningServices: PlanningService[] = [
     stage: 'planning'
   }
 ];
-
-export interface TimelineItem {
-  id: string;
-  icon: string;
-  title: string;
-  description: string;
-  links: string[];
-}
 
 export const pregnancyTimeline: TimelineItem[] = [
   {
@@ -102,14 +99,6 @@ export const pregnancyTimeline: TimelineItem[] = [
   }
 ];
 
-export interface CarouselItem {
-  id: string;
-  emoji: string;
-  title: string;
-  description: string;
-  tag: string;
-}
-
 export const postpartumCarousel: CarouselItem[] = [
   {
     id: 'breastfeeding',
@@ -148,25 +137,6 @@ export const postpartumCarousel: CarouselItem[] = [
   }
 ];
 
-// ============================
-// Wellness (Ongoing Wellness Accordion)
-// ============================
-
-export interface WellnessAccordionLink {
-  id: string;
-  label: string;
-  /** Optional icon class for <i> element, e.g. 'fa-solid fa-shield-heart' */
-  iconClass?: string;
-}
-
-export interface WellnessAccordionItem {
-  id: string;
-  icon: string;
-  title: string;
-  body: string;
-  links: WellnessAccordionLink[];
-}
-
 export const wellnessAccordionItems: WellnessAccordionItem[] = [
   {
     id: 'chronic-conditions',
@@ -202,12 +172,6 @@ export const wellnessAccordionItems: WellnessAccordionItem[] = [
   }
 ];
 
-export interface MenopauseSymptom {
-  id: string;
-  icon: string;
-  label: string;
-}
-
 export const menopauseSymptoms: MenopauseSymptom[] = [
   { id: 'hot-flash', icon: '🔥', label: 'Hot Flashes' },
   { id: 'brain-fog', icon: '🧠', label: 'Brain Fog' },
@@ -218,13 +182,6 @@ export const menopauseSymptoms: MenopauseSymptom[] = [
   { id: 'anxiety', icon: '😰', label: 'Anxiety' },
   { id: 'libido', icon: '❤️‍🔥', label: 'Low Libido' }
 ];
-
-export interface MenopausePillar {
-  id: string;
-  number: string;
-  title: string;
-  description: string;
-}
 
 export const menopausePillars: MenopausePillar[] = [
   {
@@ -247,17 +204,6 @@ export const menopausePillars: MenopausePillar[] = [
   }
 ];
 
-// ============================
-// How It Works Section
-// ============================
-
-export interface FlowStep {
-  id: string;
-  number: number;
-  title: string;
-  description: string;
-}
-
 export const flowSteps: FlowStep[] = [
   {
     id: 'stage',
@@ -278,24 +224,6 @@ export const flowSteps: FlowStep[] = [
     description: 'Experts & community step in when you need them.'
   }
 ];
-
-// ============================
-// Healing Garden Section (Miscarriage & Loss Support)
-// ============================
-
-export interface GrowthStepPetal {
-  id: string;
-  iconClass: string;
-  label: string;
-  href?: string;
-}
-
-export interface GrowthStep {
-  id: string;
-  icon: string;
-  title: string;
-  petals: GrowthStepPetal[];
-}
 
 export const growthSteps: GrowthStep[] = [
   {
@@ -326,19 +254,6 @@ export const growthSteps: GrowthStep[] = [
     ]
   }
 ];
-
-// ============================
-// Symptom Detection CTA Section
-// ============================
-
-export interface SeverityCard {
-  id: string;
-  type: 'mild' | 'moderate' | 'severe' | 'critical';
-  icon: string;
-  label: string;
-  description: string;
-  examples: string;
-}
 
 export const severityCards: SeverityCard[] = [
   {
@@ -375,13 +290,6 @@ export const severityCards: SeverityCard[] = [
   }
 ];
 
-export interface TrustIndicator {
-  id: string;
-  icon: string;
-  label: string;
-  value: string;
-}
-
 export const trustIndicators: TrustIndicator[] = [
   {
     id: 'medically-reviewed',
@@ -402,17 +310,6 @@ export const trustIndicators: TrustIndicator[] = [
     value: 'Latest Research'
   }
 ];
-
-// ============================
-// Personal Tracking Hub Section
-// ============================
-
-export interface FeatureOrb {
-  id: string;
-  orbClass: string;
-  icon: string;
-  label: string;
-}
 
 export const featureOrbs: FeatureOrb[] = [
   {
@@ -453,13 +350,6 @@ export const featureOrbs: FeatureOrb[] = [
   }
 ];
 
-export interface TrackingBenefit {
-  id: string;
-  icon: string;
-  title: string;
-  description: string;
-}
-
 export const trackingBenefits: TrackingBenefit[] = [
   {
     id: 'personalized-insights',
@@ -486,20 +376,6 @@ export const trackingBenefits: TrackingBenefit[] = [
     description: 'Your health data is encrypted and protected with bank-level security'
   }
 ];
-
-// ============================
-// Community Portal Section
-// ============================
-
-export interface CommunityFloatCard {
-  id: string;
-  cardClass: string;
-  icon: string;
-  badge: string;
-  badgeClass?: string;
-  title: string;
-  memberCount: string;
-}
 
 export const communityFloatCards: CommunityFloatCard[] = [
   {
@@ -555,14 +431,6 @@ export const communityFloatCards: CommunityFloatCard[] = [
   }
 ];
 
-export interface CommunityFeature {
-  id: string;
-  icon: string;
-  title: string;
-  description: string;
-  glowClass: string;
-}
-
 export const communityFeatures: CommunityFeature[] = [
   {
     id: 'live-discussions',
@@ -594,16 +462,9 @@ export const communityFeatures: CommunityFeature[] = [
   }
 ];
 
-export interface TickerItem {
-  id: string;
-  text: string;
-}
-
 export const tickerItems: TickerItem[] = [
   { id: '1', text: '✨ "This community changed my life!" - Priya M.' },
   { id: '2', text: '💕 "Found my support system here" - Anjali K.' },
   { id: '3', text: '🌟 "Finally, people who understand" - Lakshmi S.' },
   { id: '4', text: '💖 "Best decision I made" - Meera R.' }
 ];
-
-

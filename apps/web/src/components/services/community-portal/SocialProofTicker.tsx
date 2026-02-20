@@ -1,5 +1,5 @@
 import React from 'react';
-import { tickerItems } from '../servicesData';
+import { tickerItems } from '../../../data';
 
 // =========================================
 // SOCIAL PROOF TICKER

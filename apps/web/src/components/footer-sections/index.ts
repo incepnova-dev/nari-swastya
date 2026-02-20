@@ -23,7 +23,7 @@ export type { FooterMetaProps } from './FooterMeta';
 export { FooterBottom } from './FooterBottom';
 export type { FooterBottomProps } from './FooterBottom';
 
-// Data exports
+// Data re-exports (from src/data)
 export {
   aboutContent,
   evidenceSources,
@@ -32,5 +32,5 @@ export {
   metaContent,
   bottomLinks,
   copyrightText,
-} from './footerData';
-export type { FooterLink } from './footerData';
+} from '../../data';
+export type { FooterLink } from '../../data';

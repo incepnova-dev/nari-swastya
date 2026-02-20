@@ -1,5 +1,5 @@
 import React from 'react';
-import { metaContent } from './footerData';
+import { metaContent } from '../../data';
 
 export interface FooterMetaProps {
   lastUpdated?: string;

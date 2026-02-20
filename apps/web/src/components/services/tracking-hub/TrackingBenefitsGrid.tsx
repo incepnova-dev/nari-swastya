@@ -1,5 +1,5 @@
 import React from 'react';
-import { trackingBenefits } from '../servicesData';
+import { trackingBenefits } from '../../../data';
 
 // =========================================
 // TRACKING BENEFITS GRID

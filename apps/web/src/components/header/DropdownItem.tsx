@@ -1,14 +1,5 @@
 import React from 'react';
-
-export interface DropdownItemData {
-  href: string;
-  icon: string;
-  iconVariant: string;
-  title: string;
-  subtitle: string;
-  titleColor?: string;
-  isFeatured?: boolean;
-}
+import { DropdownItemData } from '../../data';
 
 export interface DropdownItemProps extends DropdownItemData {
   className?: string;

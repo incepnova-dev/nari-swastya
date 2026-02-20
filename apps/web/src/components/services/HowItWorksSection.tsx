@@ -1,5 +1,5 @@
 import React from 'react';
-import { flowSteps } from './servicesData';
+import { flowSteps } from '../../data';
 
 // =========================================
 // HOW IT WORKS

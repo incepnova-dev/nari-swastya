@@ -1,9 +1,5 @@
 import React from 'react';
-
-export interface StatItem {
-  value: string;
-  label: string;
-}
+import { StatItem } from '../../../data';
 
 export interface HeroStatCardProps extends StatItem {
   className?: string;

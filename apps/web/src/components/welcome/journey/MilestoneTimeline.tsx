@@ -1,6 +1,6 @@
 import React, { RefObject } from 'react';
 import { MilestoneRow } from './MilestoneRow';
-import { milestoneData } from '../welcomeData';
+import { milestoneData } from '../../../data';
 
 interface MilestoneTimelineProps {
   threadGlowRef: RefObject<HTMLDivElement>;

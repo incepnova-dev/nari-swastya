@@ -1,12 +1,7 @@
 import React from 'react';
-import { DropdownItem, DropdownItemData } from './DropdownItem';
-import { DropdownFlyoutItem, FlyoutItemData } from './DropdownFlyoutItem';
-
-export type DropdownEntry =
-  | { type: 'item'; data: DropdownItemData }
-  | { type: 'flyout'; data: FlyoutItemData }
-  | { type: 'separator' }
-  | { type: 'section-label'; label: string };
+import { DropdownItem } from './DropdownItem';
+import { DropdownFlyoutItem } from './DropdownFlyoutItem';
+import { DropdownEntry } from '../../data';
 
 export interface NavDropdownProps {
   label: string;

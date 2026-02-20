@@ -1,5 +1,5 @@
 import React from 'react';
-import { postpartumCarousel } from './servicesData';
+import { postpartumCarousel } from '../../data';
 import { ServicesSection } from './ServicesSection';
 
 // =========================================

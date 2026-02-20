@@ -1,5 +1,5 @@
 import React from 'react';
-import { featureOrbs } from '../servicesData';
+import { featureOrbs } from '../../../data';
 
 // =========================================
 // FEATURE ORBS FLOATING AROUND

@@ -1,14 +1,6 @@
 import React from 'react';
-import { DropdownItem, DropdownItemData } from './DropdownItem';
-
-export interface FlyoutItemData {
-  href: string;
-  icon: string;
-  iconVariant: string;
-  title: string;
-  subtitle: string;
-  flyoutItems: DropdownItemData[];
-}
+import { DropdownItem } from './DropdownItem';
+import { FlyoutItemData } from '../../data';
 
 export interface DropdownFlyoutItemProps extends FlyoutItemData {
   className?: string;
