@@ -17,8 +17,11 @@ export type { DropdownEntry, NavDropdownProps } from './NavDropdown';
 export { Hamburger } from './Hamburger';
 export type { HamburgerProps } from './Hamburger';
 
+export { ProfileButton } from './ProfileButton';
+export type { ProfileMenuItem, ProfileButtonProps } from './ProfileButton';
+
 export { NavActions } from './NavActions';
-export type { ActionButton, NavActionsProps } from './NavActions';
+export type { NavActionsProps } from './NavActions';
 
 export { DesktopNav } from './DesktopNav';
 export type { DesktopNavProps } from './DesktopNav';
