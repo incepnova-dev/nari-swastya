@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SiteHeader1 from '../components/SiteHeader1';
+import { SiteHeader } from '../components/SiteHeader';
 import { Footer } from '../components/Footer';
 import { StageKey } from '../components/services/servicesData';
 import { ServicesHero } from '../components/services/ServicesHero';
@@ -23,7 +23,7 @@ export const Services: React.FC = () => {
 
   return (
     <div>
-      <SiteHeader1 />
+      <SiteHeader />
       <ServicesHero />
       <main className="services-main">
         <StageFilters activeStage={activeStage} onChange={setActiveStage} />

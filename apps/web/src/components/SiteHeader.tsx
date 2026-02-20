@@ -4,8 +4,8 @@ import { initScrollShrink, initDropdownKeyboard } from '../scripts/siteheader.js
 import { Logo, DesktopNav, NavActions } from './header';
 
 /**
- * SiteHeader1
- * -----------
+ * SiteHeader
+ * ----------
  * Self-contained header component derived from journeys.html (lines 1045–1215).
  * All styling via src/styles/site-header.css — zero inline colour styles.
  * 
@@ -14,7 +14,7 @@ import { Logo, DesktopNav, NavActions } from './header';
  * - DesktopNav: Desktop navigation with dropdowns
  * - NavActions: Sign In, Contact Us buttons and hamburger menu
  */
-const SiteHeader1: React.FC = () => {
+export const SiteHeader: React.FC = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const hamburgerRef = useRef<HTMLButtonElement | null>(null);
 
@@ -64,4 +64,4 @@ const SiteHeader1: React.FC = () => {
   );
 };
 
-export default SiteHeader1;
+export default SiteHeader;

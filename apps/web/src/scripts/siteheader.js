@@ -2,7 +2,7 @@
  * siteheader.js
  * =============
  * Vanilla JS behaviours extracted from journeys.html <script> for the
- * SiteHeader / SiteHeader1 component.
+ * SiteHeader component.
  *
  * Three exported init functions — each returns a cleanup function so they
  * can be safely called from a React useEffect.
@@ -13,7 +13,7 @@
  *   initScrollShrink();
  *   initDropdownKeyboard();
  *
- * Usage (React via useEffect – wired in SiteHeader1.tsx):
+ * Usage (React via useEffect – wired in SiteHeader.tsx):
  *   The component calls these internally; you do not need to import them yourself.
  */
 

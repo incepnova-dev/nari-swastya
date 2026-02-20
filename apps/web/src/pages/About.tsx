@@ -1,11 +1,11 @@
 import React from 'react';
-import SiteHeader1 from '../components/SiteHeader1';
+import { SiteHeader } from '../components/SiteHeader';
 import { Footer } from '../components/Footer';
 
 export const About: React.FC = () => {
   return (
     <div>
-      <SiteHeader1 />
+      <SiteHeader />
       <main className="about-main">
         <section>
           <h1 className="about-title">About Nari Swastha</h1>
