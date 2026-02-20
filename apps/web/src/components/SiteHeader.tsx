@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../styles/site-header.css';
+import '../styles/header/site-header.css';
 import { initScrollShrink, initDropdownKeyboard } from '../scripts/siteheader.js';
 import { Logo, DesktopNav, NavActions } from './header';
 

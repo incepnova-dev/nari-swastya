@@ -1,0 +1,47 @@
+/* Footer meta section styles */
+.footer-meta {
+  border-top: 1px solid var(--footer-divider);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  text-align: center;
+}
+
+.footer-meta .meta-line {
+  font-size: 0.8rem;
+  color: var(--footer-text-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.footer-meta .meta-line .sep {
+  color: var(--pink-primary);
+  margin: 0 6px;
+}
+
+.footer-meta .tagline {
+  font-size: 0.82rem;
+  color: var(--footer-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.footer-meta .tagline .heart {
+  color: var(--pink-primary);
+  font-size: 1rem;
+  animation: footer-heart-pulse 2s ease-in-out infinite;
+}
+
+@keyframes footer-heart-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.25);
+    opacity: 0.8;
+  }
+}

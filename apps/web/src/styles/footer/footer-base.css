@@ -1,0 +1,7 @@
+/* Base footer styles */
+footer.ns-footer {
+  background: var(--bg-footer);
+  color: var(--footer-text-main);
+  font-family: var(--font-body);
+  border-top: 1px solid var(--footer-divider);
+}

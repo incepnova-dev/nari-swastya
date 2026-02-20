@@ -1,0 +1,39 @@
+/* Responsive styles for header */
+
+/* Hide profile name on smaller screens */
+@media (max-width: 900px) {
+  .profile-name {
+    display: none;
+  }
+  
+  .profile-chevron {
+    display: none;
+  }
+}
+
+/* Tablet and below - switch to mobile nav */
+@media (max-width: 1060px) {
+  .main-nav {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide desktop action buttons — accessible via mobile menu */
+  .nav-actions .btn-nav {
+    display: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .logo-text a {
+    font-size: 1.1rem;
+  }
+}

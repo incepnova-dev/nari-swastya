@@ -1,0 +1,57 @@
+/* Logo styles */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-shrink: 0;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ec407a, #ad1457);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(236, 64, 122, 0.35);
+  flex-shrink: 0;
+}
+
+.logo-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.logo-svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.logo-text a {
+  text-decoration: none;
+  font-family: var(--font-display, 'Playfair Display'), serif;
+  font-weight: 900;
+  font-size: 1.25rem;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ec407a, #ad1457);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo-text span {
+  font-size: 0.62rem;
+  color: var(--text-soft);
+  font-family: var(--font-body, 'Inter'), sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

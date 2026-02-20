@@ -1,0 +1,82 @@
+/* Dropdown icon styles */
+.dd-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
+.dd-icon-gradient {
+  background: linear-gradient(135deg, #ec407a, #ad1457);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(236, 64, 122, 0.35);
+}
+
+.dd-icon-pink {
+  background: #fce4ec;
+  color: #c2185b;
+}
+
+.dd-icon-purple {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.dd-icon-pregnancy {
+  background: #fce4ec;
+  color: #ec407a;
+}
+
+.dd-icon-green {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.dd-icon-blue {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.dd-icon-teal {
+  background: #e0f7fa;
+  color: #006064;
+}
+
+.dd-icon-gold {
+  background: #fff8e1;
+  color: #f57c00;
+}
+
+.dd-icon-menopause {
+  background: #fce4ec;
+  color: #ad1457;
+}
+
+.dd-icon-indigo {
+  background: #e8eaf6;
+  color: #283593;
+}
+
+.dd-icon-violet {
+  background: #ede7f6;
+  color: #4527a0;
+}
+
+.dd-icon-orange {
+  background: #fff8e1;
+  color: #e65100;
+}
+
+.dd-icon-forest {
+  background: #e8f5e9;
+  color: #1b5e20;
+}
+
+.dd-icon-neutral {
+  background: #fafafa;
+  color: #9e9e9e;
+}

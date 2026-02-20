@@ -1,0 +1,28 @@
+/* Base header styles */
+.site-header {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: 0;
+  box-shadow: 0 2px 24px rgba(236, 64, 122, 0.09);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(236, 64, 122, 0.08);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Added by initScrollShrink in siteheader.js when user scrolls past 32px */
+.site-header.scrolled {
+  box-shadow: 0 4px 32px rgba(236, 64, 122, 0.18);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}

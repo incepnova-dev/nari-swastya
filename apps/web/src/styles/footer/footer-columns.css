@@ -1,0 +1,67 @@
+/* Footer column styles */
+.footer-col h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--pink-primary);
+  margin-bottom: 18px;
+  letter-spacing: 0.01em;
+}
+
+.footer-col p {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--footer-text-main);
+  font-weight: 300;
+}
+
+.footer-col ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-col ul li {
+  font-size: 0.875rem;
+  color: var(--footer-text-main);
+  padding: 5px 0;
+  font-weight: 300;
+  position: relative;
+  padding-left: 14px;
+  transition: color 0.2s;
+}
+
+.footer-col ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--pink-primary);
+  opacity: 0.5;
+}
+
+.footer-col ul li:hover {
+  color: var(--pink-soft);
+}
+
+.disclaimer-text {
+  font-size: 0.875rem;
+  line-height: 1.75;
+  color: var(--footer-text-main);
+  font-weight: 300;
+}
+
+.emergency-alert {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--pink-primary);
+  font-weight: 500;
+}
+
+.emergency-alert strong {
+  font-weight: 600;
+}

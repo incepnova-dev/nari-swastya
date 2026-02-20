@@ -1,9 +1,9 @@
 @import './global.css';
 @import './language-selector.css';
-@import './site-header.css';
+@import './header/site-header.css';
 @import './welcomeheader.css';
 @import './home.css';
-@import './footer.css';
+@import './footer/footer.css';
 @import './journey/journeys.css';
 @import './services/services.css';
 @import './stories.css';

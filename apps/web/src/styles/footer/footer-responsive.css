@@ -1,0 +1,26 @@
+/* Footer responsive styles */
+@media (max-width: 900px) {
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+@media (max-width: 540px) {
+  .footer-main {
+    grid-template-columns: 1fr;
+    padding: 40px 20px 32px;
+  }
+
+  .footer-meta {
+    padding: 20px;
+  }
+
+  .footer-bottom-inner {
+    padding: 18px 20px;
+  }
+
+  .footer-links {
+    gap: 20px;
+  }
+}
