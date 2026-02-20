@@ -1,10 +1,10 @@
-@apps/web/html/Welcome.html:1696-1784  convert the elected lines to a tsx file. Make it modular.
+@apps/web/html/journey.html:1256-1322  convert the selected lines to a tsx file. Make it modular.
 
-convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/welcome 
+convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/journey. Create the journey directory if not present. 
 
-@apps/web/html/Welcome.html:2064-2137  convert the associated javascript animations in the line 2064 - 2137 from the <scripts> in welocme.ts and use it appropriately
+@apps/web/html/journeys.html:2009-2078  convert the associated javascript animations in the line 2009-2078 from the <scripts> in scripts/journeys.ts and use it appropriately.  create the journeys.ts if not present.
 
-Add the React component in the page/Welcome.tsx
+Add the React component in the page/Journeys.tsx
 
 
 
@@ -13,3 +13,6 @@ Add the React component in the page/Welcome.tsx
 convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/welcome 
 
 Add the React component in the page/Welcome.tsx
+
+
+

@@ -5,6 +5,7 @@
 @import './home.css';
 @import './footer.css';
 @import './journeys.css';
+@import './journey/journeys-hero.css';
 @import './services/services.css';
 @import './stories.css';
 @import './about.css';

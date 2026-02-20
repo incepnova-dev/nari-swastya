@@ -1,3 +1,10 @@
+/* Page wrapper - full width */
+.journeys-page {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Content sections - constrained width */
 .journeys-main {
   max-width: 1120px;
   margin: 0 auto;
