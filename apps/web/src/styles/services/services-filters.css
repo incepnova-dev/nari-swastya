@@ -1,0 +1,43 @@
+/* =========================================
+   FILTER BUTTONS (from services.html)
+   ========================================= */
+.stage-filter-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 3rem auto 5rem;
+  padding: 0 1rem;
+  max-width: 1000px;
+}
+
+.filter-btn {
+  background: white;
+  border: 2px solid var(--border-soft);
+  padding: 0.8rem 1.8rem;
+  border-radius: 50px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn:hover {
+  border-color: var(--pink);
+  color: var(--deep-pink);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(236, 64, 122, 0.15);
+}
+
+.filter-btn.active {
+  background: var(--deep-pink);
+  border-color: var(--deep-pink);
+  color: white;
+  box-shadow: 0 4px 12px rgba(216, 27, 96, 0.3);
+}
+
+

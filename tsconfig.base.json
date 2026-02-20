@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@api-client/*": ["packages/api-client/src/*"],
+      "@shared-i18/*": ["packages/shared-i18/src/*"],
+      "@shared-types/*": ["packages/shared-types/src/*"],
+      "@ui-components/*": ["packages/ui-components/src/*"],
+      "@utils/*": ["packages/utils/src/*"]
+    }
+  }
+}
+
+

@@ -1,0 +1,20 @@
+/* Layout for Services main content */
+.services-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 4rem;
+}
+
+@media (max-width: 640px) {
+  .services-main {
+    padding-inline: 1.125rem;
+  }
+}
+
+/* Wrapper for all sections with shared background and padding */
+.services-sections-wrapper {
+  background: var(--bg);
+  padding: 2rem 0;
+}
+
+

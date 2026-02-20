@@ -1,0 +1,105 @@
+/* Ongoing Wellness section subtitle */
+.wellness-intro {
+  text-align: center;
+  color: var(--text-soft);
+  margin-bottom: 2rem;
+}
+
+/* Ongoing Wellness accordion styles (from services.html SECTION 5) */
+.accordion {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.accordion-item {
+  background: #ffffff;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion-header {
+  padding: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+}
+
+.accordion-header:hover {
+  background: var(--lavender);
+  color: var(--deep-pink);
+}
+
+.accordion-icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.accordion-title {
+  flex-grow: 1;
+  font-size: 1.2rem;
+}
+
+.accordion-toggle {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-toggle {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+}
+
+.accordion-body {
+  padding: 0 1.5rem 1.5rem;
+}
+
+.accordion-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.accordion-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  background: var(--lavender);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--deep-pink);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+}
+
+.accordion-link:hover {
+  background: var(--deep-pink);
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+

@@ -1,0 +1,60 @@
+/* Interactive Simulation Preview (from services.html SECTION) */
+.simulation-preview {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  margin: 3rem 0;
+}
+
+.simulation-preview::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.simulation-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.simulation-content h3 {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
+
+.simulation-content p {
+  font-size: 1.1rem;
+  margin: 0 0 2rem;
+  opacity: 0.95;
+}
+
+.simulation-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  color: #667eea;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.simulation-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+

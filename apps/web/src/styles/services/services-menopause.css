@@ -1,0 +1,198 @@
+/* Menopause section styles (from services.html SECTION 4) */
+.menopause-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: var(--text-soft);
+}
+
+.symptom-wheel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.symptom-wheel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 800px;
+  width: 100%;
+}
+
+.symptom-bubble {
+  background: #ffffff;
+  border: 2px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.symptom-bubble:hover,
+.symptom-bubble.active {
+  border-color: var(--pink);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.bubble-icon {
+  font-size: 2.5rem;
+}
+
+.bubble-label {
+  font-weight: 600;
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+.symptom-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.symptom-popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.symptom-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 500px;
+  width: 90%;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.symptom-popup.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: var(--deep-pink);
+}
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.popup-icon {
+  font-size: 3rem;
+}
+
+.popup-body p {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.popup-tip-box {
+  background: var(--lavender);
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0;
+}
+
+.popup-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--deep-pink);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.popup-action:hover {
+  background: #c2185b;
+  transform: translateX(5px);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.pillar-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+  color: var(--text-main);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.pillar-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.pillar-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--lavender);
+  margin-bottom: 1rem;
+}
+
+.pillar-title {
+  color: var(--deep-pink);
+  margin: 0 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.pillar-description {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+

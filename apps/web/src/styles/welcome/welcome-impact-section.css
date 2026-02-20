@@ -1,0 +1,174 @@
+/* ============================================================
+   SECTION 2: Our Impact (s2-section)
+   Styles adapted from Welcome.html <style> block
+   ============================================================ */
+
+.s2-section {
+  padding: 6rem 0;
+  background: linear-gradient(150deg, #1a0a12 0%, #2d0f1e 45%, #1e0a1a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+#dotMapCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.s2-inner {
+  position: relative;
+  z-index: 2;
+}
+
+.s2-section .section-label {
+  background: rgba(236, 64, 122, 0.2);
+  border-color: rgba(236, 64, 122, 0.35);
+  color: #f48fb1;
+}
+
+.s2-section .section-heading {
+  color: #fff;
+  background: linear-gradient(135deg, #fff 0%, #f48fb1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.s2-section .section-sub {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.s2-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Counter cards */
+.s2-counters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.s2-counter {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(236, 64, 122, 0.25);
+  border-radius: 20px;
+  padding: 1.6rem;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: all 0.7s cubic-bezier(0.23, 1.01, 0.32, 1);
+}
+
+.s2-counter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.s2-counter:hover {
+  border-color: rgba(236, 64, 122, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.s2-counter-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #ec407a, #f48fb1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.s2-counter-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* Particle field (right side of s2) */
+.s2-visual {
+  position: relative;
+  height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#particleFieldCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Responsive tweaks (from Welcome.html) */
+@media (max-width: 1200px) {
+  .s2-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .s2-visual {
+    height: 320px;
+  }
+
+  .s2-counters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .s2-section {
+    padding: 4rem 0;
+  }
+
+  .s2-counters {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .s2-counter {
+    padding: 1.2rem;
+  }
+
+  .s2-counter-num {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .s2-section {
+    padding: 3.5rem 0;
+  }
+
+  .s2-counters {
+    grid-template-columns: 1fr;
+  }
+
+  .s2-counter {
+    padding: 1rem 0.85rem;
+    border-radius: 16px;
+  }
+
+  .s2-counter-num {
+    font-size: 1.75rem;
+  }
+
+  .s2-counter-label {
+    font-size: 0.73rem;
+  }
+}
+

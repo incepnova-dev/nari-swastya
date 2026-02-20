@@ -1,0 +1,72 @@
+/* =========================================
+   HOW IT WORKS
+   (from services.html)
+   ========================================= */
+.how-it-works-section {
+  background: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+.how-it-works-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.how-it-works-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.how-it-works-section p {
+  color: var(--text-soft);
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.flow-card {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.flow-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.flow-num {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin: 0 auto 1.5rem;
+}
+
+.flow-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--deep-pink);
+}
+
+.flow-card p {
+  color: var(--text-soft);
+  margin: 0;
+}
+

@@ -1,0 +1,335 @@
+/* ============================================================
+   SECTION NEW-B: The Voices That Unite Us (snb-section)
+   Styles adapted from Welcome.html <style> block
+   ============================================================ */
+
+.snb-section {
+  padding: 0;
+  background: #0c0416;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#voiceCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.snb-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  width: 100%;
+}
+
+.snb-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.snb-section .section-label {
+  background: rgba(236, 64, 122, 0.18);
+  border-color: rgba(236, 64, 122, 0.35);
+  color: #f48fb1;
+}
+
+.snb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.snb-title .em {
+  background: linear-gradient(135deg, #ec407a, #f48fb1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.snb-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* The Question Wall — floating bubbles */
+.question-wall {
+  position: relative;
+  height: 340px;
+  margin: 0 auto 3rem;
+  overflow: hidden;
+}
+
+#questionCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Interactive question bubbles (DOM layer for hover effects) */
+.q-bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(236, 64, 122, 0.25);
+  border-radius: 50px;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1.01, 0.32, 1);
+  animation: q-rise linear infinite;
+  transform-origin: center bottom;
+}
+
+.q-bubble:hover {
+  background: rgba(236, 64, 122, 0.25);
+  border-color: rgba(236, 64, 122, 0.6);
+  color: #fff;
+  transform: scale(1.12) translateY(-8px) !important;
+  box-shadow: 0 0 30px rgba(236, 64, 122, 0.4), 0 0 60px rgba(236, 64, 122, 0.2);
+  z-index: 10;
+}
+
+@keyframes q-rise {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-14px) scale(1.03);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Peer Network Rings */
+.peer-network {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.peer-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(236, 64, 122, 0.18);
+  border-radius: 28px;
+  padding: 2rem 1.8rem;
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px) scale(0.93);
+  transition: all 0.9s cubic-bezier(0.23, 1.01, 0.32, 1);
+  cursor: pointer;
+}
+
+.peer-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.peer-card:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(236, 64, 122, 0.4);
+  transform: translateY(-8px) scale(1.02) !important;
+  box-shadow: 0 24px 60px rgba(236, 64, 122, 0.2);
+}
+
+/* Ripple on peer card */
+.peer-card::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(236, 64, 122, 0.1);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+}
+
+.peer-card:hover::after {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+}
+
+.peer-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.2rem;
+  position: relative;
+}
+
+.peer-icon-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 23px;
+  background: linear-gradient(135deg, rgba(236, 64, 122, 0.4), rgba(124, 58, 237, 0.4));
+  z-index: -1;
+  animation: icon-spin 6s linear infinite;
+}
+
+@keyframes icon-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.peer-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.peer-card p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.7;
+}
+
+/* Live activity ticker */
+.live-ticker {
+  margin-top: 3rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(236, 64, 122, 0.18);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.ticker-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ec407a;
+  flex-shrink: 0;
+  animation: ticker-pulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 10px #ec407a;
+}
+
+@keyframes ticker-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+}
+
+.ticker-label {
+  font-size: 0.72rem;
+  color: #ec407a;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.ticker-track {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+  height: 22px;
+}
+
+.ticker-items {
+  display: flex;
+  gap: 0;
+  position: absolute;
+  animation: ticker-scroll 28s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-item {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0 2.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ticker-item strong {
+  color: #f48fb1;
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Women count bar */
+.women-bar {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wb-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.wb-item strong {
+  color: #f48fb1;
+  font-size: 0.95rem;
+}
+
+.wb-divider {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 1.2rem;
+}
+
+/* Tablet & mobile adjustments are handled in main Welcome.html responsive block. */
+

@@ -1,0 +1,78 @@
+/* ============================================================
+   WELCOME PAGE FOOTER
+   Minimal dark footer for Welcome page
+   Styles from Welcome.html:719-734
+   ============================================================ */
+
+.site-footer {
+  background: #1a0a12;
+  border-top: 1px solid rgba(236, 64, 122, 0.15);
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+}
+
+.site-footer .footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.site-footer .footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 1.4rem;
+  background: linear-gradient(135deg, #ec407a, #ad1457);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.site-footer .footer-tagline {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin-bottom: 1.5rem;
+}
+
+.site-footer .footer-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.site-footer .footer-links a {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.site-footer .footer-links a:hover {
+  color: #f48fb1;
+}
+
+.site-footer .footer-copy {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .site-footer {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .site-footer .footer-links {
+    gap: 1rem;
+  }
+
+  .site-footer .footer-links a {
+    font-size: 0.75rem;
+  }
+
+  .site-footer .footer-logo {
+    font-size: 1.2rem;
+  }
+}
+

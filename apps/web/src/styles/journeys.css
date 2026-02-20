@@ -1,0 +1,23 @@
+.journeys-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.journeys-hero-title {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.journeys-hero-highlight {
+  color: #db2777;
+}
+
+.journeys-hero-subtitle {
+  font-size: 1.02rem;
+  max-width: 40rem;
+  color: #4b5563;
+}
+
+

@@ -1,0 +1,394 @@
+/* ============================================================
+   SECTION NEW-A: LIVING STORIES CONSTELLATION
+   Stories woven from science & survival with animated DNA nucleus
+   CSS adapted from Welcome.html <style> section
+   ============================================================ */
+
+.sna-section {
+  padding: 7rem 0;
+  background: linear-gradient(170deg, #fdf6ff 0%, #fff0f5 40%, #f0f4ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.sna-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 20% 50%, rgba(124, 58, 237, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 50% at 80% 30%, rgba(236, 64, 122, 0.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* The DNA Helix canvas */
+.dna-scene {
+  position: relative;
+  height: 600px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#dnaHelixCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Story cards that emerge from the helix */
+.sna-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  position: relative;
+}
+
+.sna-cards-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+/* Shimmer particle card */
+.story-card {
+  background: white;
+  border-radius: 24px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(236, 64, 122, 0.1);
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateX(-40px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.23, 1.01, 0.32, 1);
+  cursor: pointer;
+}
+
+.story-card.visible {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.story-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  transition: left 0.6s ease;
+}
+
+.story-card:hover::before {
+  left: 140%;
+}
+
+.story-card:hover {
+  box-shadow: 0 16px 50px rgba(236, 64, 122, 0.15);
+  border-color: rgba(236, 64, 122, 0.3);
+  transform: translateX(6px) scale(1.02) !important;
+}
+
+.sc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.7rem;
+  border-radius: 50px;
+  margin-bottom: 0.75rem;
+}
+
+.sc-tag.research {
+  background: rgba(124, 58, 237, 0.1);
+  color: #7c3aed;
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.sc-tag.recovery {
+  background: rgba(236, 64, 122, 0.1);
+  color: #ec407a;
+  border: 1px solid rgba(236, 64, 122, 0.2);
+}
+
+.sc-tag.cancer {
+  background: rgba(255, 87, 34, 0.1);
+  color: #e64a19;
+  border: 1px solid rgba(255, 87, 34, 0.2);
+}
+
+.sc-tag.peer {
+  background: rgba(0, 188, 212, 0.1);
+  color: #00838f;
+  border: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+.story-card h4 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 0.45rem;
+  color: var(--text-main);
+  line-height: 1.4;
+}
+
+.story-card p {
+  font-size: 0.83rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+}
+
+.sc-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-soft);
+}
+
+.sc-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ec407a, #ad1457);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.sc-author-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.sc-author-sub {
+  font-size: 0.7rem;
+  color: var(--text-soft);
+}
+
+.sc-glow-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ec407a, #7c3aed, #ec407a);
+  background-size: 200% 100%;
+  animation: bar-flow 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.story-card:hover .sc-glow-bar {
+  opacity: 1;
+}
+
+@keyframes bar-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Central Nucleus visual on the right */
+.sna-nucleus-wrap {
+  position: relative;
+  height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nucleusCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Floating research badges around nucleus */
+.nucleus-badge {
+  position: absolute;
+  background: white;
+  border-radius: 14px;
+  padding: 0.6rem 1rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(236, 64, 122, 0.15);
+  font-size: 0.76rem;
+  font-weight: 700;
+  white-space: nowrap;
+  animation: nb-float linear infinite;
+  cursor: default;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.nucleus-badge:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 14px 40px rgba(236, 64, 122, 0.2);
+}
+
+.nb1 {
+  top: 8%;
+  left: 5%;
+  color: #7c3aed;
+  animation: nb-float1 7s ease-in-out infinite;
+}
+
+.nb2 {
+  top: 18%;
+  right: 3%;
+  color: #ec407a;
+  animation: nb-float2 8.5s ease-in-out infinite;
+}
+
+.nb3 {
+  top: 48%;
+  right: 0%;
+  color: #e64a19;
+  animation: nb-float3 6.5s ease-in-out infinite;
+}
+
+.nb4 {
+  bottom: 18%;
+  right: 5%;
+  color: #00838f;
+  animation: nb-float4 9s ease-in-out infinite;
+}
+
+.nb5 {
+  bottom: 8%;
+  left: 8%;
+  color: #d81b60;
+  animation: nb-float5 7.5s ease-in-out infinite;
+}
+
+.nb6 {
+  top: 48%;
+  left: 0%;
+  color: #7c3aed;
+  animation: nb-float6 8s ease-in-out infinite;
+}
+
+@keyframes nb-float1 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(1.5deg);
+  }
+}
+
+@keyframes nb-float2 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-14px) rotate(-2deg);
+  }
+}
+
+@keyframes nb-float3 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+@keyframes nb-float4 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(1.5deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(-1deg);
+  }
+}
+
+@keyframes nb-float5 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-13px) rotate(2deg);
+  }
+}
+
+@keyframes nb-float6 {
+  0%,
+  100% {
+    transform: translateY(0) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-11px) rotate(-1.5deg);
+  }
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+  .sna-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .sna-nucleus-wrap {
+    height: 420px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sna-section {
+    padding: 5rem 0;
+  }
+
+  .sna-nucleus-wrap {
+    height: 340px;
+  }
+
+  /* Hide floating nucleus badges on tablet — they overlap */
+  .nucleus-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .sna-section {
+    padding: 3.5rem 0;
+  }
+
+  .story-card {
+    padding: 1.2rem 1.4rem;
+  }
+
+  .story-card h4 {
+    font-size: 0.92rem;
+  }
+
+  .story-card p {
+    font-size: 0.8rem;
+  }
+
+  .sna-nucleus-wrap {
+    height: 280px;
+  }
+}
+

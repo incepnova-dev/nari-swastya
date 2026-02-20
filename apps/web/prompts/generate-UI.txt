@@ -1,0 +1,15 @@
+@apps/web/html/Welcome.html:1696-1784  convert the elected lines to a tsx file. Make it modular.
+
+convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/welcome 
+
+@apps/web/html/Welcome.html:2064-2137  convert the associated javascript animations in the line 2064 - 2137 from the <scripts> in welocme.ts and use it appropriately
+
+Add the React component in the page/Welcome.tsx
+
+
+
+@apps/web/html/Welcome.html:1785-1846  convert the elected lines to a tsx file. Make it modular.
+
+convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/welcome 
+
+Add the React component in the page/Welcome.tsx

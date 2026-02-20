@@ -1,0 +1,59 @@
+/* =========================================
+   GOVERNMENT SCHEMES BANNER
+   (from services.html)
+   ========================================= */
+.schemes-banner {
+  background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);
+  border-radius: 20px;
+  padding: 2.5rem;
+  color: #ffffff;
+  text-align: center;
+  margin: 3rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.schemes-banner::before {
+  content: '🏛️';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  font-size: 8rem;
+  opacity: 0.1;
+}
+
+.schemes-banner h3 {
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.schemes-banner p {
+  font-size: 1rem;
+  margin: 0 0 1.5rem;
+  opacity: 0.95;
+  position: relative;
+  z-index: 2;
+}
+
+.schemes-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.8rem;
+  background: #ffffff;
+  color: #ff6a88;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.schemes-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+

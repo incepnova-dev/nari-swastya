@@ -1,0 +1,144 @@
+/* =========================================
+   MISCARRIAGE & LOSS SUPPORT (HEALING GARDEN)
+   (from services.html)
+   ========================================= */
+.healing-garden-section {
+  background: linear-gradient(to bottom, #faf5fb 0%, #f3e5f5 100%);
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  margin: 4rem auto;
+}
+
+.garden-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem;
+}
+
+.garden-header h2 {
+  font-size: 2.5rem;
+  color: var(--text-main);
+  margin-bottom: 1rem;
+}
+
+.garden-header .sub {
+  font-size: 1.1rem;
+  color: var(--text-soft);
+}
+
+.garden-landscape {
+  display: grid;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.sanctuary-space {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.sanctuary-space img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.sanctuary-quote {
+  padding: 2rem;
+}
+
+.sanctuary-quote p {
+  font-style: italic;
+  color: var(--text-soft);
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+.growth-path {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.growth-step {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.step-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.growth-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 4px 12px rgba(236, 64, 122, 0.3);
+}
+
+.step-connector {
+  width: 3px;
+  height: 60px;
+  background: linear-gradient(to bottom, var(--pink), transparent);
+  margin-top: 0.5rem;
+}
+
+.growth-step:last-child .step-connector {
+  display: none;
+}
+
+.step-content h4 {
+  margin: 0 0 1rem;
+  color: var(--deep-pink);
+  font-size: 1.4rem;
+}
+
+.step-petals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.petal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: white;
+  border: 2px solid var(--lavender);
+  border-radius: 50px;
+  color: var(--text-main);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.petal:hover {
+  background: var(--deep-pink);
+  border-color: var(--deep-pink);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .growth-step {
+    grid-template-columns: 60px 1fr;
+    gap: 1rem;
+  }
+}
+

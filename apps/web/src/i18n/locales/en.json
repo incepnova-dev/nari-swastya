@@ -1,0 +1,42 @@
+{
+  "common": {
+    "appName": "NARI SWASTHA",
+    "signIn": "Sign In",
+    "home": "Home",
+    "journeys": "Journeys",
+    "services": "Services",
+    "stories": "Stories",
+    "aboutUs": "About Us"
+  },
+  "header": {
+    "nav": {
+      "home": "Home",
+      "journeys": "Journeys",
+      "services": "Services",
+      "stories": "Stories",
+      "aboutUs": "About Us"
+    }
+  },
+  "footer": {
+    "description": "Your trusted companion for women's health and wellness",
+    "quickLinks": "Quick Links",
+    "resources": "Resources",
+    "connect": "Connect",
+    "copyright": "© 2024 NARI SWASTHA. All rights reserved."
+  },
+  "services": {
+    "hero": {
+      "title": "Your Complete Health Journey",
+      "subtitle": "From planning to parenthood, menopause to wellness—we're with you every step of the way."
+    },
+    "filters": {
+      "all": "All Services",
+      "planning": "Planning",
+      "pregnancy": "Pregnancy",
+      "postpartum": "Postpartum",
+      "menopause": "Menopause",
+      "wellness": "Wellness"
+    }
+  }
+}
+

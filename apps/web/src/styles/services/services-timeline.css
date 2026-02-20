@@ -1,0 +1,111 @@
+/* Pregnancy journey timeline (from services.html SECTION 2) */
+.journey-timeline {
+  position: relative;
+  padding: 3rem 0;
+}
+
+.timeline-track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 2rem;
+  align-items: start;
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: slideInTimeline 0.6s ease forwards;
+}
+
+.timeline-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.timeline-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.timeline-item:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.timeline-item:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.timeline-item:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+@keyframes slideInTimeline {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.timeline-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(236, 64, 122, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.timeline-content {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.timeline-title {
+  margin: 0 0 0.5rem;
+  color: var(--deep-pink);
+  font-size: 1.3rem;
+}
+
+.timeline-description {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+}
+
+.timeline-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.timeline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.9rem;
+  background: var(--lavender);
+  color: var(--deep-pink);
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.timeline-link:hover {
+  background: var(--deep-pink);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+

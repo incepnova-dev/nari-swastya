@@ -1,0 +1,68 @@
+:root {
+  /* Core palette (aligned with Welcome.html root tokens) */
+  --pink: #ec407a;
+  --deep-pink: #d81b60;
+  --lavender: #ede7f6;
+  --bg: #faf5fb;
+  --card-bg: #ffffff;
+  --text-main: #212121;
+  --text-soft: #666666;
+  --border-soft: #e0e0e0;
+
+  /* Additional brand tokens from Welcome.html */
+  --primary: #ec407a;
+  --primary-dark: #ad1457;
+  --primary-light: #f48fb1;
+  --rose: #ff6090;
+  --purple: #7c3aed;
+  --soft-purple: #9c5cf7;
+  --mint: #00bcd4;
+  --gold: #ffb300;
+
+  /* Shadows */
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  --shadow-pink: 0 15px 40px rgba(236, 64, 122, 0.18);
+  --shadow-strong: 0 20px 60px rgba(236, 64, 122, 0.22);
+
+  /* Existing gradients/shadows used across services */
+  --chip-bg: #f3e5f5;
+  --gradient-primary: linear-gradient(135deg, #ec407a 0%, #d81b60 100%);
+  --gradient-warm: linear-gradient(135deg, #ff6b9d 0%, #ffa06e 100%);
+  --gradient-cool: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-serene: linear-gradient(135deg, #89d4cf 0%, #6e45e2 100%);
+  --shadow-card: 0 10px 30px rgba(0,0,0,0.06);
+  --shadow-hover: 0 15px 40px rgba(236, 64, 122, 0.15);
+
+  /* Footer design tokens (moved from footer.html) */
+  --bg-footer: #1e1a1e;
+  --bg-bottom: #161316;
+  --pink-primary: #e8517a;
+  --pink-soft: #f0748e;
+  --footer-text-main: #c9bfc9;
+  --footer-text-muted: #7c7080;
+  --footer-text-light: #e4dce4;
+  --footer-divider: rgba(232, 81, 122, 0.18);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
