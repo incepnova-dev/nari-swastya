@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SiteHeader } from '../components/SiteHeader';
+import SiteHeader1 from '../components/SiteHeader1';
 import { Footer } from '../components/Footer';
 import { StageKey } from '../components/services/servicesData';
 import { ServicesHero } from '../components/services/ServicesHero';
@@ -23,7 +23,7 @@ export const Services: React.FC = () => {
 
   return (
     <div>
-      <SiteHeader />
+      <SiteHeader1 />
       <ServicesHero />
       <main className="services-main">
         <StageFilters activeStage={activeStage} onChange={setActiveStage} />
@@ -38,12 +38,12 @@ export const Services: React.FC = () => {
           <WellnessSection />
           <SimulationPreviewSection />
           <GovernmentSchemesSection />
-        <HealingGardenSection />
-        <HowItWorksSection />
-      </div>
-      <SymptomDetectionCTASection />
-      <PersonalTrackingHubSection />
-      <CommunityPortalSection />
+          <HealingGardenSection />
+          <HowItWorksSection />
+        </div>
+        <SymptomDetectionCTASection />
+        <PersonalTrackingHubSection />
+        <CommunityPortalSection />
       </main>
       <Footer />
     </div>
