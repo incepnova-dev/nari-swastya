@@ -8,6 +8,7 @@
   --text-main: #212121;
   --text-soft: #666666;
   --border-soft: #e0e0e0;
+  --text-muted: #757575;
 
   /* Additional brand tokens from Welcome.html */
   --primary: #ec407a;
@@ -19,10 +20,33 @@
   --mint: #00bcd4;
   --gold: #ffb300;
 
+  /* Severity / medical UI (symptom checker, alerts) */
+  --mild: #4caf50;
+  --moderate: #ff9800;
+  --severe: #f44336;
+  --critical: #000000;
+  --success: #66bb6a;
+  --warning: #ffa726;
+  --info: #4fc3f7;
+  --emergency: #ff1744;
+  --urgent: #ff9100;
+  --monitor: #42a5f5;
+  --selfcare: #66bb6a;
+  --reproductive-color: #ec407a;
+  --pregnancy-color: #ab47bc;
+  --cancer-color: #f06292;
+  --endocrine-color: #ba68c8;
+  --autoimmune-color: #9575cd;
+  --neurological-color: #7986cb;
+  --cardiovascular-color: #ef5350;
+  --infections-color: #66bb6a;
+
   /* Shadows */
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
   --shadow-pink: 0 15px 40px rgba(236, 64, 122, 0.18);
   --shadow-strong: 0 20px 60px rgba(236, 64, 122, 0.22);
+  --shadow-glow: 0 0 30px rgba(236, 64, 122, 0.3);
 
   /* Existing gradients/shadows used across services */
   --chip-bg: #f3e5f5;
@@ -30,8 +54,19 @@
   --gradient-warm: linear-gradient(135deg, #ff6b9d 0%, #ffa06e 100%);
   --gradient-cool: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --gradient-serene: linear-gradient(135deg, #89d4cf 0%, #6e45e2 100%);
+  --gradient-emergency: linear-gradient(135deg, #ff1744 0%, #d50000 100%);
+  --gradient-urgent: linear-gradient(135deg, #ff9100 0%, #ff6f00 100%);
+  --gradient-monitor: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+  --gradient-success: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
+  --gradient-purple: linear-gradient(135deg, #ab47bc 0%, #8e24aa 100%);
+  --gradient-blue: linear-gradient(135deg, #42a5f5 0%, #1976d2 100%);
   --shadow-card: 0 10px 30px rgba(0,0,0,0.06);
   --shadow-hover: 0 15px 40px rgba(236, 64, 122, 0.15);
+
+  /* Transitions */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
   /* Footer design tokens (moved from footer.html) */
   --bg-footer: #1e1a1e;
@@ -58,6 +93,11 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -65,4 +105,24 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

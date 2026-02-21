@@ -1,0 +1,34 @@
+@import './symptom-checker-hero.css';
+@import './symptom-checker-search.css';
+
+.symptom-checker-main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 3rem;
+}
+
+.symptom-checker-hero {
+  margin-bottom: 2rem;
+}
+
+.symptom-checker-title {
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.symptom-checker-subtitle {
+  font-size: 1.02rem;
+  max-width: 40rem;
+  color: #4b5563;
+}
+
+.symptom-checker-content {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.symptom-checker-content p {
+  margin-bottom: 1rem;
+}

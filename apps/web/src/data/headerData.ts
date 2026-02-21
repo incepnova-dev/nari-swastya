@@ -169,7 +169,7 @@ export const servicesDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: '/symptom-checker',
+      href: '/symptomchecker',
       icon: 'fa-solid fa-stethoscope',
       iconVariant: 'dd-icon dd-icon-pink',
       title: 'Symptom Checker',

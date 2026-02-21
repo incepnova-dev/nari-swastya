@@ -8,4 +8,5 @@
 @import './services/services.css';
 @import './stories.css';
 @import './about.css';
+@import './symptom-checker/symptom-checker.css';
 @import './welcome/welcome.css';

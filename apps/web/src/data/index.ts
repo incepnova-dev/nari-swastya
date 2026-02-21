@@ -122,3 +122,27 @@ export {
   testimonials,
   scrollProgressDots,
 } from './welcomeData';
+
+// Symptom Checker hero data exports
+export {
+  HERO_BADGE_LABEL,
+  HERO_TITLE,
+  HERO_SUBTITLE,
+  STAT_PILLS,
+  HERO_ACTIONS,
+  MEDICAL_PARTICLE_ICONS,
+  ORBIT_ITEMS,
+  HELIX_BASE_COUNT,
+} from './symptomCheckerHeroData';
+
+// Symptom Checker search section data exports
+export {
+  SEARCH_SECTION_TITLE,
+  SEARCH_SECTION_TITLE_HIGHLIGHT,
+  SEARCH_SECTION_SUBTITLE,
+  DISEASE_SEARCH,
+  SEVERITY_SEARCH,
+  SEVERITY_PILLS,
+  COMORBIDITY_SEARCH,
+  COMORBIDITY_BUTTONS,
+} from './symptomCheckerSearchData';
