@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export interface NavLinkProps {
   href: string;
@@ -15,9 +16,9 @@ export const NavLink: React.FC<NavLinkProps> = ({
 }) => {
   return (
     <div className={`nav-item ${className}`.trim()}>
-      <a href={href} className={`nav-link${isActive ? ' active' : ''}`}>
+      <Link to={href} className={`nav-link${isActive ? ' active' : ''}`}>
         {label}
-      </a>
+      </Link>
     </div>
   );
 };

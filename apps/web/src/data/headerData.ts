@@ -26,7 +26,7 @@ export const journeysDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'conceiving.html',
+      href: '/conceiving', // Assuming /conceiving exists
       icon: 'fa-solid fa-seedling',
       iconVariant: 'dd-icon dd-icon-pink',
       title: 'Conceiving',
@@ -36,7 +36,7 @@ export const journeysDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'fertility.html',
+      href: '/fertility', // Assuming /fertility exists
       icon: 'fa-solid fa-dna',
       iconVariant: 'dd-icon dd-icon-purple',
       title: 'Fertility',
@@ -46,28 +46,28 @@ export const journeysDropdownEntries: DropdownEntry[] = [
   {
     type: 'flyout',
     data: {
-      href: 'pregnancy_journey.html',
+      href: '/pregnancy-journey',
       icon: 'fa-solid fa-baby-carriage',
       iconVariant: 'dd-icon dd-icon-pregnancy',
       title: 'Pregnancy Journey',
       subtitle: 'Week by week guide',
       flyoutItems: [
         {
-          href: 'normal_delivery.html',
+          href: '/normal-delivery',
           icon: 'fa-solid fa-circle-check',
           iconVariant: 'dd-icon dd-icon-green',
           title: 'Normal Delivery',
           subtitle: 'Vaginal birth guide',
         },
         {
-          href: 'csection.html',
+          href: '/csection',
           icon: 'fa-solid fa-hospital',
           iconVariant: 'dd-icon dd-icon-blue',
           title: 'C-Section',
           subtitle: 'Surgical birth info',
         },
         {
-          href: 'pregnancy_loss.html',
+          href: '/pregnancy-loss',
           icon: 'fa-solid fa-hands-holding-heart',
           iconVariant: 'dd-icon dd-icon-neutral',
           title: 'Pregnancy Loss',
@@ -79,7 +79,7 @@ export const journeysDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'antenatal_care.html',
+      href: '/antenatal-care',
       icon: 'fa-solid fa-clipboard-list',
       iconVariant: 'dd-icon dd-icon-green',
       title: 'Antenatal Care',
@@ -89,28 +89,28 @@ export const journeysDropdownEntries: DropdownEntry[] = [
   {
     type: 'flyout',
     data: {
-      href: 'ncd_pregnancy.html',
+      href: '/ncd-pregnancy',
       icon: 'fa-solid fa-heart-pulse',
       iconVariant: 'dd-icon dd-icon-indigo',
       title: 'Non Communicable Diseases',
       subtitle: 'Diabetes, hypertension & more',
       flyoutItems: [
         {
-          href: 'gestational_diabetes.html',
+          href: '/gestational-diabetes',
           icon: 'fa-solid fa-droplet',
           iconVariant: 'dd-icon dd-icon-gold',
           title: 'Gestational Diabetes',
           subtitle: 'Manage blood sugar',
         },
         {
-          href: 'preeclampsia_education.html',
+          href: '/preeclampsia',
           icon: 'fa-solid fa-heart-circle-exclamation',
           iconVariant: 'dd-icon dd-icon-pink',
           title: 'Preeclampsia',
           subtitle: 'Blood pressure care',
         },
         {
-          href: 'cancer_simulation_journey.html',
+          href: '/cancer-journey',
           icon: 'fa-solid fa-ribbon',
           iconVariant: 'dd-icon dd-icon-purple',
           title: 'Cancer',
@@ -122,7 +122,7 @@ export const journeysDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'newborn_postpartum_care.html',
+      href: '/postpartum-care',
       icon: 'fa-solid fa-baby',
       iconVariant: 'dd-icon dd-icon-blue',
       title: 'Newborn & Postpartum',
@@ -132,7 +132,7 @@ export const journeysDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'breastfeeding_journey.html',
+      href: '/breastfeeding',
       icon: 'fa-solid fa-heart',
       iconVariant: 'dd-icon dd-icon-gold',
       title: 'Breastfeeding',
@@ -142,7 +142,7 @@ export const journeysDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'menopause.html',
+      href: '/menopause',
       icon: 'fa-solid fa-fire-flame-curved',
       iconVariant: 'dd-icon dd-icon-menopause',
       title: 'Menopause',
@@ -169,7 +169,7 @@ export const servicesDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'symptom_checker.html',
+      href: '/symptom-checker',
       icon: 'fa-solid fa-stethoscope',
       iconVariant: 'dd-icon dd-icon-pink',
       title: 'Symptom Checker',
@@ -179,7 +179,7 @@ export const servicesDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'dashboard.html',
+      href: '/dashboard',
       icon: 'fa-solid fa-gauge-high',
       iconVariant: 'dd-icon dd-icon-green',
       title: 'My Dashboard',
@@ -189,7 +189,7 @@ export const servicesDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'screening.html',
+      href: '/screening',
       icon: 'fa-solid fa-magnifying-glass-plus',
       iconVariant: 'dd-icon dd-icon-blue',
       title: 'Health Screening',
@@ -199,7 +199,7 @@ export const servicesDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'vaccination.html',
+      href: '/vaccination',
       icon: 'fa-solid fa-syringe',
       iconVariant: 'dd-icon dd-icon-purple',
       title: 'Vaccination',
@@ -209,7 +209,7 @@ export const servicesDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'otc.html',
+      href: '/otc-guide',
       icon: 'fa-solid fa-pills',
       iconVariant: 'dd-icon dd-icon-teal',
       title: 'OTC Medicine Guide',
@@ -219,7 +219,7 @@ export const servicesDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'government-schemes.html',
+      href: '/government-schemes',
       icon: 'fa-solid fa-landmark',
       iconVariant: 'dd-icon dd-icon-orange',
       title: 'Govt Schemes',
@@ -229,7 +229,7 @@ export const servicesDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'insurance.html',
+      href: '/insurance-guide',
       icon: 'fa-solid fa-shield-halved',
       iconVariant: 'dd-icon dd-icon-forest',
       title: 'Insurance',
@@ -244,7 +244,7 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'fertility.html',
+      href: '/fertility',
       icon: 'fa-solid fa-seedling',
       iconVariant: 'dd-icon dd-icon-pregnancy',
       title: 'Fertility',
@@ -254,7 +254,7 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'pregnancy_journey.html',
+      href: '/pregnancy-journey',
       icon: 'fa-solid fa-baby-carriage',
       iconVariant: 'dd-icon dd-icon-purple',
       title: 'Pregnancy',
@@ -264,7 +264,7 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'newborn_postpartum_care.html',
+      href: '/postpartum-care',
       icon: 'fa-solid fa-baby',
       iconVariant: 'dd-icon dd-icon-blue',
       title: 'Motherhood',
@@ -274,7 +274,7 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'menopause.html',
+      href: '/menopause',
       icon: 'fa-solid fa-spa',
       iconVariant: 'dd-icon dd-icon-green',
       title: 'Wellness',
@@ -285,7 +285,7 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'community.html',
+      href: '/stories',
       icon: 'fa-solid fa-users',
       iconVariant: 'dd-icon dd-icon-violet',
       title: 'Community',
@@ -297,28 +297,28 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'flyout',
     data: {
-      href: 'ncd_pregnancy.html',
+      href: '/ncd-pregnancy',
       icon: 'fa-solid fa-heart-pulse',
       iconVariant: 'dd-icon dd-icon-indigo',
       title: 'Non Communicable Diseases',
       subtitle: 'Diabetes, hypertension & more',
       flyoutItems: [
         {
-          href: 'gestational_diabetes.html',
+          href: '/gestational-diabetes',
           icon: 'fa-solid fa-droplet',
           iconVariant: 'dd-icon dd-icon-gold',
           title: 'Gestational Diabetes',
           subtitle: 'Manage blood sugar',
         },
         {
-          href: 'preeclampsia_education.html',
+          href: '/preeclampsia',
           icon: 'fa-solid fa-heart-circle-exclamation',
           iconVariant: 'dd-icon dd-icon-pink',
           title: 'Preeclampsia',
           subtitle: 'Blood pressure care',
         },
         {
-          href: 'cancer_simulation_journey.html',
+          href: '/cancer-journey',
           icon: 'fa-solid fa-ribbon',
           iconVariant: 'dd-icon dd-icon-purple',
           title: 'Cancer',
@@ -330,7 +330,7 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'bone_health.html',
+      href: '/bone-health',
       icon: 'fa-solid fa-bone',
       iconVariant: 'dd-icon dd-icon-menopause',
       title: 'Bone Health',
@@ -340,7 +340,7 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'depression.html',
+      href: '/mental-health',
       icon: 'fa-solid fa-brain',
       iconVariant: 'dd-icon dd-icon-gold',
       title: 'Mental Health',
@@ -350,7 +350,7 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
   {
     type: 'item',
     data: {
-      href: 'loss_support.html',
+      href: '/loss-support',
       icon: 'fa-solid fa-hands-holding-heart',
       iconVariant: 'dd-icon dd-icon-neutral',
       title: 'Loss Support',
@@ -361,16 +361,16 @@ export const additionalInfoDropdownEntries: DropdownEntry[] = [
 
 // Simple nav links
 export const simpleNavLinks: SimpleNavLink[] = [
-  { href: 'index.html', label: 'Home', isActive: true },
+  { href: '/', label: 'Home', isActive: true },
 ];
 
 export const rightNavLinks: SimpleNavLink[] = [
-  { href: 'stories.html', label: 'Stories' },
-  { href: 'about.html', label: 'About Us' },
+  { href: '/stories', label: 'Stories' },
+  { href: '/about', label: 'About Us' },
 ];
 
 // Action buttons
 export const defaultActionButtons: ActionButton[] = [
-  { href: 'signin.html', icon: 'fa-regular fa-user', label: 'Sign In', variant: 'outline' },
-  { href: 'contact.html', icon: 'fa-solid fa-envelope', label: 'Contact Us', variant: 'primary' },
+  { href: '/signin', icon: 'fa-regular fa-user', label: 'Sign In', variant: 'outline' },
+  { href: '/contact', icon: 'fa-solid fa-envelope', label: 'Contact Us', variant: 'primary' },
 ];

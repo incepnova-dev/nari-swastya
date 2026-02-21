@@ -1,5 +1,6 @@
 import React from 'react';
-import { HeroStatCard, StatItem } from './HeroStatCard';
+import { HeroStatCard } from './HeroStatCard';
+import { StatItem } from '../../../data';
 
 export interface HeroStatsProps {
   stats: StatItem[];

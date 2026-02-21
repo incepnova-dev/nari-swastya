@@ -1,5 +1,6 @@
 import React from 'react';
-import { HeroCTAButton, CTAButtonData } from './HeroCTAButton';
+import { HeroCTAButton } from './HeroCTAButton';
+import { CTAButtonData } from '../../../data';
 
 export interface HeroCTARowProps {
   buttons: CTAButtonData[];

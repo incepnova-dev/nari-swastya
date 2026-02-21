@@ -6,6 +6,7 @@ import { Journeys } from '../pages/Journeys';
 import { Services } from '../pages/Services';
 import { Stories } from '../pages/Stories';
 import { About } from '../pages/About';
+import { AntenatalCare } from '../pages/AntenatalCare/AntenatalCare';
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -16,8 +17,8 @@ export const AppRoutes: React.FC = () => {
       <Route path="/services" element={<Services />} />
       <Route path="/stories" element={<Stories />} />
       <Route path="/about" element={<About />} />
+      <Route path="/antenatal-care" element={<AntenatalCare />} />
+      <Route path="/AntenatalCare" element={<AntenatalCare />} />
     </Routes>
   );
 };
-
-

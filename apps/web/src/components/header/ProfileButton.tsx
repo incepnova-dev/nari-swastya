@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export interface ProfileMenuItem {
   href: string;
@@ -76,10 +77,10 @@ export const ProfileButton: React.FC<ProfileButtonProps> = ({
       {isOpen && (
         <div className="profile-menu">
           {menuItems.map((item, index) => (
-            <a key={index} href={item.href} className="profile-menu-item">
+            <Link key={index} to={item.href} className="profile-menu-item">
               <i className={item.icon} />
               <span>{item.label}</span>
-            </a>
+            </Link>
           ))}
         </div>
       )}

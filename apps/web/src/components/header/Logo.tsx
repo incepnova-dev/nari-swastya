@@ -1,5 +1,5 @@
-import React from 'react';
 import nariLogoSvg from '../../assets/icons/nari-logo.svg';
+import { Link } from 'react-router-dom';
 
 export interface LogoProps {
   href?: string;
@@ -20,7 +20,7 @@ export const Logo: React.FC<LogoProps> = ({
         <img src={nariLogoSvg} alt="" className="logo-svg" />
       </div>
       <div className="logo-text">
-        <a href={href}>{title}</a>
+        <Link to={href}>{title}</Link>
         <span>{subtitle}</span>
       </div>
     </div>

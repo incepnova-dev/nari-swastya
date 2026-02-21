@@ -1,5 +1,6 @@
 import React from 'react';
 import { DropdownItemData } from '../../data';
+import { Link } from 'react-router-dom';
 
 export interface DropdownItemProps extends DropdownItemData {
   className?: string;
@@ -18,7 +19,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
   const itemClass = `dd-item${isFeatured ? ' dd-item-featured' : ''} ${className}`.trim();
 
   return (
-    <a href={href} className={itemClass}>
+    <Link to={href} className={itemClass}>
       <div className={`dd-icon ${iconVariant}`}>
         <i className={icon} />
       </div>
@@ -26,7 +27,7 @@ export const DropdownItem: React.FC<DropdownItemProps> = ({
         <strong style={titleColor ? { color: titleColor } : undefined}>{title}</strong>
         <span>{subtitle}</span>
       </div>
-    </a>
+    </Link>
   );
 };
 
