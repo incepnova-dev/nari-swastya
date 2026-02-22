@@ -1,0 +1,3 @@
+# Prevent accidental HTML file pollution
+*.zip
+html-rio/
