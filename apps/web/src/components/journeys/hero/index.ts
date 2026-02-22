@@ -26,6 +26,9 @@ export type { LifecycleVisualProps } from './LifecycleVisual';
 export { HeroContent } from './HeroContent';
 export type { HeroContentProps } from './HeroContent';
 
+export { JourneysHero } from './JourneysHero';
+export type { JourneysHeroProps } from './JourneysHero';
+
 // Data re-exports (from src/data)
 export {
   defaultBadge,
