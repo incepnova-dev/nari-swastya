@@ -932,6 +932,25 @@ export function setupSearchFunctionality(): void {
   });
 }
 
+/**
+ * Show a message in the existing disease modal (reuses .disease-modal CSS).
+ * Replaces alert() for validation and error messages.
+ */
+export function showMessageModal(message: string, title = 'Notice'): void {
+  const modal = document.getElementById('diseaseModal');
+  const modalBody = document.getElementById('modalBody');
+  if (!modal || !modalBody) return;
+  modalBody.innerHTML = `
+    <div class="modal-header">
+      <div>
+        <h2>${title}</h2>
+      </div>
+    </div>
+    <p style="margin: 0; color: var(--text-soft); font-size: 1rem;">${message}</p>
+  `;
+  modal.classList.add('active');
+}
+
 export function setupModalFunctionality(): void {
   const modal = document.getElementById('diseaseModal');
   const modalClose = document.getElementById('modalClose');
@@ -1075,6 +1094,13 @@ export function setupDetectorFunctionality(): void {
   const diseasesByCat = getDiseasesByCategory();
 
   if (categorySelect) {
+    // Ensure a blank first option so "Please select a condition category" can trigger when nothing is selected
+    if (!categorySelect.querySelector('option[value=""]')) {
+      const placeholder = document.createElement('option');
+      placeholder.value = '';
+      placeholder.textContent = 'Select a category...';
+      categorySelect.insertBefore(placeholder, categorySelect.firstChild);
+    }
     const categories = Object.keys(displayNames);
     categories.forEach((catKey) => {
       const option = document.createElement('option');
@@ -1118,19 +1144,19 @@ export function setupDetectorFunctionality(): void {
         .filter((v): v is string => v != null && v !== 'none');
 
       if (!category) {
-        alert('Please select a condition category');
+        showMessageModal('Please select a condition category');
         return;
       }
       if (!disease) {
-        alert('Please select a specific disease/condition');
+        showMessageModal('Please select a specific disease/condition');
         return;
       }
       if (!age) {
-        alert('Please select your age group');
+        showMessageModal('Please select your age group');
         return;
       }
       if (!severity) {
-        alert('Please select symptom severity level');
+        showMessageModal('Please select symptom severity level');
         return;
       }
 
@@ -1138,7 +1164,7 @@ export function setupDetectorFunctionality(): void {
       if (diseaseData) {
         displayDetectorResults(diseaseData, category, age, severity, selectedComorbidities);
       } else {
-        alert('Disease information not found in database');
+        showMessageModal('Disease information not found in database', 'Not found');
       }
     });
   }
