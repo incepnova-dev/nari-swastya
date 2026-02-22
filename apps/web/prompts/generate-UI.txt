@@ -1,4 +1,4 @@
-@apps/web/html/symptom_checker.html:8020-8145   convert the selected lines to a tsx file. Make it modular.
+@apps/web/html/symptom_checker.html:8146-8323   convert the selected lines to a tsx file. Make it modular.
 
 convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/system-checker 
 

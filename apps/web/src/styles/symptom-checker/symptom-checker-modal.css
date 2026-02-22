@@ -1,0 +1,523 @@
+/**
+ * Disease detail modal - structure and injected content styles
+ * Aligned with symptom_checker.html
+ */
+
+.disease-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.disease-modal.active {
+  display: flex;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-hover);
+  animation: modalSlideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10001;
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: white;
+  color: var(--text-main);
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  z-index: 10002;
+}
+
+.modal-close:hover {
+  background: var(--gradient-primary);
+  color: white;
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+  margin: -2rem -2rem 0 -2rem;
+  background: linear-gradient(135deg, var(--lavender), rgba(255, 255, 255, 0.5));
+  border-radius: 20px 20px 0 0;
+  margin-bottom: 2rem;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: var(--text-main);
+}
+
+.modal-header p {
+  margin: 0.5rem 0 0 0;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+}
+
+.modal-category-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: white;
+  box-shadow: 0 8px 25px rgba(236, 64, 122, 0.3);
+  flex-shrink: 0;
+}
+
+/* Tabs (category modal) */
+.disease-tabs-container {
+  background: linear-gradient(to bottom, var(--lavender), transparent);
+  padding: 1.5rem 2rem 0 2rem;
+  border-bottom: 1px solid var(--border-soft);
+  margin: 0 -2rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary-light) var(--lavender);
+}
+
+.disease-tabs-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.disease-tabs-container::-webkit-scrollbar-track {
+  background: var(--lavender);
+}
+
+.disease-tabs-container::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 3px;
+}
+
+.disease-tabs {
+  display: flex;
+  gap: 0.5rem;
+  min-width: min-content;
+  padding-bottom: 0;
+}
+
+.disease-tab {
+  background: transparent;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-soft);
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  position: relative;
+}
+
+.disease-tab:hover {
+  color: var(--primary);
+  background: rgba(236, 64, 122, 0.05);
+}
+
+.disease-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 600;
+  background: rgba(236, 64, 122, 0.08);
+}
+
+.disease-tab.active::before {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gradient-primary);
+  animation: tabSlideIn 0.3s ease;
+}
+
+@keyframes tabSlideIn {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.disease-panels {
+  padding: 2rem;
+  background: var(--card-bg);
+}
+
+.disease-panel {
+  display: none;
+  animation: fadeInPanel 0.4s ease;
+}
+
+.disease-panel.active {
+  display: block;
+}
+
+@keyframes fadeInPanel {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Disease content (injected by script) */
+.disease-content {
+  max-width: 100%;
+}
+
+.disease-title-section {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid var(--lavender);
+}
+
+.disease-title-section h3 {
+  font-size: 1.8rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.disease-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.disease-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--lavender);
+  color: var(--primary-dark);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.disease-tag i {
+  font-size: 0.75rem;
+}
+
+.severity-levels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.detail-block {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid var(--pink);
+}
+
+.detail-block h4 {
+  color: var(--deep-pink);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-block p {
+  color: var(--text-soft);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.severity-block-mild {
+  border-left: 4px solid var(--mild);
+  background: linear-gradient(to right, rgba(76, 175, 80, 0.05), transparent);
+}
+
+.severity-block-moderate {
+  border-left: 4px solid var(--moderate);
+  background: linear-gradient(to right, rgba(255, 152, 0, 0.05), transparent);
+}
+
+.severity-block-severe {
+  border-left: 4px solid var(--severe);
+  background: linear-gradient(to right, rgba(244, 67, 54, 0.05), transparent);
+}
+
+.severity-block-critical {
+  border-left: 4px solid var(--critical);
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.05), transparent);
+}
+
+.severity-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px 8px 0 0;
+}
+
+.severity-header i {
+  font-size: 0.75rem;
+}
+
+.severity-block-mild .severity-header {
+  color: var(--mild);
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.severity-block-moderate .severity-header {
+  color: var(--moderate);
+  background: rgba(255, 152, 0, 0.1);
+}
+
+.severity-block-severe .severity-header {
+  color: var(--severe);
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.severity-block-critical .severity-header {
+  color: var(--critical);
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.severity-header h4 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+  color: inherit;
+}
+
+.severity-content {
+  padding: 1rem;
+}
+
+.severity-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.severity-item:last-child {
+  margin-bottom: 0;
+}
+
+.severity-item i {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--lavender);
+  color: var(--primary);
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
+
+.severity-item > div {
+  flex: 1;
+}
+
+.severity-item strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.severity-item p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.comorbidities-block {
+  background: linear-gradient(135deg, rgba(236, 64, 122, 0.05), rgba(171, 71, 188, 0.05));
+  border-left: 4px solid var(--primary);
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.comorbidities-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.comorbidities-header i {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.comorbidities-header h4 {
+  margin: 0;
+  color: var(--primary-dark);
+  font-size: 1.15rem;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 600;
+}
+
+.comorbidities-block p {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.8;
+}
+
+.disease-disclaimer {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, rgba(66, 165, 245, 0.08), rgba(79, 195, 247, 0.05));
+  border-left: 4px solid var(--info);
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.disease-disclaimer i {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--info);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.95rem;
+  margin-top: 2px;
+}
+
+.disease-disclaimer p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.disease-disclaimer strong {
+  color: var(--info);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .modal-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1.25rem;
+    margin: -1.5rem -1.5rem 0 -1.5rem;
+  }
+
+  .disease-panels {
+    padding: 1.5rem;
+  }
+
+  .disease-tab {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .disease-disclaimer {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95%;
+    max-height: 85vh;
+  }
+
+  .disease-tab {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.8rem;
+  }
+
+  .disease-title-section h3 {
+    font-size: 1.4rem;
+  }
+}

@@ -4,6 +4,7 @@ import { Footer } from '../components/Footer';
 import { SymptomCheckerHero } from '../components/symptom-checker/SymptomCheckerHero';
 import { SearchConditionsSection } from '../components/symptom-checker/SearchConditionsSection';
 import { SymptomDetectorSection } from '../components/symptom-checker/SymptomDetectorSection';
+import { DiseaseDetailModal } from '../components/symptom-checker/DiseaseDetailModal';
 import { initSymptomCheckerApp } from '../scripts/symptom_checker';
 import { symptomCheckerAppConfigFull } from '../data';
 
@@ -39,6 +40,7 @@ export const SymptomChecker: React.FC = () => {
       <div ref={searchSectionRef}>
         <SearchConditionsSection />
         <SymptomDetectorSection />
+        <DiseaseDetailModal />
       </div>
       <Footer />
     </div>

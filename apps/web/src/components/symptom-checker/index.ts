@@ -16,3 +16,4 @@ export { DetectorSectionHeader } from './DetectorSectionHeader';
 export { DetectorFormCard } from './DetectorFormCard';
 export { DetectorForm } from './DetectorForm';
 export { DetectorResultsCard } from './DetectorResultsCard';
+export { DiseaseDetailModal } from './DiseaseDetailModal';
