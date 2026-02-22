@@ -1,22 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { COMORBIDITY_SEARCH, COMORBIDITY_BUTTONS } from '../../data';
 
+/**
+ * Comorbidity search card. Uses IDs/classes expected by symptom_checker.ts setupSearchFunctionality();
+ * init runs from SymptomChecker page and attaches click handlers.
+ */
 export const ComorbiditySearchCard: React.FC = () => {
-  const [activeIds, setActiveIds] = useState<Set<string>>(new Set());
-
-  const toggle = (id: string) => {
-    if (id === 'clear') {
-      setActiveIds(new Set());
-      return;
-    }
-    setActiveIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-  };
-
   return (
     <div className="search-wrapper comorbidity-search">
       <div className="search-header">
@@ -29,9 +18,8 @@ export const ComorbiditySearchCard: React.FC = () => {
           <button
             key={id}
             type="button"
-            className={`comorbidity-search-btn${activeIds.has(id) ? ' active' : ''}`}
+            className="comorbidity-search-btn"
             data-comorbidity={id}
-            onClick={() => toggle(id)}
           >
             <i className={`fas ${icon}`} />
             <span>{label}</span>
@@ -41,7 +29,6 @@ export const ComorbiditySearchCard: React.FC = () => {
           type="button"
           className="comorbidity-search-btn clear-btn"
           data-comorbidity="clear"
-          onClick={() => toggle('clear')}
         >
           <i className="fas fa-times-circle" />
           <span>Clear All</span>

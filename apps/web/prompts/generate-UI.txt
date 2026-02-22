@@ -1,14 +1,16 @@
-@apps/web/html/journey.html:1256-1322  convert the selected lines to a tsx file. Make it modular.
+@apps/web/html/symptom_checker.html:8020-8145   convert the selected lines to a tsx file. Make it modular.
 
-convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/journey. Create the journey directory if not present. 
+convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/system-checker 
 
-@apps/web/html/journeys.html:2009-2078  convert the associated javascript animations in the line 2009-2078 from the <scripts> in scripts/journeys.ts and use it appropriately.  create the journeys.ts if not present.
+Add the React component in the page/SymptomChecker.tsx
 
-Add the React component in the page/Journeys.tsx
+@apps/web/html/symptom_checker.html:12721-12804  convert the associated javascript animations in the line 12721-12804 from the <scripts> in scripts/journeys.ts and use it appropriately.  create the symptom_checker.ts if not present.
 
 
 
-@apps/web/html/Welcome.html:1785-1846  convert the elected lines to a tsx file. Make it modular.
+
+
+ convert the elected lines to a tsx file. Make it modular.
 
 convert the css definitions corresponding to the section from the <styles> tab into a separate css file under styles/welcome 
 

@@ -1,24 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SEVERITY_SEARCH, SEVERITY_PILLS } from '../../data';
 
-type SeverityType = 'mild' | 'moderate' | 'severe' | 'critical';
-
+/**
+ * Severity search card. Uses IDs expected by symptom_checker.ts setupSearchFunctionality();
+ * init runs from SymptomChecker page.
+ */
 export const SeveritySearchCard: React.FC = () => {
-  const [inputValue, setInputValue] = useState('');
-  const [activeSeverity, setActiveSeverity] = useState<SeverityType | null>(null);
-  const [showClear, setShowClear] = useState(false);
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const v = e.target.value;
-    setInputValue(v);
-    setShowClear(v.length > 0);
-  };
-
-  const handleClear = () => {
-    setInputValue('');
-    setShowClear(false);
-  };
-
   return (
     <div className="search-wrapper severity-search">
       <div className="search-header">
@@ -29,31 +16,28 @@ export const SeveritySearchCard: React.FC = () => {
         <i className={`fas ${SEVERITY_SEARCH.inputIcon} search-icon`} />
         <input
           type="text"
-          value={inputValue}
-          onChange={handleInputChange}
+          id="symptomSearch"
           placeholder={SEVERITY_SEARCH.inputPlaceholder}
           className="search-input"
           aria-label={SEVERITY_SEARCH.headerLabel}
         />
-        {showClear && (
-          <button
-            type="button"
-            className="search-clear"
-            onClick={handleClear}
-            aria-label="Clear search"
-          >
-            <i className="fas fa-times" />
-          </button>
-        )}
+        <button
+          type="button"
+          id="clearSymptomSearch"
+          className="search-clear"
+          aria-label="Clear search"
+          style={{ display: 'none' }}
+        >
+          <i className="fas fa-times" />
+        </button>
       </div>
       <div className="severity-pills" id="severityPills">
         {SEVERITY_PILLS.map(({ severity, icon, label }) => (
           <button
             key={severity}
             type="button"
-            className={`severity-pill ${severity}${activeSeverity === severity ? ' active' : ''}`}
+            className={`severity-pill ${severity}`}
             data-severity={severity}
-            onClick={() => setActiveSeverity(activeSeverity === severity ? null : severity)}
           >
             <i className={`fas ${icon}`} />
             {label}

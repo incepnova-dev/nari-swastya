@@ -146,3 +146,15 @@ export {
   COMORBIDITY_SEARCH,
   COMORBIDITY_BUTTONS,
 } from './symptomCheckerSearchData';
+
+// Symptom Checker app config (full data from symptom_checker.html; use for production)
+export { symptomCheckerAppConfigFull } from './symptomCheckerAppConfigFull';
+
+// Symptom Checker app config stub (minimal data; for tests or fallback)
+export {
+  symptomCheckerAppConfigStub,
+  diseaseDatabaseStub,
+  categoryFiltersStub,
+  categoryDisplayNamesStub,
+  diseasesByCategoryStub,
+} from './diseaseDatabaseStub';

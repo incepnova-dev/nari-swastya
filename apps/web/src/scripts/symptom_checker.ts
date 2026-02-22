@@ -23,6 +23,9 @@ export function initSymptomCheckerParticleCanvas(
   const ctx = canvas.getContext('2d');
   if (!ctx) return null;
 
+  const el = canvas;
+  const context = ctx;
+
   let W: number;
   let H: number;
   let animationId: number;
@@ -30,10 +33,10 @@ export function initSymptomCheckerParticleCanvas(
   const particleCount = 80;
 
   function resize() {
-    const w = canvas.offsetWidth || 300;
-    const h = canvas.offsetHeight || 300;
-    canvas.width = W = w;
-    canvas.height = H = h;
+    const w = el.offsetWidth || 300;
+    const h = el.offsetHeight || 300;
+    el.width = W = w;
+    el.height = H = h;
   }
 
   function createParticle(): Particle {
@@ -54,10 +57,10 @@ export function initSymptomCheckerParticleCanvas(
   }
 
   function draw(p: Particle) {
-    ctx.beginPath();
-    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(236, 64, 122, 0.6)';
-    ctx.fill();
+    context.beginPath();
+    context.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    context.fillStyle = 'rgba(236, 64, 122, 0.6)';
+    context.fill();
   }
 
   function connect() {
@@ -67,19 +70,19 @@ export function initSymptomCheckerParticleCanvas(
         const dy = particles[i].y - particles[j].y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         if (distance < 100) {
-          ctx.beginPath();
-          ctx.strokeStyle = `rgba(236, 64, 122, ${0.2 * (1 - distance / 100)})`;
-          ctx.lineWidth = 1;
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
+          context.beginPath();
+          context.strokeStyle = `rgba(236, 64, 122, ${0.2 * (1 - distance / 100)})`;
+          context.lineWidth = 1;
+          context.moveTo(particles[i].x, particles[i].y);
+          context.lineTo(particles[j].x, particles[j].y);
+          context.stroke();
         }
       }
     }
   }
 
   function animate() {
-    ctx.clearRect(0, 0, W, H);
+    context.clearRect(0, 0, W, H);
     particles.forEach((p) => {
       update(p);
       draw(p);
@@ -868,17 +871,15 @@ export function setupSearchFunctionality(): void {
   if (symptomSearch) {
     symptomSearch.addEventListener('input', () => {
       const query = symptomSearch.value.trim().toLowerCase();
-      if (query.length > 2) {
+      if (query.length > 0) {
         if (clearSymptomSearch) clearSymptomSearch.style.display = 'block';
         const results = searchInSymptoms(query);
         displaySearchResults(results, severityResults);
         severityPills.forEach((p) => p.classList.remove('active'));
       } else {
         if (clearSymptomSearch) clearSymptomSearch.style.display = 'none';
-        if (query.length === 0) {
-          severityResults?.classList.remove('active');
-          if (severityResults) severityResults.innerHTML = '';
-        }
+        severityResults?.classList.remove('active');
+        if (severityResults) severityResults.innerHTML = '';
       }
     });
   }
