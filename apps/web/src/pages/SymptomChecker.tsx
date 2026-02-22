@@ -3,6 +3,7 @@ import { SiteHeader } from '../components/SiteHeader';
 import { Footer } from '../components/Footer';
 import { SymptomCheckerHero } from '../components/symptom-checker/SymptomCheckerHero';
 import { SearchConditionsSection } from '../components/symptom-checker/SearchConditionsSection';
+import { SymptomDetectorSection } from '../components/symptom-checker/SymptomDetectorSection';
 import { initSymptomCheckerApp } from '../scripts/symptom_checker';
 import { symptomCheckerAppConfigFull } from '../data';
 
@@ -10,13 +11,14 @@ export const SymptomChecker: React.FC = () => {
   const searchSectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Wait until all search inputs exist so setupSearchFunctionality can attach to them
+    // Wait until search inputs and detector form exist so all setup can attach
     const runInit = () => {
       const root = searchSectionRef.current;
       if (!root) return false;
       const hasDiseaseSearch = root.querySelector('#diseaseSearch');
       const hasSymptomSearch = root.querySelector('#symptomSearch');
-      if (!hasDiseaseSearch || !hasSymptomSearch) return false;
+      const hasDetector = root.querySelector('#symptom-detector');
+      if (!hasDiseaseSearch || !hasSymptomSearch || !hasDetector) return false;
       initSymptomCheckerApp(symptomCheckerAppConfigFull);
       return true;
     };
@@ -36,6 +38,7 @@ export const SymptomChecker: React.FC = () => {
       <SymptomCheckerHero />
       <div ref={searchSectionRef}>
         <SearchConditionsSection />
+        <SymptomDetectorSection />
       </div>
       <Footer />
     </div>

@@ -1,5 +1,6 @@
 @import './symptom-checker-hero.css';
 @import './symptom-checker-search.css';
+@import './symptom-checker-detector.css';
 
 .symptom-checker-main {
   max-width: 1120px;

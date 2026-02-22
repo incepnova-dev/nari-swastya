@@ -11,3 +11,8 @@ export { SearchSectionHeader } from './SearchSectionHeader';
 export { DiseaseSearchCard } from './DiseaseSearchCard';
 export { SeveritySearchCard } from './SeveritySearchCard';
 export { ComorbiditySearchCard } from './ComorbiditySearchCard';
+export { SymptomDetectorSection } from './SymptomDetectorSection';
+export { DetectorSectionHeader } from './DetectorSectionHeader';
+export { DetectorFormCard } from './DetectorFormCard';
+export { DetectorForm } from './DetectorForm';
+export { DetectorResultsCard } from './DetectorResultsCard';

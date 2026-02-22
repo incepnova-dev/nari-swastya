@@ -1103,19 +1103,7 @@ export function setupDetectorFunctionality(): void {
     });
   }
 
-  document.querySelectorAll('.comorbidity-btn').forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      if (btn.getAttribute('data-value') === 'none') {
-        document.querySelectorAll('.comorbidity-btn').forEach((b) => b.classList.remove('active'));
-        btn.classList.add('active');
-      } else {
-        const noneBtn = document.querySelector('.comorbidity-btn[data-value="none"]');
-        if (noneBtn) noneBtn.classList.remove('active');
-        btn.classList.toggle('active');
-      }
-    });
-  });
+  /* Comorbidity selection is driven by React (DetectorForm state); script only reads .comorbidity-btn.active on Analyze */
 
   if (analyzeBtn) {
     analyzeBtn.addEventListener('click', () => {
@@ -1123,7 +1111,9 @@ export function setupDetectorFunctionality(): void {
       const disease = diseaseSelect?.value;
       const age = ageSelect?.value;
       const severity = severitySelect?.value;
-      const selectedComorbidities = Array.from(document.querySelectorAll('.comorbidity-btn.active'))
+      const detectorEl = document.getElementById('symptom-detector');
+      const activeButtons = detectorEl ? detectorEl.querySelectorAll('.comorbidity-btn.active') : [];
+      const selectedComorbidities = Array.from(activeButtons)
         .map((btn) => btn.getAttribute('data-value'))
         .filter((v): v is string => v != null && v !== 'none');
 
@@ -1163,7 +1153,9 @@ export function setupDetectorFunctionality(): void {
       }
       if (ageSelect) ageSelect.value = '';
       if (severitySelect) severitySelect.value = '';
-      document.querySelectorAll('.comorbidity-btn.active').forEach((btn) => btn.classList.remove('active'));
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('symptom-checker-reset-comorbidities'));
+      }
       if (resultsEmpty) (resultsEmpty as HTMLElement).style.display = 'block';
       if (resultsContent) (resultsContent as HTMLElement).style.display = 'none';
     });
