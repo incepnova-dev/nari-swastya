@@ -1,0 +1,201 @@
+/* ===================== SECTION 2: PREGNANCY JOURNEY ===================== */
+.journey-s2-section {
+    padding: 6rem 0;
+    overflow: hidden;
+    background: var(--bg);
+    color: var(--text-main);
+}
+
+.trimester-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tri-btn {
+    padding: 0.6rem 1.6rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    border: 2px solid var(--border-soft);
+    background: white;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tri-btn.active {
+    background: linear-gradient(135deg, #ec407a, #ad1457);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 6px 20px rgba(236, 64, 122, 0.3);
+}
+
+.tri-btn:hover:not(.active) {
+    border-color: var(--pink);
+    color: var(--pink);
+}
+
+.womb-stage {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: transparent;
+    padding: 0;
+    box-shadow: none;
+    border: none;
+    min-height: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.womb-stage.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.womb-stage-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.womb-canvas-wrap {
+    width: 100%;
+    max-width: 400px;
+    height: 380px;
+    background: linear-gradient(135deg, #fce4ec, #f8bbd9, #ede7f6);
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.womb-canvas-wrap canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.trimester-info h3 {
+    font-size: 1.7rem;
+    margin-bottom: 0.8rem;
+}
+
+.trimester-info p {
+    color: var(--text-soft);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+}
+
+.week-milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.milestone {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.75rem 1rem;
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--primary);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.milestone i {
+    color: var(--primary);
+    width: 20px;
+    text-align: center;
+}
+
+/* Condition Pills */
+.conditions-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.cond-pill {
+    padding: 1.1rem;
+    border-radius: 18px;
+    background: white;
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.35s;
+}
+
+.cond-pill:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border-color: var(--deep-pink);
+}
+
+.cond-pill-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-size: 1.3rem;
+}
+
+.cond-pill h5 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.cond-pill small {
+    font-size: 0.75rem;
+    color: var(--text-soft);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .womb-stage-wrap {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .womb-canvas-wrap {
+        margin: 0 auto;
+    }
+
+    .week-milestones {
+        text-align: left;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .conditions-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .trimester-nav {
+        gap: 0.8rem;
+    }
+
+    .tri-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .conditions-row {
+        grid-template-columns: 1fr;
+    }
+}

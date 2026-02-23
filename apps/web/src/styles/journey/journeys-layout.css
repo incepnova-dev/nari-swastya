@@ -1,3 +1,15 @@
+:root {
+  --pink: #ec407a;
+  --deep-pink: #d81b60;
+  --lavender: #ede7f6;
+  --bg: #faf5fb;
+  --card-bg: #ffffff;
+  --text-main: #212121;
+  --text-soft: #555;
+  --border-soft: #e0e0e0;
+  --font-display: 'Playfair Display', serif;
+}
+
 /* Page wrapper - full width */
 .journeys-page {
   width: 100%;
@@ -25,4 +37,56 @@
   font-size: 1.02rem;
   max-width: 40rem;
   color: #4b5563;
+}
+
+/* Scroll Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Shared Journey Section Styles */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(236, 64, 122, 0.08);
+  border: 1px solid rgba(236, 64, 122, 0.15);
+  color: var(--deep-pink);
+  padding: 0.35rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-heading {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-display);
+}
+
+.section-heading .em {
+  background: linear-gradient(135deg, #ec407a, #ad1457);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  max-width: 600px;
+  line-height: 1.8;
 }

@@ -1,0 +1,297 @@
+/* ===================== SECTION 4: BODY & MIND HEALTH ===================== */
+.s4-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 0;
+    background: linear-gradient(150deg, #faf5fb 0%, #ffffff 40%, #f3e5f5 100%);
+}
+
+.s4-wrapper .section-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.journey-s4-section .section-heading,
+.journey-s4-section .section-sub {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Floating ambient blobs */
+.s4-blobs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.s4-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: s4blob-drift ease-in-out infinite;
+}
+
+.s4-blob-1 {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(#ec407a55, transparent 70%);
+    top: -100px;
+    right: 0%;
+    animation-duration: 14s;
+    animation-delay: 0s;
+}
+
+.s4-blob-2 {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(#9c5cf755, transparent 70%);
+    bottom: 60px;
+    left: 5%;
+    animation-duration: 18s;
+    animation-delay: 5s;
+}
+
+.s4-blob-3 {
+    width: 240px;
+    height: 240px;
+    background: radial-gradient(#00bcd444, transparent 70%);
+    top: 45%;
+    right: 18%;
+    animation-duration: 22s;
+    animation-delay: 10s;
+}
+
+@keyframes s4blob-drift {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-40px) scale(1.08) rotate(4deg);
+    }
+
+    66% {
+        transform: translateY(25px) scale(.93) rotate(-3deg);
+    }
+}
+
+#constellationCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.28;
+}
+
+/* Layout: DNA scene left | cards right */
+.s4-body-layout {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 3.5rem;
+    align-items: start;
+    margin-top: 2rem;
+}
+
+.s4-visual-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dna-scene {
+    position: relative;
+    width: 300px;
+    height: 500px;
+}
+
+#dnaLocalCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Floating label tags on DNA */
+.dna-labels {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.dna-tag {
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    padding: 0.3rem 0.85rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(236, 64, 122, 0.18);
+    color: var(--deep-pink);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    animation: dna-tag-pulse 3s ease-in-out infinite;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dna-tag i {
+    font-size: 0.8rem;
+}
+
+.dna-tag-1 {
+    top: 3%;
+    animation-delay: 0s;
+}
+
+.dna-tag-2 {
+    top: 21%;
+    animation-delay: 0.5s;
+}
+
+.dna-tag-3 {
+    top: 42%;
+    animation-delay: 1s;
+}
+
+.dna-tag-4 {
+    top: 63%;
+    animation-delay: 1.5s;
+}
+
+.dna-tag-5 {
+    top: 82%;
+    animation-delay: 2s;
+}
+
+@keyframes dna-tag-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        box-shadow: 0 6px 24px rgba(236, 64, 122, 0.22);
+        transform: translateX(-50%) scale(1.04);
+    }
+}
+
+/* Horizontal health cards */
+.s4-cards-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 0.5rem;
+}
+
+.s4-hcard {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    background: white;
+    border-radius: 20px;
+    padding: 1.1rem 1.4rem 1.1rem 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-soft);
+    border-left: 4px solid var(--hc-color, #ec407a);
+    transition: all 0.65s cubic-bezier(0.23, 1.01, 0.32, 1);
+    text-decoration: none;
+    color: inherit;
+}
+
+.s4-hcard:hover {
+    box-shadow: 0 10px 36px rgba(0, 0, 0, 0.1);
+    transform: translateX(5px);
+    background: linear-gradient(135deg, var(--hc-light, #fce4ec) 0%, white 100%);
+}
+
+.s4-hcard-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.s4-hcard-body {
+    flex: 1;
+}
+
+.s4-hcard-body h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: var(--text-main);
+}
+
+.s4-hcard-body p {
+    font-size: 0.8rem;
+    color: var(--text-soft);
+    line-height: 1.55;
+    margin: 0;
+}
+
+.s4-hcard-arrow {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--hc-light, #fce4ec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--hc-color, #ec407a);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.s4-hcard:hover .s4-hcard-arrow {
+    background: var(--hc-color, #ec407a);
+    color: white;
+    transform: translateX(3px);
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .s4-body-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .s4-visual-col {
+        order: 2;
+    }
+
+    .dna-scene {
+        height: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .s4-hcard {
+        padding: 1rem;
+        gap: 0.8rem;
+    }
+
+    .s4-hcard-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+
+    .s4-hcard-arrow {
+        display: none;
+    }
+}

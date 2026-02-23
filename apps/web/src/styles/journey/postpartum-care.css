@@ -1,0 +1,271 @@
+/* ===================== SECTION 3: NEWBORN & POSTPARTUM ===================== */
+.journey-s3-section {
+    padding: 5rem 0;
+    overflow: hidden;
+    background: linear-gradient(180deg, #faf5fb 0%, #f5eef8 100%);
+    position: relative;
+}
+
+.s3-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.journey-s3-section .section-label,
+.journey-s3-section .section-heading,
+.journey-s3-section .section-sub {
+    text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    justify-content: flex-start !important;
+}
+
+.journey-s3-section .section-heading {
+    display: block !important;
+    font-size: clamp(1.8rem, 4vw, 2.8rem) !important;
+    background: none !important;
+    -webkit-text-fill-color: initial !important;
+}
+
+.journey-s3-section .section-heading .em {
+    background: linear-gradient(135deg, #ec407a, #ad1457) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: inline-block;
+}
+
+.journey-s3-section .section-sub {
+    max-width: 540px;
+}
+
+/* Pulse Rings Animation */
+.pulse-wrap {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pulse-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid rgba(236, 64, 122, 0.25);
+    animation: pulse-expand 3s ease-out infinite;
+}
+
+.pulse-ring:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.pulse-ring:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.pulse-ring:nth-child(4) {
+    animation-delay: 2.4s;
+}
+
+@keyframes pulse-expand {
+    0% {
+        transform: scale(0.3);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+.pulse-core {
+    position: relative;
+    z-index: 2;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ec407a, #ad1457);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 10px rgba(236, 64, 122, 0.12), 0 20px 50px rgba(236, 64, 122, 0.3);
+    color: white;
+    text-align: center;
+    animation: core-breathe 4s ease-in-out infinite;
+}
+
+@keyframes core-breathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(236, 64, 122, 0.12), 0 20px 50px rgba(236, 64, 122, 0.3);
+    }
+
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 18px rgba(236, 64, 122, 0.1), 0 25px 60px rgba(236, 64, 122, 0.4);
+    }
+}
+
+.pulse-core i {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+}
+
+.pulse-core span {
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+/* Breastfeeding Visual */
+.bf-visual {
+    margin-top: 2rem;
+    background: white;
+    border-radius: 24px;
+    padding: 1.8rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-soft);
+}
+
+.bf-visual h4 {
+    margin-bottom: 1rem;
+    font-size: 1.05rem;
+}
+
+.bf-timeline {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+    height: 80px;
+}
+
+.bf-bar {
+    flex: 1;
+    background: linear-gradient(180deg, #ec407a, #f48fb1);
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    animation: bar-rise 0.8s ease backwards;
+}
+
+@keyframes bar-rise {
+    from {
+        height: 0 !important;
+    }
+}
+
+.bf-bar::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.62rem;
+    color: var(--text-soft);
+    white-space: nowrap;
+}
+
+/* Postpartum Cards */
+.postpartum-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pp-card {
+    background: white;
+    border-radius: 18px;
+    padding: 1.3rem 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    transition: all 0.6s cubic-bezier(0.23, 1.01, 0.32, 1);
+}
+
+.pp-card:hover {
+    box-shadow: 0 10px 35px rgba(236, 64, 122, 0.12);
+}
+
+.pp-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.pp-card-content {
+    flex: 1;
+}
+
+.pp-card h4 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.pp-card p {
+    font-size: 0.82rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+}
+
+.pp-card .badge {
+    margin-top: 0.4rem;
+    display: inline-block;
+    padding: 0.18rem 0.55rem;
+    border-radius: 50px;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.badge-warm {
+    background: #fce4ec;
+    color: #c2185b;
+}
+
+.badge-calm {
+    background: #e0f7fa;
+    color: #006064;
+}
+
+.badge-care {
+    background: #f3e5f5;
+    color: #6a1b9a;
+}
+
+.badge-alert {
+    background: #fff3e0;
+    color: #e65100;
+}
+
+/* Responsive */
+@media (max-width: 1060px) {
+    .s3-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .pulse-wrap {
+        width: 340px;
+        height: 340px;
+    }
+}
+
+@media (max-width: 600px) {
+    .pp-card {
+        padding: 1.1rem;
+    }
+}
