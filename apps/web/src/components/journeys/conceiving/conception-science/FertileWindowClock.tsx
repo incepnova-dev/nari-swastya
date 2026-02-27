@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { DAY_INFO } from './conception-data';
+import { DAY_INFO } from '../conception-data';
 
 export const FertileWindowClock: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
