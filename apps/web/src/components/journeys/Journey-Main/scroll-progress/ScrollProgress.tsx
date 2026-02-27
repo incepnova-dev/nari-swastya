@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../styles/journey/scroll-progress.css';
+import '../../../../styles/journey/main/scroll-progress.css';
 
 const sections = [
     { id: 'hero', title: 'Home' },

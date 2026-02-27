@@ -1,6 +1,6 @@
 import React from 'react';
 import { OrbitCanvas } from './OrbitCanvas';
-import '../../../../../styles/journey/conception-fertility.css';
+import '../../../../../styles/journey/main/sections/conception.css';
 
 interface FertilityCardProps {
     to: string;

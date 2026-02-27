@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import '../../../../styles/journey/conceiving-hero.css';
+import '../../../../styles/journey/conceiving/hero.css';
 
 export const ConceivingHero: React.FC = () => {
     const particleCanvasRef = useRef<HTMLCanvasElement>(null);

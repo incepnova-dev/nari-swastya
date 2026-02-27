@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../../styles/journey/body-mind-health.css';
+import '../../../../../styles/journey/main/sections/body-mind.css';
 import { DnaCanvas } from './DnaCanvas';
 import { ConstellationCanvas } from './ConstellationCanvas';
 

@@ -2,8 +2,9 @@ import React from 'react';
 import { FertileWindowClock } from './FertileWindowClock';
 import { ProbabilityCalculator } from './ProbabilityCalculator';
 import { ConceptionPlayground } from './ConceptionPlayground';
-import { EvidenceScorecard, EducationalSections } from './EvidenceScorecard';
-import '../../../../styles/journey/conception-science.css';
+import { EvidenceScorecard, EducationalSections } from '../when-to-see-doctor/EvidenceScorecard';
+import { PreConceptionTimeline } from '../pre-conception-timeline/PreConceptionTimeline';
+import '../../../../styles/journey/conceiving/science.css';
 
 export const ConceptionScience: React.FC = () => {
     return (
@@ -48,6 +49,17 @@ export const ConceptionScience: React.FC = () => {
 
                 {/* EXTRA SECTIONS */}
                 <EducationalSections />
+
+                {/* PART 5: TIMELINE */}
+                <PreConceptionTimeline />
+
+                {/* FOOTER */}
+                <div style={{ textAlign: 'center', padding: '4rem 1rem', borderTop: '1px solid #eee', marginTop: '4rem' }}>
+                    <p style={{ fontSize: '.85rem', color: '#888' }}>
+                        © 2026 Nari Swastya · Clinical Validation: Dr. Rio's Gynecology Unit<br />
+                        All simulations are for educational purposes based on population averages.
+                    </p>
+                </div>
             </div>
         </section>
     );

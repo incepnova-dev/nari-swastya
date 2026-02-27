@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../styles/journey/cycle-tracker.css';
+import '../../../../styles/journey/conceiving/cycle-tracker.css';
 
 export const CycleTracker: React.FC = () => {
     return (

@@ -4,7 +4,7 @@
 @import './welcomeheader.css';
 @import './home.css';
 @import './footer/footer.css';
-@import './journey/journeys.css';
+@import './journey/main/journeys.css';
 @import './services/services.css';
 @import './stories.css';
 @import './about.css';

@@ -10,7 +10,7 @@ import { Section2 } from '../sections/section2-pregnancy/Section2';
 import { Section3 } from '../sections/section3-newborn/Section3';
 import { Section4 } from '../sections/section4-body-mind/Section4';
 import { Section5 } from '../sections/section5-prevention/Section5';
-import '../../../../styles/journey/journeys.css';
+import '../../../../styles/journey/main/journeys.css';
 
 export const Journeys: React.FC = () => {
     useScrollReveal();

@@ -182,26 +182,105 @@ export const EVIDENCE_CARDS = [
 export const NUTRIENTS = [
     {
         name: 'Folic Acid', icon: '🍃', color: '#ff6b9d',
+        rgba: 'rgba(255, 107, 157, 0.1)',
         benefit: 'Prevents neural tube defects. START 3 months before trying! Helps egg quality and implantation.',
-        needs: '400-800 mcg (supplement recommended)',
+        need: '400-800 mcg (supplement recommended)',
         foods: ['🥬 Spinach', '🥦 Broccoli', '🍊 Oranges', '🥜 Beans']
     },
     {
         name: 'Iron', icon: '💪', color: '#4caf50',
+        rgba: 'rgba(76, 175, 80, 0.1)',
         benefit: 'Builds blood volume, prevents anemia. Low iron linked to ovulation problems and miscarriage risk.',
-        needs: '18 mg (27 mg if anemic)',
+        need: '18 mg (27 mg if anemic)',
         foods: ['🥩 Red Meat', '🦪 Oysters', '🥬 Kale', '🫘 Lentils']
     },
     {
         name: 'Omega-3 (DHA)', icon: '🐟', color: '#ff9800',
+        rgba: 'rgba(255, 152, 0, 0.1)',
         benefit: 'Improves egg quality, regulates hormones. Critical for baby\'s brain development.',
-        needs: '200-300 mg DHA',
+        need: '200-300 mg DHA',
         foods: ['🐟 Salmon', '🐠 Sardines', '🥚 Omega Eggs', '🥑 Walnuts']
     },
     {
         name: 'Vitamin D', icon: '☀️', color: '#9c27b0',
+        rgba: 'rgba(156, 39, 176, 0.1)',
         benefit: 'Regulates menstrual cycles, improves egg quality. Deficiency linked to PCOS and fertility issues.',
-        needs: '600-1000 IU (test levels!)',
+        need: '600-1000 IU (test levels!)',
         foods: ['☀️ Sunlight 15min', '🐟 Fatty Fish', '🥚 Egg Yolks', '🥛 Fortified Milk']
+    }
+];
+
+export const TIMELINE_ITEMS = [
+    {
+        month: 'Month 1',
+        icon: '🩺',
+        color: '#f44336',
+        title: 'Schedule Check-Up',
+        desc: 'Book pre-conception visit. Update vaccinations (MMR, Tdap, flu). Get blood tests (STIs, immunity, anemia). Discuss chronic conditions.',
+        evidence: {
+            badges: [{ text: 'WHO', color: 'pink' }, { text: 'ACOG', color: 'blue' }],
+            fact: 'Pre-conception care reduces adverse perinatal outcomes by 35%; ~10% of reproductive-age women remain rubella-susceptible.',
+            source: 'WHO Preconception Care Guidelines (2013); ACOG Practice Bulletin No. 762 (2019)'
+        }
+    },
+    {
+        month: 'Month 1-3',
+        icon: '💊',
+        color: '#ff9800',
+        title: 'Start Supplements',
+        desc: 'Begin prenatal vitamin with 400-800mcg folic acid DAILY. Add Vitamin D (test levels first), Omega-3, CoQ10 if 35+. No mega-doses!',
+        evidence: {
+            badges: [{ text: 'WHO', color: 'pink' }, { text: 'ICMR', color: 'amber' }],
+            fact: '400 µg folic acid ≥4 weeks before conception cuts neural tube defect risk by 70%; ICMR recommends 500 µg for Indian women.',
+            source: 'WHO Rec. (2016); ICMR-NIN Dietary Guidelines (2020); Czeizel & Dudás, NEJM (1992)'
+        }
+    },
+    {
+        month: 'Month 2',
+        icon: '⚖️',
+        color: '#9c27b0',
+        title: 'Optimize Weight',
+        desc: 'Achieve healthy BMI (18.5-24.9). Even 5-10% weight loss if overweight improves ovulation. Underweight? Gain slowly to restore cycles.',
+        evidence: {
+            badges: [{ text: 'ACOG', color: 'blue' }, { text: 'Lancet', color: 'pink' }],
+            fact: 'Obesity (BMI ≥30) raises miscarriage risk 67% and gestational diabetes 7×; just 5–10% weight loss restores ovulation.',
+            source: 'ACOG Committee Opinion No. 804 (2020); Cnattingius et al., Lancet (1996)'
+        }
+    },
+    {
+        month: 'Month 2',
+        icon: '🚫',
+        color: '#2196f3',
+        title: 'Eliminate Toxins',
+        desc: 'Stop smoking, limit alcohol to zero, reduce caffeine <200mg. Switch to BPA-free containers. Avoid raw fish, deli meats, soft cheeses.',
+        evidence: {
+            badges: [{ text: 'CDC', color: 'teal' }, { text: 'ACOG', color: 'blue' }, { text: 'RCOG', color: 'green' }],
+            fact: 'Smoking raises miscarriage risk 27% and doubles ectopic pregnancy risk; caffeine >200 mg/day doubles miscarriage risk.',
+            source: 'CDC (2016); ACOG PB No. 106 (2010); RCOG Scientific Impact Paper No. 57 (2015)'
+        }
+    },
+    {
+        month: 'Month 3',
+        icon: '📊',
+        color: '#4caf50',
+        title: 'Track Ovulation',
+        desc: 'Use ovulation predictor kits or basal thermometer. Chart cervical mucus. Identify your 5-6 day fertile window. Time intercourse every 1-2 days.',
+        evidence: {
+            badges: [{ text: 'NICE', color: 'teal' }, { text: 'ASRM', color: 'blue' }],
+            fact: 'LH-surge OPKs detect ovulation with ~97% specificity; intercourse 2 days before ovulation yields ~30% conception probability per cycle.',
+            source: 'NICE NG156 (2020); ASRM Practice Committee Opinion (2017); Wilcox et al., NEJM (1995)'
+        }
+    },
+    {
+        month: 'Month 3+',
+        icon: '🎯',
+        color: '#00bcd4',
+        title: 'Start Trying!',
+        desc: 'Have sex every 1-2 days during fertile window. Don\'t stress timing too much - stress blocks conception. Stay relaxed and enjoy the process!',
+        evidence: {
+            badges: [{ text: 'NICE', color: 'teal' }, { text: 'ESHRE', color: 'purple' }],
+            fact: '84% of couples conceive within 12 months; elevated cortisol suppresses GnRH pulsatility — mindfulness interventions improve conception rates.',
+            source: 'NICE NG156 (2020); ESHRE Capri Workshop (2000); Domar et al., Fertil Steril (2011)'
+        }
     }
 ];

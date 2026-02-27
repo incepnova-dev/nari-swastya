@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../../styles/journey/postpartum-care.css';
+import '../../../../../styles/journey/main/sections/postpartum.css';
 
 interface PostpartumCardProps {
     to: string;

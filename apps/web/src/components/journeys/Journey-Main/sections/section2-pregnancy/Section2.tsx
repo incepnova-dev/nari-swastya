@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { WombCanvas, TrimesterStage } from './WombCanvas';
-import '../../../../../styles/journey/pregnancy-journey.css';
+import '../../../../../styles/journey/main/sections/pregnancy.css';
 
 interface Milestone {
     icon: string;
