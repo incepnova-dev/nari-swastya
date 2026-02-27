@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatItem } from '../../../data';
+import { StatItem } from '../../../../data';
 
 export interface HeroStatCardProps extends StatItem {
   className?: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { CTAButtonData } from '../../../data';
+import { CTAButtonData } from '../../../../data';
 
 export interface HeroCTAButtonProps extends CTAButtonData {
   className?: string;

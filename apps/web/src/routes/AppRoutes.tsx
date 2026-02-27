@@ -2,11 +2,12 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Welcome } from '../pages/Welcome';
 import { Home } from '../pages/Home';
-import { Journeys } from '../components/journeys';
+import { Journeys } from '../components/journeys/Journey-Main';
 import { Services } from '../pages/Services';
 import { Stories } from '../pages/Stories';
 import { About } from '../pages/About';
 import { SymptomChecker } from '../pages/SymptomChecker';
+import { Conceiving } from '../pages/Conceiving';
 
 export const AppRoutes: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ export const AppRoutes: React.FC = () => {
       <Route path="/stories" element={<Stories />} />
       <Route path="/about" element={<About />} />
       <Route path="/symptomchecker" element={<SymptomChecker />} />
+      <Route path="/conceiving" element={<Conceiving />} />
     </Routes>
   );
 };

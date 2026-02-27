@@ -3,7 +3,7 @@ import { HeroBadge, HeroBadgeProps } from './HeroBadge';
 import { HeroTitle, HeroTitleProps } from './HeroTitle';
 import { HeroStats } from './HeroStats';
 import { HeroCTARow } from './HeroCTARow';
-import { StatItem, CTAButtonData } from '../../../data';
+import { StatItem, CTAButtonData } from '../../../../data';
 
 export interface HeroContentProps {
   badge: HeroBadgeProps;

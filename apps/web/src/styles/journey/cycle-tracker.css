@@ -1,0 +1,271 @@
+/* =====================================
+   cycle-tracker.css
+   "Understanding Your Cycle" section
+   1:1 parity with conceiving.html
+   ===================================== */
+
+/* ── Section wrapper ── */
+.cycle-tracker {
+    background: white;
+    border-radius: 40px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ── Section header ── */
+.cycle-tracker .section-header {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* ── Section label pill ── */
+.section-label-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(236, 64, 122, 0.08);
+    border: 1px solid rgba(236, 64, 122, 0.15);
+    color: #d81b60;
+    padding: 0.35rem 0.9rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* ── Section heading ── */
+.section-heading-j {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+    color: #212121;
+}
+
+.section-heading-j .em {
+    background: linear-gradient(135deg, #ec407a, #ad1457);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Section subtitle ── */
+.cycle-tracker .section-subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ── Two-column visual layout ── */
+.cycle-visual {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+/* ── Wheel container ── */
+.cycle-wheel-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* ── The circular wheel ── */
+.cycle-wheel {
+    width: 100%;
+    aspect-ratio: 1;
+    position: relative;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 40px rgba(233, 30, 99, 0.3);
+}
+
+/* ── Day bubbles ── */
+.cycle-day {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cycle-day:hover {
+    transform: scale(1.2) !important;
+    z-index: 10;
+}
+
+.cycle-day.fertile {
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+    color: white;
+}
+
+.cycle-day.ovulation {
+    background: linear-gradient(135deg, #ff9800 0%, #e65100 100%);
+    color: white;
+    transform: scale(1.3) translate(-50%, -50%) !important;
+}
+
+.cycle-day.period {
+    background: linear-gradient(135deg, #f44336 0%, #c62828 100%);
+    color: white;
+}
+
+.day-num {
+    font-size: 1.2rem;
+}
+
+.day-label {
+    font-size: 0.6rem;
+    opacity: 0.8;
+}
+
+/* ── Center circle ── */
+.cycle-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: white;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    z-index: 5;
+}
+
+/* ── Info panel (right side) ── */
+.cycle-info {
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 25px;
+    padding: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.info-item:last-of-type {
+    margin-bottom: 0;
+}
+
+.info-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.info-icon.red {
+    background: linear-gradient(135deg, #f44336 0%, #c62828 100%);
+}
+
+.info-icon.green {
+    background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+}
+
+.info-icon.orange {
+    background: linear-gradient(135deg, #ff9800 0%, #e65100 100%);
+}
+
+.info-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+
+.info-desc {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ── Pro Tip box ── */
+.pro-tip-box {
+    background: rgba(255, 193, 7, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+    border-left: 4px solid #ffc107;
+}
+
+.pro-tip-heading {
+    font-weight: 700;
+    color: #f57c00;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pro-tip-text {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+    .cycle-visual {
+        grid-template-columns: 1fr;
+    }
+
+    .cycle-wheel-container {
+        max-width: 360px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cycle-tracker {
+        padding: 2rem 1.25rem;
+        border-radius: 24px;
+    }
+
+    .cycle-day {
+        width: 46px;
+        height: 46px;
+    }
+
+    .day-num {
+        font-size: 1rem;
+    }
+
+    .cycle-center {
+        width: 120px;
+        height: 120px;
+    }
+}

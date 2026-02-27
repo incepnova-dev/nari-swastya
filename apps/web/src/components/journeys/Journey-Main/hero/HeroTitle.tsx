@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroTitleData } from '../../../data';
+import { HeroTitleData } from '../../../../data';
 
 export interface HeroTitleProps extends HeroTitleData {
   className?: string;

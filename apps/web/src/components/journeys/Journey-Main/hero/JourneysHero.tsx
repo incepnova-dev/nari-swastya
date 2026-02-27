@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { initJourneysHeroAnimations } from '../../../scripts/journeys';
+import { initJourneysHeroAnimations } from '../../../../scripts/journeys';
 import { HeroBackgrounds } from './HeroBackgrounds';
 import { HeroContent } from './HeroContent';
 import { LifecycleVisual } from './LifecycleVisual';
@@ -13,7 +13,7 @@ import {
     defaultSubtitle,
     defaultStats,
     defaultCTAButtons
-} from '../../../data';
+} from '../../../../data';
 
 export interface JourneysHeroProps {
     badge?: HeroBadgeProps;

@@ -36,12 +36,12 @@ export {
   defaultSubtitle,
   defaultStats,
   defaultCTAButtons,
-} from '../../../data';
+} from '../../../../data';
 
 export type {
   HeroBadgeData,
   HeroTitleData,
   StatItem,
   CTAButtonData,
-} from '../../../data';
+} from '../../../../data';
 

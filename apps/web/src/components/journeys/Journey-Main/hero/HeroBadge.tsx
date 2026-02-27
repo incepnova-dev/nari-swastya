@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeroBadgeData } from '../../../data';
+import { HeroBadgeData } from '../../../../data';
 
 export interface HeroBadgeProps extends HeroBadgeData {
   className?: string;

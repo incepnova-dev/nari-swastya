@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../styles/journey/prevention-community.css';
+import '../../../../../styles/journey/prevention-community.css';
 import { NetworkCanvas } from './NetworkCanvas';
 
 interface PreventionCardProps {
