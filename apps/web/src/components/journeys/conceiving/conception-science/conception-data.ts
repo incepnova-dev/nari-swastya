@@ -147,15 +147,17 @@ export const NUTRIENTS = [
         benefit: 'Prevents neural tube defects. START 3 months before trying! Helps egg quality and implantation.',
         need: '400-800 mcg (supplement recommended)',
         foods: ['🥬 Spinach', '🥦 Broccoli', '🍊 Oranges', '🥜 Beans', '🍞 Fortified Bread'],
-        color: '#ff6b9d'
+        color: '#ff6b9d',
+        rgba: 'rgba(255,107,157,0.1)'
     },
     {
         icon: '💪',
         name: 'Iron',
         benefit: 'Builds blood volume, prevents anemia. Low iron linked to ovulation problems and miscarriage risk.',
         need: '18 mg (27 mg if anemic)',
-        foods: ['🥩 Red Meat', '🦪 Oysters', '🥬 Kale', '🫘 Lentils', '🍫 Dark Chocolate'],
-        color: '#4caf50'
+        foods: ['🥩 Red Meat', '🦪 Oysters', '🥬 Kale', '🫂 Lentils', '🍫 Dark Chocolate'],
+        color: '#4caf50',
+        rgba: 'rgba(76,175,80,0.1)'
     },
     {
         icon: '🐟',
@@ -163,7 +165,8 @@ export const NUTRIENTS = [
         benefit: 'Improves egg quality, regulates hormones, reduces inflammation. Critical for baby\'s brain development.',
         need: '200-300 mg DHA',
         foods: ['🐟 Salmon', '🐠 Sardines', '🥚 Omega Eggs', '🥑 Walnuts', '🌰 Chia Seeds'],
-        color: '#ff9800'
+        color: '#ff9800',
+        rgba: 'rgba(255,152,0,0.1)'
     },
     {
         icon: '☀️',
@@ -171,6 +174,25 @@ export const NUTRIENTS = [
         benefit: 'Regulates menstrual cycles, improves egg quality. Deficiency linked to PCOS and fertility issues.',
         need: '600-1000 IU (test levels!)',
         foods: ['☀️ Sunlight 15min', '🐟 Fatty Fish', '🥚 Egg Yolks', '🥛 Fortified Milk', '🍄 Mushrooms'],
-        color: '#9c27b0'
+        color: '#9c27b0',
+        rgba: 'rgba(156,39,176,0.1)'
+    },
+    {
+        icon: '🦴',
+        name: 'Calcium',
+        benefit: 'Supports egg maturation, fertilization. Needed for baby\'s bones, teeth, heart, muscles later.',
+        need: '1000 mg',
+        foods: ['🥛 Milk', '🧀 Cheese', '🥦 Broccoli', '🌰 Almonds', '🐟 Sardines'],
+        color: '#00bcd4',
+        rgba: 'rgba(0,188,212,0.1)'
+    },
+    {
+        icon: '🔋',
+        name: 'Coenzyme Q10',
+        benefit: 'Powerful antioxidant! Improves egg quality especially in women 35+. Boosts mitochondrial energy.',
+        need: '100-600 mg (supplement)',
+        foods: ['🥩 Organ Meats', '🐟 Fatty Fish', '🥜 Peanuts', '🥦 Broccoli', '💊 Supplement'],
+        color: '#e91e63',
+        rgba: 'rgba(233,30,99,0.1)'
     }
 ];

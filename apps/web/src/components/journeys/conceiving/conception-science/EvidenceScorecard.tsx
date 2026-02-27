@@ -55,18 +55,24 @@ export const EducationalSections: React.FC = () => {
             <div className="section-header">
                 <div className="section-label-pill green"><i className="fa-solid fa-wheat-awn"></i> Evidence-Based Nutrition</div>
                 <h2 className="section-heading-j">🥗 Essential <span className="em">Pre-Conception Nutrients</span></h2>
-                <p className="section-subtitle">These nutrients prepare your body for healthy conception and pregnancy</p>
+                <p className="section-subtitle">
+                    These nutrients prepare your body for healthy conception and pregnancy
+                </p>
             </div>
 
-            <div className="nutrient-grid">
+            <div className="nutrient-grid reveal">
                 {NUTRIENTS.map((n, i) => (
                     <div key={i} className="nutrient-card" style={{ '--nutrient-color': n.color } as any}>
                         <div className="nutrient-header">
                             <div className="nutrient-icon">{n.icon}</div>
-                            <div><div className="nutrient-name">{n.name}</div></div>
+                            <div>
+                                <div className="nutrient-name">{n.name}</div>
+                            </div>
                         </div>
-                        <div className="nutrient-benefit">{n.benefit}</div>
-                        <div style={{ background: `${n.color}1a`, padding: '1rem', borderRadius: '12px', margin: '1rem 0' }}>
+                        <div className="nutrient-benefit">
+                            {n.benefit}
+                        </div>
+                        <div style={{ background: n.rgba, padding: '1rem', borderRadius: '12px', margin: '1rem 0' }}>
                             <strong style={{ color: n.color }}>Daily Need:</strong> {n.need}
                         </div>
                         <div className="food-list">
@@ -83,14 +89,18 @@ export const EducationalSections: React.FC = () => {
                 <p className="section-subtitle">Simple lifestyle changes that significantly impact your fertility</p>
             </div>
 
-            <div className="dos-donts">
+            <div className="dos-donts reveal">
                 <div className="do-card">
                     <div className="card-title"><span>✅</span><span>DEFINITELY DO</span></div>
                     {[
-                        { icon: '💧', title: 'Stay Hydrated', desc: '8-10 glasses daily. Improves cervical mucus quality.' },
-                        { icon: '😴', title: 'Sleep 7-9 Hours', desc: 'Regulates hormones. Poor sleep disrupts ovulation.' },
-                        { icon: '🧘', title: 'Manage Stress', desc: 'Yoga, meditation. High cortisol blocks ovulation.' },
-                        { icon: '💊', title: 'Take Prenatals', desc: 'Start 3 months before trying. Fills gaps.' }
+                        { icon: '💧', title: 'Stay Hydrated', desc: '8-10 glasses daily. Improves cervical mucus quality for sperm transport.' },
+                        { icon: '😴', title: 'Sleep 7-9 Hours', desc: 'Regulates hormones (leptin, melatonin). Poor sleep disrupts ovulation.' },
+                        { icon: '🧘', title: 'Manage Stress', desc: 'Yoga, meditation, therapy. High cortisol blocks ovulation hormones.' },
+                        { icon: '🏃‍♀️', title: 'Moderate Exercise', desc: '30 min daily - walking, swimming, yoga. Maintains healthy weight.' },
+                        { icon: '💊', title: 'Take Prenatal Vitamins', desc: 'Start 3 months before trying. Fills nutritional gaps.' },
+                        { icon: '🩺', title: 'Get Pre-Conception Check', desc: 'Blood tests, vaccinations, chronic condition management.' },
+                        { icon: '🦷', title: 'Visit Dentist', desc: 'Gum disease linked to infertility and pregnancy complications.' },
+                        { icon: '📊', title: 'Track Your Cycle', desc: 'Apps, basal temp, ovulation tests. Know your fertile window!' }
                     ].map((item, i) => (
                         <div key={i} className="action-item">
                             <div className="action-icon">{item.icon}</div>
@@ -105,10 +115,14 @@ export const EducationalSections: React.FC = () => {
                 <div className="dont-card">
                     <div className="card-title"><span>❌</span><span>ABSOLUTELY AVOID</span></div>
                     {[
-                        { icon: '🚬', title: 'No Smoking', desc: 'Damages eggs permanently. Increases miscarriage 50%.' },
-                        { icon: '🍷', title: 'Limit Alcohol', desc: 'Even moderate drinking reduces conception by 18%.' },
-                        { icon: '☕', title: 'Reduce Caffeine', desc: 'Max 200mg/day. High intake delays conception.' },
-                        { icon: '🧴', title: 'Toxic Chemicals', desc: 'Avoid BPA plastics, pesticides, parabens.' }
+                        { icon: '🚬', title: 'No Smoking', desc: 'Damages eggs permanently. Accelerates egg loss. Increases miscarriage 50%.' },
+                        { icon: '🍷', title: 'Limit Alcohol', desc: 'Even moderate drinking (>4 drinks/week) reduces conception by 18%.' },
+                        { icon: '☕', title: 'Reduce Caffeine', desc: 'Max 200mg/day (1 cup coffee). High intake delays conception.' },
+                        { icon: '🍩', title: 'Avoid Trans Fats', desc: 'Fried foods, pastries. Cause inflammation, worsen ovulation.' },
+                        { icon: '🏋️', title: 'No Extreme Exercise', desc: '>7 hrs/week vigorous exercise disrupts cycles. Moderate intensity only.' },
+                        { icon: '🧴', title: 'Avoid Toxic Chemicals', desc: 'BPA plastics, pesticides, parabens. Disrupt endocrine system.' },
+                        { icon: '🛁', title: 'No Hot Tubs/Saunas', desc: 'High heat affects egg quality. Warm baths OK, but not scalding.' },
+                        { icon: '💊', title: 'Check Medications', desc: 'Some meds harm fertility. Ask doctor about safer alternatives.' }
                     ].map((item, i) => (
                         <div key={i} className="action-item">
                             <div className="action-icon">{item.icon}</div>
