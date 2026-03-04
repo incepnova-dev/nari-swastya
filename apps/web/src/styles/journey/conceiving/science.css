@@ -1,4 +1,4 @@
-/* ── CONCEPTION SCIENCE SECTION ── */
+﻿/* â”€â”€ CONCEPTION SCIENCE SECTION â”€â”€ */
 #sim-universe {
     --sim-ink: #1a0a14;
     --sim-rose: #e8356d;
@@ -41,7 +41,7 @@
     box-sizing: border-box;
 }
 
-/* ── SIM HEADER ── */
+/* â”€â”€ SIM HEADER â”€â”€ */
 .sim-header {
     text-align: center;
     padding: 5rem 1rem 3.5rem;
@@ -106,7 +106,7 @@
     letter-spacing: .04em;
 }
 
-/* ── PART 1: CLOCK ── */
+/* â”€â”€ PART 1: CLOCK â”€â”€ */
 .sim-clock-section {
     padding: 0 0 5rem;
 }
@@ -266,7 +266,7 @@
     opacity: 1;
 }
 
-/* ── PART 2: CALCULATOR ── */
+/* â”€â”€ PART 2: CALCULATOR â”€â”€ */
 .calc-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -457,7 +457,7 @@
     color: #444;
 }
 
-/* ── PART 3: PLAYGROUND ── */
+/* â”€â”€ PART 3: PLAYGROUND â”€â”€ */
 .playground-shell {
     background: linear-gradient(135deg, #1a0a14 0%, #2d1028 50%, #1a0814 100%);
     border-radius: 36px;
@@ -696,7 +696,7 @@
     border: 1px solid rgba(255, 255, 255, .18);
 }
 
-/* ── SCORECARD ── */
+/* â”€â”€ SCORECARD â”€â”€ */
 .evidence-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
@@ -782,7 +782,7 @@
     margin-left: auto;
 }
 
-/* ── RESPONSIVE ── */
+/* â”€â”€ RESPONSIVE â”€â”€ */
 @media(max-width: 900px) {
 
     .clock-layout,
@@ -816,7 +816,7 @@
     }
 }
 
-/* ── EDUCATIONAL SECTIONS (Education, Habits, Exercise, Awareness) ── */
+/* â”€â”€ EDUCATIONAL SECTIONS (Education, Habits, Exercise, Awareness) â”€â”€ */
 
 .section-label-pill {
     display: inline-flex;
@@ -882,7 +882,7 @@
     margin-bottom: 2.5rem;
 }
 
-/* ── NUTRIENT CARDS ── */
+/* â”€â”€ NUTRIENT CARDS â”€â”€ */
 .nutrient-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
@@ -964,7 +964,7 @@
     transition: all 0.3s;
 }
 
-/* ── DO'S & DON'TS ── */
+/* â”€â”€ DO'S & DON'TS â”€â”€ */
 .dos-donts {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1048,7 +1048,7 @@
     background: linear-gradient(135deg, #f44336 0%, #c62828 100%);
 }
 
-/* ── EXERCISE & LOSS ── */
+/* â”€â”€ EXERCISE & LOSS â”€â”€ */
 .exercise-grid,
 .loss-types {
     display: grid;
@@ -1246,7 +1246,7 @@
     transform: translate(0) !important;
 }
 
-/* ── DEEP DIVE BUTTON ── */
+/* â”€â”€ DEEP DIVE BUTTON â”€â”€ */
 .pl-btn-wrap {
     display: flex;
     justify-content: center;
@@ -1374,7 +1374,7 @@
     }
 }
 
-/* ── DOCTOR SECTION ── */
+/* â”€â”€ DOCTOR SECTION â”€â”€ */
 .doctor-section {
     padding: 2rem 0 6rem;
     margin-bottom: 5rem;
@@ -1500,19 +1500,19 @@
     }
 }
 
-/* ══════════════════════════════════════
-   PART 5 — TIMELINE SECTION
-══════════════════════════════════════ */
-/* ══════════════════════════════════════
-   PART 5 — TIMELINE SECTION
-══════════════════════════════════════ */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   PART 5 â€” TIMELINE SECTION
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   PART 5 â€” TIMELINE SECTION
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .timeline-section {
     padding: 6rem 0;
     background: transparent;
     /* No box wrapper */
 }
 
-.timeline {
+.timeline-section .timeline {
     position: relative;
     padding: 2rem 0;
     margin-bottom: 3rem;
@@ -1521,7 +1521,7 @@
     margin-right: auto;
 }
 
-.timeline::before {
+.timeline-section .timeline::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1532,7 +1532,7 @@
     background: linear-gradient(180deg, #e91e63 0%, #9c27b0 50%, #2196f3 100%);
 }
 
-.timeline-item {
+.timeline-section .timeline-item {
     display: grid;
     grid-template-columns: 1fr 100px 1fr;
     gap: 2rem;
@@ -1540,16 +1540,16 @@
     align-items: center;
 }
 
-.timeline-item:nth-child(even) .timeline-content:first-child {
+.timeline-section .timeline-item:nth-child(even) .timeline-content:first-child {
     grid-column: 3;
 }
 
-.timeline-item:nth-child(even) .timeline-content:last-child {
+.timeline-section .timeline-item:nth-child(even) .timeline-content:last-child {
     grid-column: 1;
     grid-row: 1;
 }
 
-.timeline-marker {
+.timeline-section .timeline-marker {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -1564,17 +1564,17 @@
     z-index: 2;
 }
 
-.timeline-icon {
+.timeline-section .timeline-icon {
     font-size: 2rem;
     margin-bottom: 0.25rem;
 }
 
-.timeline-label {
+.timeline-section .timeline-label {
     font-size: 0.75rem;
     color: #666;
 }
 
-.timeline-content {
+.timeline-section .timeline-content {
     background: white;
     border-radius: 20px;
     padding: 1.5rem;
@@ -1582,7 +1582,7 @@
     transition: all 0.3s;
 }
 
-.timeline-content:hover {
+.timeline-section .timeline-content:hover {
     transform: scale(1.05);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
 }
@@ -1662,33 +1662,34 @@
 
 /* Responsive timeline */
 @media (max-width: 968px) {
-    .timeline::before {
+    .timeline-section .timeline::before {
         left: 30px;
         transform: none;
     }
 
-    .timeline-item {
+    .timeline-section .timeline-item {
         grid-template-columns: 80px 1fr;
         gap: 1.5rem;
     }
 
-    .timeline-marker {
+    .timeline-section .timeline-marker {
         width: 80px;
         height: 80px;
         left: 30px;
         transform: translateX(-50%);
     }
 
-    .timeline-content:last-child {
+    .timeline-section .timeline-content:last-child {
         display: none;
     }
 
-    .timeline-item:nth-child(even) .timeline-content:first-child {
+    .timeline-section .timeline-item:nth-child(even) .timeline-content:first-child {
         grid-column: 2;
     }
 }
+
 /* --------------------------------------
-   PART 6 � CTA SECTION
+   PART 6 — CTA SECTION
 -------------------------------------- */
 .cta-section {
     background: linear-gradient(135deg, #e91e63 0%, #9c27b0 100%);
@@ -1750,6 +1751,12 @@
         border-radius: 30px;
         margin: 3rem 1rem;
     }
-    .cta-title { font-size: 2rem; }
-    .cta-text { font-size: 1.1rem; }
+
+    .cta-title {
+        font-size: 2rem;
+    }
+
+    .cta-text {
+        font-size: 1.1rem;
+    }
 }

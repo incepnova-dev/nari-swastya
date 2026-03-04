@@ -15,71 +15,36 @@ export const PreConceptionTimeline: React.FC = () => {
             </div>
 
             <div className="timeline reveal">
-                {TIMELINE_ITEMS.map((item, idx) => {
-                    // Following the exact HTML order: 
-                    // odd rows: Content(1) -> Marker(2) -> Evidence(3)
-                    // even rows: Evidence(1) -> Marker(2) -> Content(3)
-                    // This allows the CSS nth-child(even) swap to work exactly like the original.
-                    const isEven = idx % 2 !== 0;
-
-                    if (isEven) {
-                        return (
-                            <div key={idx} className="timeline-item">
-                                <div className="timeline-content ev-card">
-                                    <div className="timeline-evidence">
-                                        <div className="ev-badges">
-                                            {item.evidence.badges.map((badge, bIdx) => (
-                                                <span key={bIdx} className={`ev-badge ${badge.color}`}>{badge.text}</span>
-                                            ))}
-                                        </div>
-                                        <p className="ev-fact">{item.evidence.fact}</p>
-                                        <p className="ev-source">{item.evidence.source}</p>
-                                    </div>
-                                </div>
-
-                                <div className="timeline-marker" style={{ '--timeline-color': item.color } as any}>
-                                    <div className="timeline-icon">{item.icon}</div>
-                                    <div className="timeline-label">{item.month}</div>
-                                </div>
-
-                                <div className="timeline-content">
-                                    <div className="timeline-title" style={{ '--timeline-color': item.color } as any}>
-                                        {item.title}
-                                    </div>
-                                    <div className="timeline-desc">{item.desc}</div>
-                                </div>
+                {TIMELINE_ITEMS.map((item, idx) => (
+                    <div key={idx} className="timeline-item">
+                        {/* 1. Content (Title/Desc) */}
+                        <div className="timeline-content">
+                            <div className="timeline-title" style={{ '--timeline-color': item.color } as any}>
+                                {item.title}
                             </div>
-                        );
-                    } else {
-                        return (
-                            <div key={idx} className="timeline-item">
-                                <div className="timeline-content">
-                                    <div className="timeline-title" style={{ '--timeline-color': item.color } as any}>
-                                        {item.title}
-                                    </div>
-                                    <div className="timeline-desc">{item.desc}</div>
-                                </div>
+                            <div className="timeline-desc">{item.desc}</div>
+                        </div>
 
-                                <div className="timeline-marker" style={{ '--timeline-color': item.color } as any}>
-                                    <div className="timeline-icon">{item.icon}</div>
-                                    <div className="timeline-label">{item.month}</div>
-                                </div>
+                        {/* 2. Marker (Center) */}
+                        <div className="timeline-marker" style={{ '--timeline-color': item.color } as any}>
+                            <div className="timeline-icon">{item.icon}</div>
+                            <div className="timeline-label">{item.month}</div>
+                        </div>
 
-                                <div className="timeline-content ev-card">
-                                    <div className="timeline-evidence">
-                                        <div className="ev-badges">
-                                            {item.evidence.badges.map((badge, bIdx) => (
-                                                <span key={bIdx} className={`ev-badge ${badge.color}`}>{badge.text}</span>
-                                            ))}
-                                        </div>
-                                        <p className="ev-fact">{item.evidence.fact}</p>
-                                        <p className="ev-source">{item.evidence.source}</p>
-                                    </div>
+                        {/* 3. Evidence Card */}
+                        <div className="timeline-content ev-card">
+                            <div className="timeline-evidence">
+                                <div className="ev-badges">
+                                    {item.evidence.badges.map((badge, bIdx) => (
+                                        <span key={bIdx} className={`ev-badge ${badge.color}`}>{badge.text}</span>
+                                    ))}
                                 </div>
+                                <p className="ev-fact">{item.evidence.fact}</p>
+                                <p className="ev-source">{item.evidence.source}</p>
                             </div>
-                        );
-                    }
-                })}
+                        </div>
+                    </div>
+                ))}
             </div>
 
             {/* CTA Section */}
