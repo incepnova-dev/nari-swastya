@@ -345,119 +345,132 @@ export const EducationalSections: React.FC = () => {
                 </a>
             </div>
 
-            <div className="doctor-section reveal">
-                <div className="section-header centered">
-                    <div className="section-label-pill purple">
-                        <i className="fa-solid fa-stethoscope"></i> CLINICAL GUIDANCE
-                    </div>
-                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.2rem', marginBottom: '0.8rem' }}>
-                        <i className="fa-solid fa-notes-medical" style={{ fontSize: '3rem', color: '#ad1457', filter: 'drop-shadow(0 4px 8px rgba(173, 20, 87, 0.2))' }}></i>
-                        <h2 className="section-heading-j" style={{ margin: 0 }}>When to <span className="em">See a Doctor</span></h2>
-                    </div>
-                    <p className="section-subtitle">
-                        Don't wait too long - early intervention improves success rates significantly
-                    </p>
-                </div>
-
-                <div className="trigger-grid">
-                    <div className="trigger-card" style={{ '--trigger-color': '#ff4d4d' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-clock"></i></div>
-                        <div className="trigger-text">
-                            <strong>After 12 months</strong> of trying (under age 35) without conception
+            {/* When to See a Doctor with Full-Width Background */}
+            <div className="doctor-bg-wrapper" style={{
+                background: '#f8f5fc',
+                width: '100vw',
+                position: 'relative',
+                left: '50%',
+                right: '50%',
+                marginLeft: '-50vw',
+                marginRight: '-50vw',
+                padding: '4rem 0',
+                borderRadius: '60px'
+            }}>
+                <div className="doctor-section reveal">
+                    <div className="section-header centered">
+                        <div className="section-label-pill purple">
+                            <i className="fa-solid fa-stethoscope"></i> CLINICAL GUIDANCE
                         </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#ff9800' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-cake-candles"></i></div>
-                        <div className="trigger-text">
-                            <strong>After 6 months</strong> of trying if you're 35-40 years old
+                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1.2rem', marginBottom: '0.8rem' }}>
+                            <i className="fa-solid fa-notes-medical" style={{ fontSize: '3rem', color: '#ad1457', filter: 'drop-shadow(0 4px 8px rgba(173, 20, 87, 0.2))' }}></i>
+                            <h2 className="section-heading-j" style={{ margin: 0 }}>When to <span className="em">See a Doctor</span></h2>
                         </div>
+                        <p className="section-subtitle">
+                            Don't wait too long - early intervention improves success rates significantly
+                        </p>
                     </div>
 
-                    <div className="trigger-card" style={{ '--trigger-color': '#9c27b0' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-calendar-check"></i></div>
-                        <div className="trigger-text">
-                            <strong>Immediately</strong> if you're over 40 and want to conceive
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#e91e63' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-droplet"></i></div>
-                        <div className="trigger-text">
-                            <strong>Irregular periods</strong> or cycles shorter than 21 days or longer than 35 days
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#2196f3' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-ban"></i></div>
-                        <div className="trigger-text">
-                            <strong>Absent periods</strong> for 3+ months (not pregnant) - could be PCOS or hormonal
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#4caf50' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-heart-crack"></i></div>
-                        <div className="trigger-text">
-                            <strong>2+ miscarriages</strong> - testing can identify treatable causes
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#00bcd4' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-triangle-exclamation"></i></div>
-                        <div className="trigger-text">
-                            <strong>Painful periods</strong> with heavy bleeding - could be endometriosis
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#ff5722' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-stethoscope"></i></div>
-                        <div className="trigger-text">
-                            <strong>Known conditions</strong> like PCOS, endometriosis, thyroid disease, diabetes
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#607d8b' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-dna"></i></div>
-                        <div className="trigger-text">
-                            <strong>Partner issues</strong> - low sperm count, erectile dysfunction, past vasectomy
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#795548' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-hospital-user"></i></div>
-                        <div className="trigger-text">
-                            <strong>Past pelvic infections</strong>, STIs, or pelvic inflammatory disease
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#3f51b5' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-pills"></i></div>
-                        <div className="trigger-text">
-                            <strong>Cancer treatment history</strong> - chemo/radiation may affect fertility
-                        </div>
-                    </div>
-
-                    <div className="trigger-card" style={{ '--trigger-color': '#009688' } as any}>
-                        <div className="trigger-icon"><i className="fa-solid fa-staff-snake"></i></div>
-                        <div className="trigger-text">
-                            <strong>Pre-conception checkup</strong> - recommended 3 months before trying
-                        </div>
-                    </div>
-                </div>
-
-                <div className="doctor-visit-box">
-                    <div className="doctor-visit-inner">
-                        <div className="doctor-visit-bulb">💡</div>
-                        <div>
-                            <div style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--sim-ink)' }}>
-                                What to Expect at Fertility Doctor Visit
+                    <div className="trigger-grid">
+                        <div className="trigger-card" style={{ '--trigger-color': '#ff4d4d' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-clock"></i></div>
+                            <div className="trigger-text">
+                                <strong>After 12 months</strong> of trying (under age 35) without conception
                             </div>
-                            <div style={{ fontSize: '0.95rem', color: '#555', lineHeight: 1.7 }}>
-                                <strong>Blood tests:</strong> Hormone levels (FSH, LH, AMH, thyroid, prolactin)<br />
-                                <strong>Ultrasound:</strong> Check ovaries, uterus, antral follicle count<br />
-                                <strong>Semen analysis:</strong> Partner's sperm count, motility, morphology<br />
-                                <strong>HSG test:</strong> X-ray to check if fallopian tubes are open<br />
-                                <strong>Treatment options:</strong> May include fertility meds, IUI, or IVF depending on diagnosis
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#ff9800' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-cake-candles"></i></div>
+                            <div className="trigger-text">
+                                <strong>After 6 months</strong> of trying if you're 35-40 years old
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#9c27b0' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-calendar-check"></i></div>
+                            <div className="trigger-text">
+                                <strong>Immediately</strong> if you're over 40 and want to conceive
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#e91e63' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-droplet"></i></div>
+                            <div className="trigger-text">
+                                <strong>Irregular periods</strong> or cycles shorter than 21 days or longer than 35 days
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#2196f3' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-ban"></i></div>
+                            <div className="trigger-text">
+                                <strong>Absent periods</strong> for 3+ months (not pregnant) - could be PCOS or hormonal
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#4caf50' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-heart-crack"></i></div>
+                            <div className="trigger-text">
+                                <strong>2+ miscarriages</strong> - testing can identify treatable causes
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#00bcd4' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-triangle-exclamation"></i></div>
+                            <div className="trigger-text">
+                                <strong>Painful periods</strong> with heavy bleeding - could be endometriosis
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#ff5722' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-stethoscope"></i></div>
+                            <div className="trigger-text">
+                                <strong>Known conditions</strong> like PCOS, endometriosis, thyroid disease, diabetes
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#607d8b' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-dna"></i></div>
+                            <div className="trigger-text">
+                                <strong>Partner issues</strong> - low sperm count, erectile dysfunction, past vasectomy
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#795548' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-hospital-user"></i></div>
+                            <div className="trigger-text">
+                                <strong>Past pelvic infections</strong>, STIs, or pelvic inflammatory disease
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#3f51b5' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-pills"></i></div>
+                            <div className="trigger-text">
+                                <strong>Cancer treatment history</strong> - chemo/radiation may affect fertility
+                            </div>
+                        </div>
+
+                        <div className="trigger-card" style={{ '--trigger-color': '#009688' } as any}>
+                            <div className="trigger-icon"><i className="fa-solid fa-staff-snake"></i></div>
+                            <div className="trigger-text">
+                                <strong>Pre-conception checkup</strong> - recommended 3 months before trying
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="doctor-visit-box">
+                        <div className="doctor-visit-inner">
+                            <div className="doctor-visit-bulb">💡</div>
+                            <div>
+                                <div style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '0.5rem', color: 'var(--sim-ink)' }}>
+                                    What to Expect at Fertility Doctor Visit
+                                </div>
+                                <div style={{ fontSize: '0.95rem', color: '#555', lineHeight: 1.7 }}>
+                                    <strong>Blood tests:</strong> Hormone levels (FSH, LH, AMH, thyroid, prolactin)<br />
+                                    <strong>Ultrasound:</strong> Check ovaries, uterus, antral follicle count<br />
+                                    <strong>Semen analysis:</strong> Partner's sperm count, motility, morphology<br />
+                                    <strong>HSG test:</strong> X-ray to check if fallopian tubes are open<br />
+                                    <strong>Treatment options:</strong> May include fertility meds, IUI, or IVF depending on diagnosis
+                                </div>
                             </div>
                         </div>
                     </div>

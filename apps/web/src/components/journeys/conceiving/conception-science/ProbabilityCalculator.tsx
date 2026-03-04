@@ -6,10 +6,14 @@ export const ProbabilityCalculator: React.FC = () => {
     const [reg, setReg] = useState(2);
     const [months, setMonths] = useState(3);
     const [factors, setFactors] = useState<{ [key: string]: boolean }>({
-        folic: false,
-        timing: false,
-        weight: false,
-        stress: false
+        folic: true,
+        smoke: false,
+        stress: false,
+        timing: true,
+        bmi: true,
+        sleep: true,
+        exercise: true,
+        alcohol: false
     });
     const [prob, setProb] = useState(24);
     const currentProbRef = useRef(24);
@@ -80,10 +84,14 @@ export const ProbabilityCalculator: React.FC = () => {
         base -= Math.floor(reg * 0.9);
         if (months >= 12) base = Math.max(base - 3, 2);
 
-        if (factors.folic) base += 2;
+        if (factors.folic) base += 8;
+        if (factors.bmi) base += 7;
+        if (factors.smoke) base -= 12;
+        if (factors.sleep) base += 6;
+        if (factors.stress) base -= 9;
+        if (factors.exercise) base += 5;
         if (factors.timing) base += 15;
-        if (factors.weight) base += 5;
-        if (factors.stress) base += 3;
+        if (factors.alcohol) base -= 7;
 
         base = Math.max(2, Math.min(base, 58));
         targetProbRef.current = base;
@@ -149,24 +157,40 @@ export const ProbabilityCalculator: React.FC = () => {
                 </div>
 
                 <div className="calc-card">
-                    <div className="calc-card-label">🔥 Boost Factors</div>
-                    <h4>Modifiable Lifestyle Impact</h4>
+                    <div className="calc-card-label"><i className="fa-solid fa-heart-pulse"></i> Lifestyle Factors</div>
+                    <h4>Health & Wellbeing Score</h4>
                     <div className="factor-grid">
-                        <div className={`factor-toggle ${factors.timing ? 'active' : ''}`} onClick={() => toggleFactor('timing')}>
-                            <span>📅 Timed Sync</span>
-                            <div className="ft-check">{factors.timing && <i className="fa-solid fa-check"></i>}</div>
-                        </div>
                         <div className={`factor-toggle ${factors.folic ? 'active' : ''}`} onClick={() => toggleFactor('folic')}>
-                            <span>💊 Folic Acid</span>
+                            <span>💊 Folic Acid 400µg</span>
                             <div className="ft-check">{factors.folic && <i className="fa-solid fa-check"></i>}</div>
                         </div>
-                        <div className={`factor-toggle ${factors.weight ? 'active' : ''}`} onClick={() => toggleFactor('weight')}>
-                            <span>⚖️ Healthy BMI</span>
-                            <div className="ft-check">{factors.weight && <i className="fa-solid fa-check"></i>}</div>
+                        <div className={`factor-toggle ${factors.bmi ? 'active' : ''}`} onClick={() => toggleFactor('bmi')}>
+                            <span>⚖️ BMI 18.5–24.9</span>
+                            <div className="ft-check">{factors.bmi && <i className="fa-solid fa-check"></i>}</div>
+                        </div>
+                        <div className={`factor-toggle ${factors.smoke ? 'active' : ''}`} onClick={() => toggleFactor('smoke')}>
+                            <span>🚬 Smoking</span>
+                            <div className="ft-check">{factors.smoke && <i className="fa-solid fa-check"></i>}</div>
+                        </div>
+                        <div className={`factor-toggle ${factors.sleep ? 'active' : ''}`} onClick={() => toggleFactor('sleep')}>
+                            <span>😴 7–9h Sleep</span>
+                            <div className="ft-check">{factors.sleep && <i className="fa-solid fa-check"></i>}</div>
                         </div>
                         <div className={`factor-toggle ${factors.stress ? 'active' : ''}`} onClick={() => toggleFactor('stress')}>
-                            <span>🧘 Stress Management</span>
+                            <span>😰 High Stress</span>
                             <div className="ft-check">{factors.stress && <i className="fa-solid fa-check"></i>}</div>
+                        </div>
+                        <div className={`factor-toggle ${factors.exercise ? 'active' : ''}`} onClick={() => toggleFactor('exercise')}>
+                            <span>🏃 Moderate Exercise</span>
+                            <div className="ft-check">{factors.exercise && <i className="fa-solid fa-check"></i>}</div>
+                        </div>
+                        <div className={`factor-toggle ${factors.timing ? 'active' : ''}`} onClick={() => toggleFactor('timing')}>
+                            <span>📅 Timed Intercourse</span>
+                            <div className="ft-check">{factors.timing && <i className="fa-solid fa-check"></i>}</div>
+                        </div>
+                        <div className={`factor-toggle ${factors.alcohol ? 'active' : ''}`} onClick={() => toggleFactor('alcohol')}>
+                            <span>🍷 Alcohol &gt;2/week</span>
+                            <div className="ft-check">{factors.alcohol && <i className="fa-solid fa-check"></i>}</div>
                         </div>
                     </div>
                 </div>

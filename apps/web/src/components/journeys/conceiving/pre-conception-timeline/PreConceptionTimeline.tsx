@@ -5,8 +5,8 @@ export const PreConceptionTimeline: React.FC = () => {
     return (
         <section className="timeline-section reveal">
             <div className="section-header centered">
-                <div className="section-label-pill pink">
-                    <i className="fa-solid fa-map-location-dot"></i> YOUR ROADMAP
+                <div className="section-label-pill gold">
+                    <i className="fa-solid fa-calendar-days"></i> Your Roadmap
                 </div>
                 <h2 className="section-heading-j">
                     <span className="icon-calendar">🗓️</span> Your 3-Month <span className="em">Pre-Conception Timeline</span>
@@ -14,7 +14,7 @@ export const PreConceptionTimeline: React.FC = () => {
                 <p className="section-subtitle">Prepare your body step-by-step for the healthiest pregnancy</p>
             </div>
 
-            <div className="timeline">
+            <div className="timeline reveal">
                 {TIMELINE_ITEMS.map((item, idx) => {
                     // Following the exact HTML order: 
                     // odd rows: Content(1) -> Marker(2) -> Evidence(3)
