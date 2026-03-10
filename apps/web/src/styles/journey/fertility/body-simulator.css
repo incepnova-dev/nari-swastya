@@ -1,0 +1,2546 @@
+﻿    /* --- BODY SIMULATOR ENHANCED STYLES --- */
+    .body-simulator-section {
+      background: linear-gradient(145deg, #fdf0f5 0%, #f5eafb 40%, #fce4ec 75%, #ede7f6 100%);
+      border-radius: 32px;
+      padding: 3rem 2rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 20px 60px rgba(236, 64, 122, 0.10), 0 4px 20px rgba(197, 163, 216, 0.12);
+      border: 1px solid rgba(236, 64, 122, 0.07);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-header {
+      position: relative;
+    }
+
+    .header-badge {
+      display: inline-block;
+      background: #ffecb3;
+      color: #ff6f00;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+      animation: pulse-badge 2s infinite;
+    }
+
+    @keyframes pulse-badge {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+    .master-control {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      border: 1px solid rgba(236, 64, 122, 0.2);
+      margin-bottom: 2rem;
+    }
+
+    .slider.master-slider {
+      height: 12px;
+      background: linear-gradient(to right, #e0e0e0 0%, #e0e0e0 100%);
+    }
+
+    .slider.master-slider::-webkit-slider-thumb {
+      width: 28px;
+      height: 28px;
+      background: var(--deep-pink);
+      border: 3px solid white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .cycle-phases-bar {
+      display: flex;
+      height: 6px;
+      margin-top: 10px;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .phase-segment {
+      height: 100%;
+      opacity: 0.7;
+    }
+
+    .p-menstrual {
+      width: 18%;
+      background: var(--menstrual-red);
+    }
+
+    .p-follicular {
+      width: 30%;
+      background: var(--ovulation-gold);
+    }
+
+    .p-ovulation {
+      width: 14%;
+      background: var(--fertility-green);
+    }
+
+    .p-luteal {
+      width: 38%;
+      background: var(--luteal-blue);
+    }
+
+    .sim-play-btn {
+      width: 100%;
+      margin-top: 1rem;
+      padding: 0.8rem;
+      background: #212121;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .sim-play-btn:hover {
+      background: #424242;
+      transform: translateY(-2px);
+    }
+
+    .sim-play-btn.playing {
+      background: #e53935;
+    }
+
+    /* Hormone Dashboard */
+    .hormone-bars {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .h-bar-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    .h-bar-group label {
+      width: 80px;
+      font-weight: 600;
+    }
+
+    .h-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.6);
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .h-fill {
+      height: 100%;
+      transition: width 0.5s ease;
+      border-radius: 4px;
+    }
+
+    .h-fill.estrogen {
+      background: #f06292;
+    }
+
+    .h-fill.lh {
+      background: #ba68c8;
+    }
+
+    .h-fill.progesterone {
+      background: #4db6ac;
+    }
+
+    /* Visual Insight Card */
+    .sim-insight-card {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(5px);
+      padding: 1rem;
+      border-radius: 16px;
+      border-left: 4px solid var(--deep-pink);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .insight-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .insight-title {
+      font-weight: 800;
+      color: var(--text-main);
+      font-size: 1rem;
+    }
+
+    .insight-text {
+      font-size: 0.85rem;
+      color: #555;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    /* SVG Animations */
+    #activeFollicle {
+      transition: r 0.5s ease;
+    }
+
+    #endometrium {
+      transition: opacity 0.5s ease, stroke-width 0.5s ease;
+    }
+
+    #visualTempBar {
+      transition: height 0.5s ease, y 0.5s ease;
+    }
+
+    #mucusIcon {
+      transition: transform 0.5s ease;
+    }
+
+    @keyframes egg-travel {
+      0% {
+        cx: 260;
+        cy: 250;
+        opacity: 1;
+      }
+
+      20% {
+        cx: 270;
+        cy: 230;
+      }
+
+      40% {
+        cx: 240;
+        cy: 220;
+      }
+
+      60% {
+        cx: 210;
+        cy: 240;
+      }
+
+      80% {
+        cx: 170;
+        cy: 260;
+      }
+
+      100% {
+        cx: 170;
+        cy: 280;
+        opacity: 0;
+      }
+    }
+
+    .animate-egg {
+      animation: egg-travel 3s linear forwards;
+    }
+
+
+
+    /* â”€â”€ SIMULATOR HEADER â”€â”€ */
+    .sim-modal-header {
+      padding: 2.2rem 2.8rem 1.4rem;
+      text-align: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    .sim-modal-eyebrow {
+      display: inline-block;
+      background: #ffecb3;
+      color: #e65100;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.3rem 0.9rem;
+      border-radius: 20px;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      animation: pulse-badge 2s infinite;
+    }
+
+    .sim-modal-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.6rem, 3.2vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.15;
+      margin: 0 0 0.5rem;
+      color: #212121;
+    }
+
+    .sim-modal-title span {
+      background: linear-gradient(135deg, #ec407a 0%, #d81b60 50%, #ad1457 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 2px 8px rgba(236, 64, 122, 0.2));
+    }
+
+    .sim-modal-subtitle {
+      font-size: 0.92rem;
+      color: #7b5070;
+      max-width: 580px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* â”€â”€ 3-COLUMN GRID â”€â”€ */
+    .sim-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr 290px;
+      gap: 1.2rem;
+      padding: 0 1.5rem 1.5rem;
+      flex: 1;
+      min-height: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 1150px) {
+      .sim-grid {
+        grid-template-columns: 240px 1fr;
+      }
+
+      .sim-science-col {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .sim-grid {
+        grid-template-columns: 230px 1fr;
+        gap: 0.8rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sim-grid {
+        grid-template-columns: 1fr;
+        padding: 0 0.6rem 1rem;
+      }
+
+      .sim-modal-header {
+        padding: 1.2rem 0.9rem 0.8rem;
+      }
+    }
+
+    /* â”€â”€ LEFT: TREATMENT CARDS â”€â”€ */
+    .sim-tx-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .sim-col-label {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #b0709a;
+      padding: 0 0.3rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .sim-tx-btn {
+      background: rgba(255, 255, 255, 0.75);
+      border: 1.5px solid rgba(236, 64, 122, 0.12);
+      border-radius: 14px;
+      padding: 0.75rem 0.9rem;
+      cursor: pointer;
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      box-shadow: 0 2px 10px rgba(236, 64, 122, 0.06);
+      position: relative;
+      overflow: visible;
+      /* never clip text */
+      text-align: left;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .sim-tx-btn::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      border-radius: 0 3px 3px 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .sim-tx-btn[data-sim="ovulation"]::before {
+      background: linear-gradient(180deg, #f4a335, #e65100);
+    }
+
+    .sim-tx-btn[data-sim="iui"]::before {
+      background: linear-gradient(180deg, #7c3aed, #5b21b6);
+    }
+
+    .sim-tx-btn[data-sim="ivf"]::before {
+      background: linear-gradient(180deg, #ec407a, #ad1457);
+    }
+
+    .sim-tx-btn[data-sim="freeze"]::before {
+      background: linear-gradient(180deg, #0288d1, #01579b);
+    }
+
+    .sim-tx-btn[data-sim="icsi"]::before {
+      background: linear-gradient(180deg, #00897b, #004d40);
+    }
+
+    .sim-tx-btn[data-sim="fet"]::before {
+      background: linear-gradient(180deg, #e91e63, #880e4f);
+    }
+
+    .sim-tx-btn[data-sim="donor"]::before {
+      background: linear-gradient(180deg, #ff8f00, #e65100);
+    }
+
+    .sim-tx-btn[data-sim="pcos"]::before {
+      background: linear-gradient(180deg, #558b2f, #1b5e20);
+    }
+
+    .sim-tx-btn[data-sim="surrogacy"]::before {
+      background: linear-gradient(180deg, #6d4c41, #3e2723);
+    }
+
+    .sim-tx-btn[data-sim="ovulation"] .sim-tx-ico {
+      background: linear-gradient(135deg, #fff8e1, #ffe0b2);
+      color: #f57c00;
+    }
+
+    .sim-tx-btn[data-sim="iui"] .sim-tx-ico {
+      background: linear-gradient(135deg, #ede7f6, #d1c4e9);
+      color: #6a1b9a;
+    }
+
+    .sim-tx-btn[data-sim="ivf"] .sim-tx-ico {
+      background: linear-gradient(135deg, #fce4ec, #f8bbd0);
+      color: #c2185b;
+    }
+
+    .sim-tx-btn[data-sim="freeze"] .sim-tx-ico {
+      background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+      color: #0277bd;
+    }
+
+    .sim-tx-btn[data-sim="icsi"] .sim-tx-ico {
+      background: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+      color: #00695c;
+    }
+
+    .sim-tx-btn[data-sim="fet"] .sim-tx-ico {
+      background: linear-gradient(135deg, #fce4ec, #f48fb1);
+      color: #880e4f;
+    }
+
+    .sim-tx-btn[data-sim="donor"] .sim-tx-ico {
+      background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+      color: #e65100;
+    }
+
+    .sim-tx-btn[data-sim="pcos"] .sim-tx-ico {
+      background: linear-gradient(135deg, #f1f8e9, #dcedc8);
+      color: #33691e;
+    }
+
+    .sim-tx-btn[data-sim="surrogacy"] .sim-tx-ico {
+      background: linear-gradient(135deg, #efebe9, #d7ccc8);
+      color: #4e342e;
+    }
+
+    /* Section dividers for treatment groups */
+    .sim-tx-divider {
+      font-size: 0.58rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(176, 112, 154, 0.55);
+      padding: 0.6rem 0.3rem 0.1rem;
+      border-top: 1px solid rgba(236, 64, 122, 0.1);
+      margin-top: 0.4rem;
+    }
+
+    /* Scrollable treatment column */
+    .sim-tx-col {
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(236, 64, 122, 0.2) transparent;
+    }
+
+    /* New SVG elements for advanced procedures */
+    .sa-icsi-needle {
+      stroke: #00897b;
+      stroke-width: 1.5;
+      fill: none;
+      opacity: 0;
+      transition: all 0.8s;
+    }
+
+    .sa-icsi-needle.in {
+      opacity: 1;
+    }
+
+    .sa-zona {
+      fill: none;
+      stroke: rgba(156, 39, 176, 0.4);
+      stroke-width: 1.5;
+      stroke-dasharray: 3 2;
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .sa-zona.show {
+      opacity: 1;
+    }
+
+    .sa-pcos-cyst {
+      fill: rgba(139, 195, 74, 0.15);
+      stroke: #7cb342;
+      stroke-width: 1.5;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .sa-pcos-cyst.show {
+      opacity: 1;
+    }
+
+    .sa-corpus-luteum {
+      fill: rgba(165, 214, 167, 0.5);
+      stroke: #43a047;
+      stroke-width: 1.5;
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .sa-corpus-luteum.show {
+      opacity: 1;
+    }
+
+    .sa-implant-glow {
+      fill: rgba(233, 30, 99, 0.15);
+      opacity: 0;
+      transition: opacity 0.8s;
+    }
+
+    .sa-implant-glow.show {
+      opacity: 1;
+      animation: implantPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes implantPulse {
+
+      0%,
+      100% {
+        opacity: 0.15;
+      }
+
+      50% {
+        opacity: 0.35;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    .sa-donor-egg {
+      fill: rgba(255, 152, 0, 0.25);
+      stroke: #ff8f00;
+      stroke-width: 2;
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .sa-donor-egg.show {
+      opacity: 1;
+    }
+
+    .sa-fet-embryo {
+      opacity: 0;
+      transition: opacity 0.8s;
+    }
+
+    .sa-fet-embryo.show {
+      opacity: 1;
+    }
+
+    .sa-lining-thick {
+      fill: rgba(233, 30, 99, 0.22);
+      stroke: rgba(233, 30, 99, 0.3);
+      stroke-width: 1;
+      opacity: 0;
+      transition: opacity 0.7s;
+    }
+
+    .sa-lining-thick.show {
+      opacity: 1;
+    }
+
+    .sa-surro-outline {
+      fill: rgba(161, 136, 127, 0.08);
+      stroke: rgba(109, 76, 65, 0.3);
+      stroke-width: 1.5;
+      stroke-dasharray: 6 4;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .sa-surro-outline.show {
+      opacity: 1;
+    }
+
+    .sa-blood-vessel {
+      fill: none;
+      stroke: rgba(233, 30, 99, 0.25);
+      stroke-width: 1;
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .sa-blood-vessel.show {
+      opacity: 1;
+      animation: vesselFlow 2s ease-in-out infinite;
+    }
+
+    @keyframes vesselFlow {
+
+      0%,
+      100% {
+        stroke-opacity: 0.25;
+      }
+
+      50% {
+        stroke-opacity: 0.55;
+      }
+    }
+
+    .sa-progesterone-cloud {
+      fill: rgba(92, 107, 192, 0.08);
+      opacity: 0;
+      transition: opacity 0.7s;
+    }
+
+    .sa-progesterone-cloud.show {
+      opacity: 1;
+    }
+
+    .sa-laparoscope {
+      stroke: #546e7a;
+      stroke-width: 2;
+      fill: none;
+      opacity: 0;
+      transition: all 0.8s;
+    }
+
+    .sa-laparoscope.in {
+      opacity: 1;
+    }
+
+    .sa-metformin {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .sa-metformin.show {
+      opacity: 1;
+    }
+
+    /* â”€â”€ PHASE PROGRESS BAR â”€â”€ */
+    .sim-phase-bar {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+      padding: 0.65rem 1.4rem 0.4rem;
+      background: linear-gradient(90deg, rgba(252, 228, 236, 0.15), rgba(243, 229, 245, 0.15));
+      flex-shrink: 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .sim-phase-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sim-phase-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 0;
+      flex: 1;
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .sim-phase-step::after {
+      content: '';
+      position: absolute;
+      top: 9px;
+      left: 60%;
+      right: -40%;
+      height: 2px;
+      background: rgba(236, 64, 122, 0.12);
+      z-index: 0;
+    }
+
+    .sim-phase-step:last-child::after {
+      display: none;
+    }
+
+    .sim-phase-dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: white;
+      border: 2px solid rgba(236, 64, 122, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+      color: #ccc;
+      z-index: 1;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 5px rgba(236, 64, 122, 0.06);
+    }
+
+    .sim-phase-step.done .sim-phase-dot {
+      background: #ec407a;
+      border-color: #ec407a;
+      color: white;
+      box-shadow: 0 3px 10px rgba(236, 64, 122, 0.28);
+    }
+
+    .sim-phase-step.active .sim-phase-dot {
+      background: white;
+      border-color: #ec407a;
+      color: #ec407a;
+      animation: phaseActivePulse 1.5s ease-in-out infinite;
+    }
+
+    .sim-phase-step.done::after {
+      background: linear-gradient(90deg, #ec407a, rgba(236, 64, 122, 0.3));
+    }
+
+    .sim-phase-step.active::after {
+      background: rgba(236, 64, 122, 0.2);
+    }
+
+    @keyframes phaseActivePulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 5px rgba(236, 64, 122, 0.1);
+      }
+
+      50% {
+        box-shadow: 0 0 0 8px rgba(236, 64, 122, 0.18);
+      }
+    }
+
+    .sim-phase-lbl {
+      font-size: 0.5rem;
+      font-weight: 700;
+      color: #ccc;
+      text-align: center;
+      margin-top: 4px;
+      white-space: nowrap;
+      max-width: 60px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.3s;
+    }
+
+    .sim-phase-step.active .sim-phase-lbl {
+      color: #c2185b;
+    }
+
+    .sim-phase-step.done .sim-phase-lbl {
+      color: rgba(236, 64, 122, 0.7);
+    }
+
+    /* â”€â”€ LIVE TICKER â”€â”€ */
+    .sim-ticker-wrap {
+      position: absolute;
+      bottom: 52px;
+      left: 0;
+      right: 0;
+      height: 26px;
+      overflow: hidden;
+      z-index: 18;
+      background: linear-gradient(90deg, transparent, rgba(255, 248, 250, 0.93) 6%, rgba(255, 248, 250, 0.93) 94%, transparent);
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.6s;
+      pointer-events: none;
+    }
+
+    .sim-ticker-wrap.active {
+      opacity: 1;
+    }
+
+    .sim-ticker-inner {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      animation: simTickerScroll 32s linear infinite;
+    }
+
+    .sim-ticker-inner:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes simTickerScroll {
+      from {
+        transform: translateX(100vw);
+      }
+
+      to {
+        transform: translateX(-300%);
+      }
+    }
+
+    .sim-ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0 1rem;
+      font-size: 0.68rem;
+      color: #7b5070;
+      font-weight: 600;
+    }
+
+    .sim-ticker-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #ec407a;
+      flex-shrink: 0;
+      animation: tickerDotBlink 1.6s ease-in-out infinite;
+    }
+
+    @keyframes tickerDotBlink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.2;
+      }
+    }
+
+    /* â”€â”€ DRUG SYRINGE ANIMATION â”€â”€ */
+    .sim-inject-anim {
+      position: absolute;
+      bottom: 88px;
+      right: 10px;
+      opacity: 0;
+      transition: opacity 0.5s;
+      z-index: 22;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .sim-inject-anim.show {
+      opacity: 1;
+    }
+
+    .sim-syringe-body {
+      width: 16px;
+      height: 46px;
+      background: linear-gradient(180deg, rgba(227, 242, 253, 0.95), rgba(187, 222, 251, 0.95));
+      border: 1.5px solid rgba(2, 136, 209, 0.35);
+      border-radius: 5px 5px 2px 2px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sim-drug-fill {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, rgba(255, 183, 77, 0.5), rgba(244, 143, 53, 0.85));
+      height: 72%;
+      transition: height 2.5s ease-in-out;
+      border-radius: 2px;
+    }
+
+    .sim-drug-fill.depleting {
+      height: 4% !important;
+    }
+
+    .sim-syringe-tip {
+      width: 4px;
+      height: 11px;
+      background: #90a4ae;
+      border-radius: 0 0 3px 3px;
+    }
+
+    .sim-inject-lbl {
+      font-size: 0.52rem;
+      font-weight: 700;
+      color: #0277bd;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .sim-idrop {
+      width: 3px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(244, 163, 53, 0.7);
+      position: absolute;
+      left: 6px;
+      animation: idropFall 1s ease-in infinite;
+    }
+
+    .sim-idrop:nth-child(2) {
+      animation-delay: .35s;
+      left: 10px;
+    }
+
+    .sim-idrop:nth-child(3) {
+      animation-delay: .7s;
+      left: 14px;
+    }
+
+    @keyframes idropFall {
+      0% {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(20px);
+        opacity: 0;
+      }
+    }
+
+    /* â”€â”€ BODY REGION LEGEND â”€â”€ */
+    .sim-bodymap {
+      position: absolute;
+      bottom: 52px;
+      right: 10px;
+      z-index: 19;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .sim-bodymap.show {
+      opacity: 1;
+    }
+
+    .sim-region {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 0.6rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(236, 64, 122, 0.12);
+      box-shadow: 0 1px 5px rgba(236, 64, 122, 0.06);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.4s;
+    }
+
+    .sim-region.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .sim-region-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .sim-region-txt {
+      color: #555;
+    }
+
+    /* â”€â”€ FERT TIMER â”€â”€ */
+    .sim-fert-timer {
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.96);
+      border: 1.5px solid rgba(236, 64, 122, 0.18);
+      border-radius: 12px;
+      padding: 5px 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #333;
+      text-align: center;
+      z-index: 21;
+      white-space: nowrap;
+      opacity: 0;
+      transition: all 0.4s;
+      box-shadow: 0 3px 12px rgba(236, 64, 122, 0.1);
+    }
+
+    .sim-fert-timer.show {
+      opacity: 1;
+    }
+
+    .sim-fert-timer span {
+      display: block;
+      font-size: 0.56rem;
+      color: #9e6080;
+      margin-top: 1px;
+    }
+
+    /* â”€â”€ TABBED INFO BAR â”€â”€ */
+    .sim-info-bar {
+      border-top: 1px solid rgba(236, 64, 122, 0.1);
+      flex-shrink: 0;
+      padding: 0;
+      background: linear-gradient(90deg, rgba(252, 228, 236, 0.2), rgba(243, 229, 245, 0.2));
+      position: relative;
+      z-index: 1;
+    }
+
+    .sim-info-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(236, 64, 122, 0.08);
+    }
+
+    .sim-info-tab {
+      flex: 1;
+      padding: 0.48rem 0.4rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: #b0709a;
+      cursor: pointer;
+      text-align: center;
+      border: none;
+      background: none;
+      transition: all 0.22s;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+    }
+
+    .sim-info-tab.active {
+      color: #c2185b;
+      border-bottom-color: #ec407a;
+      background: rgba(236, 64, 122, 0.04);
+    }
+
+    .sim-info-tab:hover {
+      color: #c2185b;
+    }
+
+    .sim-info-pane {
+      display: none;
+    }
+
+    .sim-info-pane.active {
+      display: block;
+    }
+
+    .sim-info-pane-full {
+      display: none;
+      padding: 0.75rem 1.4rem;
+    }
+
+    .sim-info-pane-full.active {
+      display: block;
+    }
+
+    /* Overview 2-column inner layout */
+    .sim-overview-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 1.1rem;
+      padding: 0.9rem 1.4rem;
+      width: 100%;
+      box-sizing: border-box;
+      align-items: start;
+    }
+
+    .sim-overview-main {
+      min-width: 0;
+    }
+
+    @media (max-width: 700px) {
+      .sim-overview-inner {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .sim-info-pane.active {
+        display: block;
+      }
+    }
+
+    /* â”€â”€ SIDE EFFECTS â”€â”€ */
+    .sim-fx-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .sim-fx-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.28rem 0.65rem;
+      border-radius: 20px;
+      font-size: 0.67rem;
+      font-weight: 600;
+      border: 1.5px solid;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: all 0.35s;
+    }
+
+    .sim-fx-chip.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sim-fx-chip.mild {
+      background: rgba(255, 248, 225, 0.9);
+      border-color: rgba(255, 160, 0, 0.3);
+      color: #e65100;
+    }
+
+    .sim-fx-chip.moderate {
+      background: rgba(252, 228, 236, 0.9);
+      border-color: rgba(233, 30, 99, 0.3);
+      color: #c2185b;
+    }
+
+    .sim-fx-chip.positive {
+      background: rgba(232, 245, 233, 0.9);
+      border-color: rgba(76, 175, 80, 0.3);
+      color: #2e7d32;
+    }
+
+    .sim-fx-chip.info {
+      background: rgba(232, 244, 253, 0.9);
+      border-color: rgba(33, 150, 243, 0.3);
+      color: #0277bd;
+    }
+
+    /* â”€â”€ SPERM QUALITY â”€â”€ */
+    .sim-spm-title {
+      font-size: 0.58rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #1565c0;
+      margin-bottom: 0.45rem;
+    }
+
+    .sim-spm-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .sim-spm-lbl {
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #666;
+      width: 62px;
+      flex-shrink: 0;
+    }
+
+    .sim-spm-track {
+      flex: 1;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(21, 101, 192, 0.07);
+      overflow: hidden;
+    }
+
+    .sim-spm-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+      width: 5%;
+    }
+
+    .sim-spm-fill.count {
+      background: linear-gradient(90deg, #90caf9, #1565c0);
+    }
+
+    .sim-spm-fill.motility {
+      background: linear-gradient(90deg, #a5d6a7, #2e7d32);
+    }
+
+    .sim-spm-fill.morph {
+      background: linear-gradient(90deg, #ce93d8, #6a1b9a);
+    }
+
+    .sim-spm-val {
+      font-size: 0.59rem;
+      color: #999;
+      width: 36px;
+      text-align: right;
+    }
+
+    /* â”€â”€ EMBRYO GRADE â”€â”€ */
+    .sim-eg-title {
+      font-size: 0.58rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #c2185b;
+      margin-bottom: 0.45rem;
+    }
+
+    .sim-eg-cells {
+      display: flex;
+      gap: 0.38rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .sim-eg-cell {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 2px solid rgba(236, 64, 122, 0.15);
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.56rem;
+      font-weight: 800;
+      color: #ccc;
+      transition: all 0.5s;
+      flex-direction: column;
+    }
+
+    .sim-eg-cell.g5aa {
+      border-color: #43a047;
+      background: rgba(232, 245, 233, 0.9);
+      color: #2e7d32;
+      box-shadow: 0 2px 8px rgba(67, 160, 71, 0.25);
+    }
+
+    .sim-eg-cell.g4ab {
+      border-color: #66bb6a;
+      background: rgba(241, 248, 233, 0.9);
+      color: #33691e;
+    }
+
+    .sim-eg-cell.g3bb {
+      border-color: #f4a335;
+      background: rgba(255, 248, 225, 0.9);
+      color: #e65100;
+    }
+
+    .sim-eg-cell.g2bc {
+      border-color: rgba(236, 64, 122, 0.35);
+      background: rgba(252, 228, 236, 0.6);
+      color: #c2185b;
+    }
+
+    .sim-eg-cell.gcryo {
+      border-color: #0288d1;
+      background: rgba(227, 242, 253, 0.9);
+      color: #0277bd;
+    }
+
+    .sim-eg-selected {
+      box-shadow: 0 0 0 4px rgba(67, 160, 71, 0.22) !important;
+      transform: scale(1.12) !important;
+    }
+
+    .sim-eg-note {
+      font-size: 0.61rem;
+      color: #7b5070;
+      margin-top: 0.35rem;
+      line-height: 1.5;
+    }
+
+    /* â”€â”€ AGE-SUCCESS SLIDER â”€â”€ */
+    .sim-age-row {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .sim-age-lbl {
+      font-size: 0.64rem;
+      font-weight: 700;
+      color: #666;
+    }
+
+    .sim-age-badge {
+      font-size: 0.78rem;
+      font-weight: 900;
+      color: #c2185b;
+      min-width: 24px;
+    }
+
+    .sim-age-range {
+      flex: 1;
+      height: 4px;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      background: linear-gradient(90deg, #ec407a 0%, rgba(236, 64, 122, 0.15) 100%);
+    }
+
+    .sim-age-range::-webkit-slider-thumb {
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #ec407a;
+      border: 2px solid white;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(236, 64, 122, 0.4);
+    }
+
+    .sim-age-result {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      margin-top: 0.15rem;
+    }
+
+    .sim-age-pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.85rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #ec407a;
+      transition: all 0.3s;
+    }
+
+    .sim-age-sub {
+      font-size: 0.61rem;
+      color: #9e6080;
+      line-height: 1.5;
+    }
+
+    /* â”€â”€ OHSS RISK â”€â”€ */
+    .sim-ohss-lbl {
+      font-size: 0.58rem;
+      font-weight: 800;
+      color: #e65100;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .sim-ohss-track {
+      height: 8px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #a5d6a7 0%, #fff176 42%, #ff8a65 72%, #e53935 100%);
+      position: relative;
+    }
+
+    .sim-ohss-pin {
+      position: absolute;
+      top: -3px;
+      width: 3px;
+      height: 14px;
+      background: #333;
+      border-radius: 2px;
+      transition: left 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sim-ohss-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.5rem;
+      color: #aaa;
+      margin-top: 2px;
+    }
+
+    .sim-ohss-val {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #e65100;
+      margin-top: 3px;
+    }
+
+    /* â”€â”€ HORMONE TREND ARROWS â”€â”€ */
+    .sim-h-trend {
+      font-size: 0.6rem;
+      font-weight: 900;
+      width: 11px;
+      text-align: center;
+      transition: all 0.4s;
+    }
+
+    .sim-h-trend.up {
+      color: #e91e63;
+    }
+
+    .sim-h-trend.down {
+      color: #43a047;
+    }
+
+    .sim-h-trend.flat {
+      color: #ccc;
+    }
+
+    /* â”€â”€ BBT SPARKLINE â”€â”€ */
+    .sim-bbt-wrap {
+      margin-top: 0.5rem;
+      padding: 0.55rem 0.8rem;
+      background: rgba(255, 248, 250, 0.9);
+      border: 1px solid rgba(236, 64, 122, 0.09);
+      border-radius: 10px;
+    }
+
+    .sim-bbt-lbl {
+      font-size: 0.57rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #c2185b;
+      margin-bottom: 3px;
+    }
+
+    /* Hover upgrade for sci cards */
+    .sim-sci-card {
+      cursor: default;
+    }
+
+    .sim-sci-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 22px rgba(236, 64, 122, 0.1);
+    }
+
+    .sim-tx-col::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .sim-tx-col::-webkit-scrollbar-thumb {
+      background: rgba(236, 64, 122, 0.2);
+      border-radius: 2px;
+    }
+
+
+    .sim-tx-btn:hover {
+      background: white;
+      border-color: rgba(236, 64, 122, 0.25);
+      transform: translateX(5px);
+      box-shadow: 0 6px 20px rgba(236, 64, 122, 0.12);
+    }
+
+    .sim-tx-btn.active {
+      background: white;
+      border-color: rgba(236, 64, 122, 0.35);
+      box-shadow: 0 8px 28px rgba(236, 64, 122, 0.18), 0 0 0 3px rgba(236, 64, 122, 0.06);
+      transform: translateX(5px);
+    }
+
+    .sim-tx-btn.active::before {
+      opacity: 1;
+    }
+
+    .sim-tx-ico {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+
+    .sim-tx-btn.active .sim-tx-ico {
+      transform: scale(1.1);
+    }
+
+    .sim-tx-info {
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+    }
+
+    .sim-tx-info strong {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #212121;
+      margin-bottom: 2px;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.25;
+    }
+
+    .sim-tx-info span {
+      font-size: 0.7rem;
+      color: #9e6080;
+      display: block;
+      white-space: normal;
+      word-break: break-word;
+      line-height: 1.3;
+    }
+
+    .sim-tx-arrow {
+      font-size: 1rem;
+      color: #ec407a;
+      opacity: 0;
+      transition: all 0.25s;
+      flex-shrink: 0;
+    }
+
+    .sim-tx-btn:hover .sim-tx-arrow,
+    .sim-tx-btn.active .sim-tx-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+
+    /* Intensity dots */
+    .sim-intensity {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0.2rem 0.3rem 0.4rem 0.3rem;
+      font-size: 0.6rem;
+      color: #c9a0c0;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      gap: 0.4rem;
+    }
+
+    .sim-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(236, 64, 122, 0.15);
+      border: 1px solid rgba(236, 64, 122, 0.25);
+    }
+
+    .sim-dot.on {
+      background: #ec407a;
+      border-color: #ec407a;
+    }
+
+    /* â”€â”€ CENTER: VISUALIZATION â”€â”€ */
+    .sim-stage-col {
+      display: flex;
+      flex-direction: column;
+      background: white;
+      border-radius: 20px;
+      border: 1.5px solid rgba(236, 64, 122, 0.12);
+      box-shadow: 0 8px 40px rgba(236, 64, 122, 0.08), 0 2px 12px rgba(197, 163, 216, 0.10);
+      overflow-y: auto;
+      overflow-x: hidden;
+      min-height: 0;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(236, 64, 122, 0.30) rgba(252, 228, 236, 0.18);
+    }
+
+    .sim-stage-col::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sim-stage-col::-webkit-scrollbar-track {
+      background: rgba(252, 228, 236, 0.18);
+      border-radius: 3px;
+    }
+
+    .sim-stage-col::-webkit-scrollbar-thumb {
+      background: rgba(236, 64, 122, 0.30);
+      border-radius: 3px;
+    }
+
+    .sim-stage-col::-webkit-scrollbar-thumb:hover {
+      background: rgba(236, 64, 122, 0.55);
+    }
+
+    .sim-stage-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 1.4rem;
+      border-bottom: 1px solid rgba(236, 64, 122, 0.08);
+      background: linear-gradient(90deg, rgba(252, 228, 236, 0.4) 0%, rgba(243, 229, 245, 0.4) 100%);
+      flex-shrink: 0;
+    }
+
+    .sim-stage-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #333;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .sim-live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(200, 150, 170, 0.3);
+      transition: all 0.4s;
+    }
+
+    .sim-live-dot.running {
+      background: #e91e63;
+      box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+      animation: simDotPulse 1.2s ease-in-out infinite;
+    }
+
+    .sim-live-dot.done {
+      background: #43a047;
+      box-shadow: 0 0 0 3px rgba(67, 160, 71, 0.2);
+      animation: none;
+    }
+
+    @keyframes simDotPulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
+    }
+
+    .sim-status-pill {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(236, 64, 122, 0.08);
+      color: #ad1457;
+      border: 1px solid rgba(236, 64, 122, 0.15);
+      transition: all 0.4s;
+    }
+
+    .sim-status-pill.running {
+      background: rgba(233, 30, 99, 0.1);
+      color: #c2185b;
+      border-color: rgba(233, 30, 99, 0.25);
+    }
+
+    .sim-status-pill.done {
+      background: rgba(67, 160, 71, 0.1);
+      color: #2e7d32;
+      border-color: rgba(67, 160, 71, 0.25);
+    }
+
+    /* SVG anatomy wrapper */
+    .sim-anatomy-wrap {
+      position: relative;
+      flex-shrink: 0;
+      height: 400px;
+      overflow: hidden;
+      background: linear-gradient(160deg, #fff9fc 0%, #fdf4fb 50%, #fef9f0 100%);
+      min-height: 340px;
+    }
+
+    /* Biometric HUD â€” white card, pink accents */
+    .sim-bio-hud {
+      position: absolute;
+      top: auto;
+      bottom: 14px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(6px);
+      border: 1.5px solid rgba(236, 64, 122, 0.14);
+      border-radius: 14px;
+      padding: 0.65rem 0.8rem;
+      width: 128px;
+      z-index: 20;
+      box-shadow: 0 4px 20px rgba(236, 64, 122, 0.08);
+    }
+
+    .sim-bio-head {
+      font-size: 0.56rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #880e4f;
+      margin-bottom: 0.55rem;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .sim-h-row {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .sim-h-name {
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: #666;
+      width: 32px;
+      flex-shrink: 0;
+    }
+
+    .sim-h-track {
+      flex: 1;
+      height: 5px;
+      background: rgba(236, 64, 122, 0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .sim-h-fill {
+      height: 100%;
+      width: 5%;
+      border-radius: 3px;
+      transition: width 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .sim-h-fill.fsh {
+      background: linear-gradient(90deg, #f48fb1, #e91e63);
+    }
+
+    .sim-h-fill.est {
+      background: linear-gradient(90deg, #ce93d8, #8e24aa);
+    }
+
+    .sim-h-fill.lh {
+      background: linear-gradient(90deg, #ffe082, #f4a335);
+    }
+
+    .sim-h-fill.prog {
+      background: linear-gradient(90deg, #80cbc4, #00897b);
+    }
+
+    .sim-h-val {
+      font-size: 0.58rem;
+      color: #aaa;
+      width: 26px;
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .sim-bio-temp {
+      margin-top: 0.5rem;
+      padding-top: 0.45rem;
+      border-top: 1px dashed rgba(236, 64, 122, 0.15);
+      font-size: 0.68rem;
+      color: #d81b60;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* Sensation chips â€” warm amber, matching lifestyle modifier style */
+    .sim-sens-area {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 185px;
+      z-index: 20;
+    }
+
+    .sim-sens-chip {
+      background: rgba(255, 248, 225, 0.97);
+      border: 1.5px solid rgba(255, 160, 0, 0.22);
+      border-left: 4px solid #f4a335;
+      padding: 0.55rem 0.8rem;
+      border-radius: 10px;
+      margin-bottom: 0.45rem;
+      opacity: 0;
+      transform: translateX(-18px);
+      transition: all 0.45s ease;
+      box-shadow: 0 3px 12px rgba(244, 163, 53, 0.12);
+    }
+
+    .sim-sens-chip.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .sim-sens-chip strong {
+      display: block;
+      font-size: 0.72rem;
+      color: #e65100;
+      margin-bottom: 1px;
+      font-weight: 700;
+    }
+
+    .sim-sens-chip span {
+      font-size: 0.65rem;
+      color: #795548;
+      line-height: 1.4;
+    }
+
+    /* Success badge */
+    .sim-success {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: linear-gradient(135deg, #43a047, #2e7d32);
+      color: white;
+      padding: 0.65rem 1.6rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      opacity: 0;
+      transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 30;
+      white-space: nowrap;
+      box-shadow: 0 6px 24px rgba(67, 160, 71, 0.35);
+      letter-spacing: 0.3px;
+    }
+
+    .sim-success.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Lab overlay */
+    .sim-lab-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 245, 250, 0.92);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s;
+      z-index: 25;
+    }
+
+    .sim-petri {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid rgba(236, 64, 122, 0.3);
+      background: radial-gradient(circle, rgba(252, 228, 236, 0.8), rgba(243, 229, 245, 0.8));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.8rem;
+      box-shadow: 0 0 40px rgba(236, 64, 122, 0.15), inset 0 0 20px rgba(236, 64, 122, 0.05);
+      animation: petriPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes petriPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 40px rgba(236, 64, 122, 0.15);
+      }
+
+      50% {
+        box-shadow: 0 0 60px rgba(236, 64, 122, 0.28);
+      }
+    }
+
+    .sim-lab-lbl {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #d81b60;
+      letter-spacing: 0.5px;
+      animation: labBlink 1.5s ease-in-out infinite;
+    }
+
+    @keyframes labBlink {
+
+      0%,
+      100% {
+        opacity: 0.7;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+
+    /* Info bar at bottom of stage â€” now handled by tab system above */
+    @media (max-width: 600px) {
+      .sim-info-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .sim-step-badge {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1565c0;
+      font-size: 0.62rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 3px 9px;
+      border-radius: 5px;
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-step-h {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.02rem;
+      font-weight: 700;
+      color: #212121;
+      margin: 0 0 0.3rem;
+    }
+
+    .sim-step-desc {
+      font-size: 0.8rem;
+      color: #7b5070;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .sim-care-box {
+      background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+      border: 1.5px solid rgba(76, 175, 80, 0.18);
+      border-radius: 14px;
+      padding: 0.85rem 1rem;
+    }
+
+    .sim-care-head {
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #2e7d32;
+      margin-bottom: 0.4rem;
+    }
+
+    .sim-care-text {
+      font-size: 0.78rem;
+      color: #4a6741;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* â”€â”€ RIGHT: SCIENCE COL â”€â”€ */
+    .sim-science-col {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(236, 64, 122, 0.2) transparent;
+    }
+
+    .sim-sci-card {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1.5px solid rgba(236, 64, 122, 0.10);
+      border-radius: 18px;
+      padding: 1.1rem 1.15rem;
+      box-shadow: 0 3px 14px rgba(236, 64, 122, 0.06);
+      transition: all 0.35s;
+    }
+
+    .sim-sci-card.highlight {
+      border-color: rgba(236, 64, 122, 0.25);
+      background: rgba(252, 228, 236, 0.35);
+    }
+
+    .sim-sci-head {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #c2185b;
+      margin-bottom: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .sim-sci-head::before {
+      content: 'â™¦';
+      font-size: 0.55rem;
+      color: #ec407a;
+    }
+
+    /* Timeline steps */
+    .sim-tl-step {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.85rem;
+      opacity: 0.3;
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .sim-tl-step.active {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+
+    .sim-tl-num {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(236, 64, 122, 0.08);
+      border: 1.5px solid rgba(236, 64, 122, 0.2);
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #c2185b;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .sim-tl-step.active .sim-tl-num {
+      background: linear-gradient(135deg, #ec407a, #c2185b);
+      border-color: transparent;
+      color: white;
+      box-shadow: 0 3px 10px rgba(236, 64, 122, 0.3);
+    }
+
+    .sim-tl-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 2px;
+    }
+
+    .sim-tl-desc {
+      font-size: 0.68rem;
+      color: #7b5070;
+      line-height: 1.55;
+    }
+
+    /* Hormone chart bars */
+    .sim-hchart {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .sim-hc-row {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .sim-hc-name {
+      width: 58px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #666;
+      flex-shrink: 0;
+    }
+
+    .sim-hc-wrap {
+      flex: 1;
+      height: 22px;
+      background: rgba(236, 64, 122, 0.06);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .sim-hc-fill {
+      height: 100%;
+      width: 5%;
+      border-radius: 8px;
+      transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .sim-hc-fill::after {
+      content: attr(data-val);
+      position: absolute;
+      right: 7px;
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.95);
+      white-space: nowrap;
+    }
+
+    #sChFsh .sim-hc-fill {
+      background: linear-gradient(90deg, #f8bbd0, #e91e63);
+    }
+
+    #sChEst .sim-hc-fill {
+      background: linear-gradient(90deg, #d1c4e9, #7b1fa2);
+    }
+
+    #sChLh .sim-hc-fill {
+      background: linear-gradient(90deg, #ffe082, #f57f17);
+    }
+
+    #sChProg .sim-hc-fill {
+      background: linear-gradient(90deg, #b2dfdb, #00695c);
+    }
+
+    .sim-hc-unit {
+      font-size: 0.58rem;
+      color: #bbb;
+      width: 28px;
+    }
+
+    /* Success rate arc */
+    .sim-arc-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sim-arc-pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 900;
+      color: #d81b60;
+      line-height: 1;
+    }
+
+    .sim-arc-sub {
+      font-size: 0.7rem;
+      color: #b0709a;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* Did you know */
+    .sim-dyk {
+      font-size: 0.76rem;
+      color: #7b5070;
+      line-height: 1.75;
+      font-style: italic;
+    }
+
+    .sim-dyk strong {
+      color: #c2185b;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* SVG ANATOMY STYLES â€” precise medical rendering */
+    .sa-body-outline {
+      fill: url(#saBodyGrad);
+      stroke: #f9c6ce;
+      stroke-width: 1.5;
+    }
+
+    .sa-uterus {
+      fill: url(#saUterusGrad);
+      stroke: #ec407a;
+      stroke-width: 2.5;
+      transition: all 1s;
+    }
+
+    .sa-cervix {
+      fill: #fce4ec;
+      stroke: #e91e63;
+      stroke-width: 2;
+    }
+
+    .sa-tube-l,
+    .sa-tube-r {
+      fill: none;
+      stroke: #f48fb1;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+    }
+
+    .sa-fimbria {
+      fill: none;
+      stroke: #f48fb1;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      opacity: 0.8;
+    }
+
+    .sa-ovary-l,
+    .sa-ovary-r {
+      fill: url(#saOvaryGrad);
+      stroke: #9c27b0;
+      stroke-width: 2;
+      transition: all 1s ease;
+    }
+
+    .sa-ovary-l.enlarge {
+      filter: url(#saGlow);
+      stroke: #7b1fa2;
+      stroke-width: 2.5;
+    }
+
+    .sa-ovary-r.enlarge {
+      filter: url(#saGlow);
+      stroke: #7b1fa2;
+      stroke-width: 2.5;
+    }
+
+    .sa-ligament {
+      fill: none;
+      stroke: rgba(244, 143, 177, 0.4);
+      stroke-width: 1.5;
+      stroke-dasharray: 4 3;
+    }
+
+    .sa-follicle {
+      fill: rgba(255, 255, 255, 0.4);
+      stroke: #9c27b0;
+      stroke-width: 1.5;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .sa-follicle.show {
+      opacity: 1;
+    }
+
+    .sa-follicle.mature {
+      fill: rgba(255, 240, 200, 0.7);
+      stroke: #f4a335;
+      stroke-width: 2;
+    }
+
+    .sa-follicle.dominant {
+      fill: rgba(255, 220, 100, 0.8);
+      stroke: #f4a335;
+      stroke-width: 2.5;
+      filter: url(#saGlow);
+    }
+
+    .sa-egg {
+      opacity: 0;
+      transition: opacity 0.6s;
+    }
+
+    .sa-catheter {
+      stroke: #90caf9;
+      stroke-width: 3.5;
+      stroke-linecap: round;
+      opacity: 0;
+      transition: all 0.4s;
+      stroke-dasharray: 280;
+      stroke-dashoffset: 280;
+    }
+
+    .sa-catheter.in {
+      opacity: 1;
+      stroke-dashoffset: 0;
+      transition: stroke-dashoffset 1.1s ease, opacity 0.3s;
+    }
+
+    .sa-sperm {
+      opacity: 0;
+    }
+
+    .sa-sperm.swim {
+      animation: saSpermSwim 3.5s ease-in-out forwards;
+    }
+
+    @keyframes saSpermSwim {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(var(--r, 0deg));
+      }
+
+      80% {
+        opacity: 0.7;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx, 0px), var(--ty, -70px)) rotate(var(--r, 0deg));
+      }
+    }
+
+    .sa-needle {
+      stroke: #b0bec5;
+      stroke-width: 2.5;
+      opacity: 0;
+      transition: all 1s ease;
+      stroke-linecap: round;
+    }
+
+    .sa-needle.in {
+      opacity: 1;
+      transform: translateX(72px);
+    }
+
+    .sa-embryo {
+      opacity: 0;
+      transition: opacity 0.8s;
+    }
+
+    .sa-cryo {
+      opacity: 0;
+      transition: opacity 0.7s;
+    }
+
+    .sa-lining {
+      fill: rgba(233, 30, 99, 0.12);
+      transition: all 1s;
+    }
+
+    .sa-lining.thick {
+      fill: rgba(233, 30, 99, 0.28);
+    }
+
+    .sa-endo-layer {
+      fill: rgba(252, 228, 236, 0.5);
+    }
+
+    .sa-hpo-pulse {
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .sa-hpo-pulse.active {
+      opacity: 1;
+    }
+
+    .sa-ovulation-burst {
+      opacity: 0;
+    }
+
+    .sa-glow-ring {
+      fill: none;
+      stroke: rgba(156, 39, 176, 0.35);
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .sa-glow-ring.active {
+      opacity: 1;
+      animation: saGlowPulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes saGlowPulse {
+
+      0%,
+      100% {
+        stroke-width: 2;
+        opacity: 0.35;
+      }
+
+      50% {
+        stroke-width: 4;
+        opacity: 0.6;
+      }
+    }
+
+    .sa-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 9px;
+      fill: #9e4070;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.5s;
+    }
+
+    .sa-label.show {
+      opacity: 1;
+    }
+
+    .sa-dimension {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 7.5px;
+      fill: rgba(158, 64, 112, 0.55);
+    }
+
+    .sa-annotation-line {
+      stroke: rgba(236, 64, 122, 0.25);
+      stroke-width: 0.8;
+      stroke-dasharray: 3 2;
+    }
+
+    /* ── HOTSPOT OVERLAYS ── */
+    .hs {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      z-index: 15;
+      cursor: pointer;
+    }
+
+    .hs-ring {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      background: rgba(255, 255, 255, 0.9);
+      border: 2px solid rgba(236, 64, 122, 0.25);
+      box-shadow: 0 2px 12px rgba(236, 64, 122, 0.15);
+      transition: all 0.3s ease;
+      animation: hsPulse 2.5s ease-in-out infinite;
+    }
+
+    .hs-ring:hover {
+      transform: scale(1.15);
+      border-color: rgba(236, 64, 122, 0.5);
+      box-shadow: 0 4px 20px rgba(236, 64, 122, 0.3);
+    }
+
+    @keyframes hsPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 2px 12px rgba(236, 64, 122, 0.15);
+      }
+
+      50% {
+        box-shadow: 0 2px 12px rgba(236, 64, 122, 0.15), 0 0 0 6px rgba(236, 64, 122, 0.08);
+      }
+    }
+
+    .brain-ring {
+      border-color: rgba(186, 104, 200, 0.35);
+    }
+
+    .pit-ring {
+      border-color: rgba(156, 39, 176, 0.35);
+    }
+
+    .ovL-ring,
+    .ovR-ring {
+      border-color: rgba(216, 27, 96, 0.35);
+    }
+
+    .ut-ring {
+      border-color: rgba(233, 30, 99, 0.35);
+    }
+
+    .tube-ring {
+      border-color: rgba(244, 143, 177, 0.35);
+    }
+
+    /* ── FLOATING TOOLTIP ── */
+    .tooltip {
+      position: fixed;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(236, 64, 122, 0.18);
+      border-radius: 16px;
+      padding: 1.2rem 1.4rem;
+      min-width: 220px;
+      max-width: 320px;
+      box-shadow: 0 12px 40px rgba(236, 64, 122, 0.15), 0 4px 16px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tooltip.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .tooltip .t-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 0.85rem;
+      color: #b0709a;
+      cursor: pointer;
+      padding: 4px;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+
+    .tooltip .t-close:hover {
+      color: #c2185b;
+    }
+
+    .tooltip h5 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #212121;
+      margin: 0 0 0.4rem;
+      padding-right: 1.5rem;
+    }
+
+    .tooltip p {
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.6;
+      margin: 0 0 0.5rem;
+    }
+
+    .tooltip .info-tag {
+      display: inline-block;
+      background: #e3f2fd;
+      color: #1565c0;
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
