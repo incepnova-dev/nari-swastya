@@ -250,121 +250,39 @@ export const BodySimulator: React.FC = () => {
 
             <div className="main-layout">
 
-                {/* LEFT: Cycle Time Travel + Hormone bars + Lifestyle */}
-                <div className="hormone-col">
-
-                    {/* ── Cycle Time Travel ── */}
-                    <div className="ctt-card">
-                        <h3>⏳ Cycle Time Travel</h3>
-                        <div className="ctt-day-row">
-                            <span className="ctt-day-lbl">Current Day</span>
-                            <span className="ctt-day-num">Day {currentDay}</span>
-                        </div>
-                        <div className="ctt-slider-wrap">
-                            <input
-                                type="range"
-                                className="ctt-range"
-                                min="1"
-                                max="28"
-                                value={currentDay}
-                                onChange={(e) => handleDayChange(parseInt(e.target.value))}
-                            />
-                        </div>
-                        <div className="ctt-track-colors"></div>
-                        <div className="ctt-day-ticks"><span>1</span><span>7</span><span>14</span><span>21</span><span>28</span></div>
-                        <button className={`ctt-sim-btn ${isPlaying ? 'playing' : 'start'}`} onClick={toggleSim} style={{ marginTop: '0.9rem' }}>
-                            <span>{isPlaying ? '⏸' : '▶'}</span>
-                            <span>{isPlaying ? 'Pause Simulation' : 'Start Simulation'}</span>
-                        </button>
+                {/* LEFT: Info cards */}
+                <div className="info-col">
+                    {/* Phase summary card */}
+                    <div className="phase-summary">
+                        <div className="ps-day">Days {currentDay} · {CYCLE_PHASES[activePhase as keyof typeof CYCLE_PHASES].name}</div>
+                        <div className="ps-name">{insight.title}</div>
+                        <div className="ps-desc">{insight.desc}</div>
                     </div>
 
-                    {/* ── Hormone Levels ── */}
-                    <div className="hormone-panel">
-                        <h3>Hormone Levels</h3>
-
-                        <div className="h-row">
-                            <div className="h-label">
-                                <span className="h-name">Oestrogen (E2)</span>
-                                <span className="h-val">{getLevelText(e2Pct)}</span>
-                            </div>
-                            <div className="h-track">
-                                <div className="h-fill" style={{ width: `${e2Pct}%`, background: 'linear-gradient(90deg,#f9c6ce,#e8526a)' }}></div>
-                            </div>
-                        </div>
-
-                        <div className="h-row">
-                            <div className="h-label">
-                                <span className="h-name">Progesterone</span>
-                                <span className="h-val">{getLevelText(progPct)}</span>
-                            </div>
-                            <div className="h-track">
-                                <div className="h-fill" style={{ width: `${progPct}%`, background: 'linear-gradient(90deg,#b2dfdb,#5fbfb0)' }}></div>
-                            </div>
-                        </div>
-
-                        <div className="h-row">
-                            <div className="h-label">
-                                <span className="h-name">LH (Luteinising)</span>
-                                <span className="h-val">{lhLabel}</span>
-                            </div>
-                            <div className="h-track">
-                                <div className="h-fill" style={{ width: `${lhPct}%`, background: 'linear-gradient(90deg,#ffe0b2,#f4a335)' }}></div>
-                            </div>
-                        </div>
-
-                        <div className="h-row">
-                            <div className="h-label">
-                                <span className="h-name">FSH</span>
-                                <span className="h-val">{getLevelText(fshPct)}</span>
-                            </div>
-                            <div className="h-track">
-                                <div className="h-fill" style={{ width: `${fshPct}%`, background: 'linear-gradient(90deg,#d1c4e9,#9b6db0)' }}></div>
-                            </div>
-                        </div>
-
-                        <div className="h-row">
-                            <div className="h-label">
-                                <span className="h-name">GnRH Pulse</span>
-                                <span className="h-val">{isOvulation ? 'Rapid' : (isLuteal ? 'Slow' : 'Active')}</span>
-                            </div>
-                            <div className="h-track">
-                                <div className="h-fill" style={{ width: isOvulation ? '90%' : (isLuteal ? '40%' : '70%'), background: 'linear-gradient(90deg,#e8daef,#c5a3d8)' }}></div>
-                            </div>
-                        </div>
-
-                        <div className="h-row" style={{ marginBottom: 0 }}>
-                            <div className="h-label">
-                                <span className="h-name">BBT</span>
-                                <span className="h-val">{isOvulation ? 'Rising' : (isLuteal ? 'Elevated' : 'Base')}</span>
-                            </div>
-                            <div className="h-track">
-                                <div className="h-fill" style={{ width: insight.bbtHeight, background: 'linear-gradient(90deg,#ffe082,#ffb300)' }}></div>
-                            </div>
+                    {/* What you feel */}
+                    <div className="info-card">
+                        <h4>{insight.feelTitle}</h4>
+                        <p>{insight.feelDesc}</p>
+                        <div className="chips">
+                            {insight.feelChips.map(chip => <span key={chip} className="chip">{chip}</span>)}
                         </div>
                     </div>
 
-                    {/* Cycle timeline */}
-                    <div className="cycle-timeline" style={{ marginTop: '1.2rem' }}>
-                        <div className="ct-track">
-                            <div className="ct-segment" style={{ left: 0, width: '17.8%', background: 'rgba(232,82,106,0.5)' }} onClick={() => togglePhase('menstrual')}></div>
-                            <div className="ct-segment" style={{ left: '17.8%', width: '28.6%', background: 'rgba(155,109,176,0.45)' }} onClick={() => togglePhase('follicular')}></div>
-                            <div className="ct-segment" style={{ left: '46.4%', width: '3.6%', background: 'rgba(244,163,53,0.7)' }} onClick={() => togglePhase('ovulation')}></div>
-                            <div className="ct-segment" style={{ left: '50%', width: '50%', background: 'rgba(95,191,176,0.45)' }} onClick={() => togglePhase('luteal')}></div>
-                            <div className="ct-dot" style={{ left: `${((currentDay - 1) / 27) * 100}%` }}></div>
-                        </div>
-                        <div className="ct-labels">
-                            <span>Day 1</span><span>Day 7</span><span>Day 14</span><span>Day 21</span><span>Day 28</span>
-                        </div>
+                    {/* What to do */}
+                    <div className="info-card">
+                        <h4>{insight.doTitle}</h4>
+                        <p>{insight.doDesc}</p>
+                        <span className="info-tag">{insight.doTag}</span>
                     </div>
 
-                    {/* ── Lifestyle Modifiers ── */}
-                    <div className="lifestyle-card">
+                    {/* Lifestyle Modifiers */}
+                    <div className="lifestyle-card" style={{ marginTop: '1rem' }}>
                         <h3>🧘‍♀️ Lifestyle Modifiers</h3>
                         <div className="lm-grid">
                             <button className={`lm-btn ${lifestyle.stress ? 'active' : ''}`} onClick={() => toggleLM('stress')}>⚡ Stress</button>
-                            <button className={`lm-btn ${lifestyle.sleep ? 'active' : ''}`} onClick={() => toggleLM('sleep')}>💤 Sleep</button>
-                            <button className={`lm-btn ${lifestyle.diet ? 'active' : ''}`} onClick={() => toggleLM('diet')}>🥑 Diet</button>
-                            <button className={`lm-btn ${lifestyle.exercise ? 'active' : ''}`} onClick={() => toggleLM('exercise')}>🏃‍♀️ Exercise</button>
+                            <button className={`lm-btn ${lifestyle.sleep ? 'active-sleep' : ''}`} onClick={() => toggleLM('sleep')}>💤 Sleep</button>
+                            <button className={`lm-btn ${lifestyle.diet ? 'active-diet' : ''}`} onClick={() => toggleLM('diet')}>🥑 Diet</button>
+                            <button className={`lm-btn ${lifestyle.exercise ? 'active-exercise' : ''}`} onClick={() => toggleLM('exercise')}>🏃‍♀️ Exercise</button>
                         </div>
                         <div className="lm-impact-box">
                             {lmImpactText}
@@ -713,30 +631,113 @@ export const BodySimulator: React.FC = () => {
 
                 </div>
 
-                {/* RIGHT: Info cards */}
-                <div className="info-col">
-
-                    {/* Phase summary card */}
-                    <div className="phase-summary">
-                        <div className="ps-day">Days {currentDay} · {CYCLE_PHASES[activePhase as keyof typeof CYCLE_PHASES].name}</div>
-                        <div className="ps-name">{insight.title}</div>
-                        <div className="ps-desc">{insight.desc}</div>
-                    </div>
-
-                    {/* What you feel */}
-                    <div className="info-card">
-                        <h4>{insight.feelTitle}</h4>
-                        <p>{insight.feelDesc}</p>
-                        <div className="chips">
-                            {insight.feelChips.map(chip => <span key={chip} className="chip">{chip}</span>)}
+                {/* RIGHT: Controls & Hormone Panel */}
+                <div className="controls-col">
+                    {/* Time Travel Slider */}
+                    <div className="ctt-card">
+                        <h3>⏳ Cycle Time Travel</h3>
+                        <div className="ctt-day-row">
+                            <span className="ctt-day-lbl">Current Day</span>
+                            <span className="ctt-day-num">Day {currentDay}</span>
                         </div>
+                        <div className="ctt-slider-wrap">
+                            <input
+                                type="range"
+                                className="ctt-range"
+                                min="1" max="28"
+                                value={currentDay}
+                                onChange={handleSliderChange}
+                            />
+                            <div className="ctt-track-colors"></div>
+                            <div className="ctt-day-ticks">
+                                <span>1</span><span>7</span><span>14</span><span>21</span><span>28</span>
+                            </div>
+                        </div>
+                        <button className={`ctt-sim-btn ${isPlaying ? 'stop' : 'start'}`} onClick={togglePlay}>
+                            {isPlaying ? '⏸ Stop Simulation' : '▶ Start Simulation'}
+                        </button>
                     </div>
 
-                    {/* What to do */}
-                    <div className="info-card">
-                        <h4>{insight.doTitle}</h4>
-                        <p>{insight.doDesc}</p>
-                        <span className="info-tag">{insight.doTag}</span>
+                    {/* Hormone Levels Panel */}
+                    <div className="hormone-col" style={{ paddingTop: 0, marginBottom: '1rem' }}>
+                        <div className="hormone-panel">
+                            <h3>Hormone Levels</h3>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">Oestrogen (E2)</span>
+                                    <span className="h-val">{getLevelText(e2Pct)}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${e2Pct}%`, background: '#ce93d8' }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">Progesterone</span>
+                                    <span className="h-val">{getLevelText(progPct)}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${progPct}%`, background: '#81c784' }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">LH (Luteinising)</span>
+                                    <span className="h-val">{getLevelText(lhPct)}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${lhPct}%`, background: '#ffca28' }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">FSH</span>
+                                    <span className="h-val">{getLevelText(fshPct)}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${fshPct}%`, background: '#f48fb1' }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">GnRH Pulse</span>
+                                    <span className="h-val">{insight.gnrhLevel}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${Math.random() * 40 + 40}%`, background: '#ba68c8', opacity: isPlaying ? 0.7 : 0.4 }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row" style={{ marginBottom: 0 }}>
+                                <div className="h-label">
+                                    <span className="h-name">BBT</span>
+                                    <span className="h-val">{insight.bbtLabel}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: insight.bbtHeight, background: '#ffb74d' }}></div>
+                                </div>
+                            </div>
+
+                            {/* Cycle timeline below hormones */}
+                            <div className="cycle-timeline">
+                                <div className="ct-track">
+                                    <div className="ct-segment" style={{ left: '0%', width: '17.8%', background: '#e8526a' }} title="Menstrual"></div>
+                                    <div className="ct-segment" style={{ left: '17.8%', width: '32.1%', background: '#9b6db0' }} title="Follicular"></div>
+                                    <div className="ct-segment" style={{ left: '50%', width: '7.1%', background: '#f4a335' }} title="Ovulation"></div>
+                                    <div className="ct-segment" style={{ left: '57.1%', width: '42.9%', background: '#5fbfb0' }} title="Luteal"></div>
+                                    {/* Moving dot */}
+                                    <div className="ct-dot" style={{ left: `${(currentDay / 28) * 100}%` }}></div>
+                                </div>
+                                <div className="ct-labels">
+                                    <span>Day 1</span><span>Day 7</span><span>Day 14</span><span>Day 21</span><span>Day 28</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     {/* ── Body Simulation ── */}
