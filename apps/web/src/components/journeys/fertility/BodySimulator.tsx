@@ -229,6 +229,15 @@ export const BodySimulator: React.FC = () => {
 
     return (
         <section className="body-simulator-section fade-in-up" id="simulator" aria-label="Bio-Digital Body Twin Fertility Simulator">
+            {/* Breadcrumbs */}
+            <nav className="breadcrumb" aria-label="Breadcrumb" style={{ padding: '1rem 2rem 0', fontSize: '0.8rem', color: '#ff8a80', fontFamily: 'DM Sans' }}>
+                <a href="/" style={{ color: '#e8526a', textDecoration: 'none' }}>Home</a>
+                <span style={{ margin: '0 0.5rem', color: '#ffb3b3' }}>›</span>
+                <a href="/journeys" style={{ color: '#e8526a', textDecoration: 'none' }}>Women's Health Journeys</a>
+                <span style={{ margin: '0 0.5rem', color: '#ffb3b3' }}>›</span>
+                <span style={{ color: '#9e9e9e' }}>Fertility Guide</span>
+            </nav>
+
             <div className="section-header">
                 <div className="header-badge">LIVE SIMULATION</div>
                 <h2 className="section-title"><span className="title-black">Bio-Digital</span> Body Twin</h2>
@@ -250,43 +259,127 @@ export const BodySimulator: React.FC = () => {
 
             <div className="main-layout">
 
-                {/* LEFT: Info cards */}
-                <div className="info-col">
-                    {/* Phase summary card */}
-                    <div className="phase-summary">
-                        <div className="ps-day">Days {currentDay} · {CYCLE_PHASES[activePhase as keyof typeof CYCLE_PHASES].name}</div>
-                        <div className="ps-name">{insight.title}</div>
-                        <div className="ps-desc">{insight.desc}</div>
+                {/* LEFT: Controls & Hormone Panel */}
+                <div className="controls-col">
+                    {/* Time Travel Slider */}
+                    <div className="ctt-card">
+                        <h3>⏳ Cycle Time Travel</h3>
+                        <div className="ctt-day-row">
+                            <span className="ctt-day-lbl">Current Day</span>
+                            <span className="ctt-day-num">Day {currentDay}</span>
+                        </div>
+                        <div className="ctt-slider-wrap">
+                            <input
+                                type="range"
+                                className="ctt-range"
+                                min="1" max="28"
+                                value={currentDay}
+                                onChange={(e) => handleDayChange(parseInt(e.target.value))}
+                            />
+                            <div className="ctt-track-colors"></div>
+                            <div className="ctt-day-ticks">
+                                <span>1</span><span>7</span><span>14</span><span>21</span><span>28</span>
+                            </div>
+                        </div>
+                        <button className={`ctt-sim-btn ${isPlaying ? 'stop' : 'start'}`} onClick={toggleSim}>
+                            {isPlaying ? '⏸ Stop Simulation' : '▶ Start Simulation'}
+                        </button>
                     </div>
 
-                    {/* What you feel */}
-                    <div className="info-card">
-                        <h4>{insight.feelTitle}</h4>
-                        <p>{insight.feelDesc}</p>
-                        <div className="chips">
-                            {insight.feelChips.map(chip => <span key={chip} className="chip">{chip}</span>)}
+                    {/* Hormone Levels Panel */}
+                    <div className="hormone-col" style={{ paddingTop: 0, marginBottom: '1rem' }}>
+                        <div className="hormone-panel">
+                            <h3>Hormone Levels</h3>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">Oestrogen (E2)</span>
+                                    <span className="h-val">{getLevelText(e2Pct)}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${e2Pct}%`, background: '#ce93d8' }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">Progesterone</span>
+                                    <span className="h-val">{getLevelText(progPct)}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${progPct}%`, background: '#81c784' }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">LH (Luteinising)</span>
+                                    <span className="h-val">{getLevelText(lhPct)}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${lhPct}%`, background: '#ffca28' }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">FSH</span>
+                                    <span className="h-val">{getLevelText(fshPct)}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: `${fshPct}%`, background: '#f48fb1' }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row">
+                                <div className="h-label">
+                                    <span className="h-name">GnRH Pulse</span>
+                                    <span className="h-val">{isOvulation ? 'Rapid' : (isLuteal ? 'Slow' : 'Active')}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: isOvulation ? '90%' : (isLuteal ? '40%' : '70%'), background: '#ba68c8', opacity: isPlaying ? 0.7 : 0.4 }}></div>
+                                </div>
+                            </div>
+
+                            <div className="h-row" style={{ marginBottom: 0 }}>
+                                <div className="h-label">
+                                    <span className="h-name">BBT</span>
+                                    <span className="h-val">{insight.bbtLabel}</span>
+                                </div>
+                                <div className="h-track">
+                                    <div className="h-fill" style={{ width: insight.bbtHeight, background: '#ffb74d' }}></div>
+                                </div>
+                            </div>
+
+                            {/* Cycle timeline below hormones */}
+                            <div className="cycle-timeline">
+                                <div className="ct-track">
+                                    <div className="ct-segment" style={{ left: '0%', width: '17.8%', background: '#e8526a' }} title="Menstrual"></div>
+                                    <div className="ct-segment" style={{ left: '17.8%', width: '32.1%', background: '#9b6db0' }} title="Follicular"></div>
+                                    <div className="ct-segment" style={{ left: '50%', width: '7.1%', background: '#f4a335' }} title="Ovulation"></div>
+                                    <div className="ct-segment" style={{ left: '57.1%', width: '42.9%', background: '#5fbfb0' }} title="Luteal"></div>
+                                    {/* Moving dot */}
+                                    <div className="ct-dot" style={{ left: `${(currentDay / 28) * 100}%` }}></div>
+                                </div>
+                                <div className="ct-labels">
+                                    <span>Day 1</span><span>Day 7</span><span>Day 14</span><span>Day 21</span><span>Day 28</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* What to do */}
-                    <div className="info-card">
-                        <h4>{insight.doTitle}</h4>
-                        <p>{insight.doDesc}</p>
-                        <span className="info-tag">{insight.doTag}</span>
-                    </div>
-
-                    {/* Lifestyle Modifiers */}
-                    <div className="lifestyle-card" style={{ marginTop: '1rem' }}>
-                        <h3>🧘‍♀️ Lifestyle Modifiers</h3>
-                        <div className="lm-grid">
-                            <button className={`lm-btn ${lifestyle.stress ? 'active' : ''}`} onClick={() => toggleLM('stress')}>⚡ Stress</button>
-                            <button className={`lm-btn ${lifestyle.sleep ? 'active-sleep' : ''}`} onClick={() => toggleLM('sleep')}>💤 Sleep</button>
-                            <button className={`lm-btn ${lifestyle.diet ? 'active-diet' : ''}`} onClick={() => toggleLM('diet')}>🥑 Diet</button>
-                            <button className={`lm-btn ${lifestyle.exercise ? 'active-exercise' : ''}`} onClick={() => toggleLM('exercise')}>🏃‍♀️ Exercise</button>
-                        </div>
-                        <div className="lm-impact-box">
-                            {lmImpactText}
-                        </div>
+                    {/* ── Body Simulation ── */}
+                    <div className="sim-card">
+                        <h3>🔬 Body Simulation</h3>
+                        {insight.sim.map((item, idx) => (
+                            <div className="sim-row" key={item.id} style={idx === insight.sim.length - 1 ? { marginBottom: 0 } : {}}>
+                                <div className="sim-icon" style={{ background: item.bg }}>{item.icon}</div>
+                                <div className="sim-text">
+                                    <div className="sim-label">{item.label}</div>
+                                    <div className="sim-desc">{item.desc}</div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
                 </div>
@@ -344,12 +437,7 @@ export const BodySimulator: React.FC = () => {
 
                             {/* ── SIMULATION OVERLAYS ── */}
 
-                            {/* Phase aura ring around whole body */}
-                            <ellipse cx="170" cy="330" rx="105" ry="230"
-                                fill="none" stroke={CYCLE_PHASES[activePhase as keyof typeof CYCLE_PHASES].color} strokeWidth="2.5" strokeDasharray="8 6"
-                                opacity={isOvulation ? 1 : (isMenstruation ? 0.7 : 0.3)} style={{ transition: 'all 0.8s ease' }}>
-                                <animateTransform attributeName="transform" type="rotate" from="0 170 330" to="360 170 330" dur="12s" repeatCount="indefinite" />
-                            </ellipse>
+                            {/* Phase aura ring around whole body - removed per user request */}
 
                             {/* Menstrual bleeding drops group */}
                             <g opacity={isMenstruation ? 1 : 0} style={{ transition: 'opacity 0.8s ease' }}>
@@ -508,9 +596,7 @@ export const BodySimulator: React.FC = () => {
                             <path d="M 90 340 Q 82 358 82 368" stroke="#f9c6ce" strokeWidth="1.5" fill="none" opacity="0.4" />
                             <path d="M 250 340 Q 258 358 258 368" stroke="#f9c6ce" strokeWidth="1.5" fill="none" opacity="0.4" />
 
-                            {/* ── HPO AXIS signal paths ── */}
-                            <path d="M 170 105 C 168 155 135 205 96 300" stroke="#e1bee7" strokeWidth="2" fill="none" strokeDasharray="5 6" opacity="0.55" />
-                            <path d="M 170 105 C 172 155 205 205 244 300" stroke="#e1bee7" strokeWidth="2" fill="none" strokeDasharray="5 6" opacity="0.55" />
+                            {/* ── HPO AXIS signal paths (removed per user request) ── */}
 
                             {/* ── BRAIN / HYPOTHALAMUS ── */}
                             <g style={{ cursor: 'pointer' }}>
@@ -631,127 +717,43 @@ export const BodySimulator: React.FC = () => {
 
                 </div>
 
-                {/* RIGHT: Controls & Hormone Panel */}
-                <div className="controls-col">
-                    {/* Time Travel Slider */}
-                    <div className="ctt-card">
-                        <h3>⏳ Cycle Time Travel</h3>
-                        <div className="ctt-day-row">
-                            <span className="ctt-day-lbl">Current Day</span>
-                            <span className="ctt-day-num">Day {currentDay}</span>
-                        </div>
-                        <div className="ctt-slider-wrap">
-                            <input
-                                type="range"
-                                className="ctt-range"
-                                min="1" max="28"
-                                value={currentDay}
-                                onChange={handleSliderChange}
-                            />
-                            <div className="ctt-track-colors"></div>
-                            <div className="ctt-day-ticks">
-                                <span>1</span><span>7</span><span>14</span><span>21</span><span>28</span>
-                            </div>
-                        </div>
-                        <button className={`ctt-sim-btn ${isPlaying ? 'stop' : 'start'}`} onClick={togglePlay}>
-                            {isPlaying ? '⏸ Stop Simulation' : '▶ Start Simulation'}
-                        </button>
+                {/* RIGHT: Info cards */}
+                <div className="info-col">
+                    {/* Phase summary card */}
+                    <div className="phase-summary">
+                        <div className="ps-day">Days {currentDay} · {CYCLE_PHASES[activePhase as keyof typeof CYCLE_PHASES].name}</div>
+                        <div className="ps-name">{insight.title}</div>
+                        <div className="ps-desc">{insight.desc}</div>
                     </div>
 
-                    {/* Hormone Levels Panel */}
-                    <div className="hormone-col" style={{ paddingTop: 0, marginBottom: '1rem' }}>
-                        <div className="hormone-panel">
-                            <h3>Hormone Levels</h3>
-
-                            <div className="h-row">
-                                <div className="h-label">
-                                    <span className="h-name">Oestrogen (E2)</span>
-                                    <span className="h-val">{getLevelText(e2Pct)}</span>
-                                </div>
-                                <div className="h-track">
-                                    <div className="h-fill" style={{ width: `${e2Pct}%`, background: '#ce93d8' }}></div>
-                                </div>
-                            </div>
-
-                            <div className="h-row">
-                                <div className="h-label">
-                                    <span className="h-name">Progesterone</span>
-                                    <span className="h-val">{getLevelText(progPct)}</span>
-                                </div>
-                                <div className="h-track">
-                                    <div className="h-fill" style={{ width: `${progPct}%`, background: '#81c784' }}></div>
-                                </div>
-                            </div>
-
-                            <div className="h-row">
-                                <div className="h-label">
-                                    <span className="h-name">LH (Luteinising)</span>
-                                    <span className="h-val">{getLevelText(lhPct)}</span>
-                                </div>
-                                <div className="h-track">
-                                    <div className="h-fill" style={{ width: `${lhPct}%`, background: '#ffca28' }}></div>
-                                </div>
-                            </div>
-
-                            <div className="h-row">
-                                <div className="h-label">
-                                    <span className="h-name">FSH</span>
-                                    <span className="h-val">{getLevelText(fshPct)}</span>
-                                </div>
-                                <div className="h-track">
-                                    <div className="h-fill" style={{ width: `${fshPct}%`, background: '#f48fb1' }}></div>
-                                </div>
-                            </div>
-
-                            <div className="h-row">
-                                <div className="h-label">
-                                    <span className="h-name">GnRH Pulse</span>
-                                    <span className="h-val">{insight.gnrhLevel}</span>
-                                </div>
-                                <div className="h-track">
-                                    <div className="h-fill" style={{ width: `${Math.random() * 40 + 40}%`, background: '#ba68c8', opacity: isPlaying ? 0.7 : 0.4 }}></div>
-                                </div>
-                            </div>
-
-                            <div className="h-row" style={{ marginBottom: 0 }}>
-                                <div className="h-label">
-                                    <span className="h-name">BBT</span>
-                                    <span className="h-val">{insight.bbtLabel}</span>
-                                </div>
-                                <div className="h-track">
-                                    <div className="h-fill" style={{ width: insight.bbtHeight, background: '#ffb74d' }}></div>
-                                </div>
-                            </div>
-
-                            {/* Cycle timeline below hormones */}
-                            <div className="cycle-timeline">
-                                <div className="ct-track">
-                                    <div className="ct-segment" style={{ left: '0%', width: '17.8%', background: '#e8526a' }} title="Menstrual"></div>
-                                    <div className="ct-segment" style={{ left: '17.8%', width: '32.1%', background: '#9b6db0' }} title="Follicular"></div>
-                                    <div className="ct-segment" style={{ left: '50%', width: '7.1%', background: '#f4a335' }} title="Ovulation"></div>
-                                    <div className="ct-segment" style={{ left: '57.1%', width: '42.9%', background: '#5fbfb0' }} title="Luteal"></div>
-                                    {/* Moving dot */}
-                                    <div className="ct-dot" style={{ left: `${(currentDay / 28) * 100}%` }}></div>
-                                </div>
-                                <div className="ct-labels">
-                                    <span>Day 1</span><span>Day 7</span><span>Day 14</span><span>Day 21</span><span>Day 28</span>
-                                </div>
-                            </div>
+                    {/* What you feel */}
+                    <div className="info-card">
+                        <h4>{insight.feelTitle}</h4>
+                        <p>{insight.feelDesc}</p>
+                        <div className="chips">
+                            {insight.feelChips.map(chip => <span key={chip} className="chip">{chip}</span>)}
                         </div>
                     </div>
 
-                    {/* ── Body Simulation ── */}
-                    <div className="sim-card">
-                        <h3>🔬 Body Simulation</h3>
-                        {insight.sim.map((item, idx) => (
-                            <div className="sim-row" key={item.id} style={idx === insight.sim.length - 1 ? { marginBottom: 0 } : {}}>
-                                <div className="sim-icon" style={{ background: item.bg }}>{item.icon}</div>
-                                <div className="sim-text">
-                                    <div className="sim-label">{item.label}</div>
-                                    <div className="sim-desc">{item.desc}</div>
-                                </div>
-                            </div>
-                        ))}
+                    {/* What to do */}
+                    <div className="info-card">
+                        <h4>{insight.doTitle}</h4>
+                        <p>{insight.doDesc}</p>
+                        <span className="info-tag">{insight.doTag}</span>
+                    </div>
+
+                    {/* Lifestyle Modifiers */}
+                    <div className="lifestyle-card" style={{ marginTop: '1rem' }}>
+                        <h3>🧘‍♀️ Lifestyle Modifiers</h3>
+                        <div className="lm-grid">
+                            <button className={`lm-btn ${lifestyle.stress ? 'active' : ''}`} onClick={() => toggleLM('stress')}>⚡ Stress</button>
+                            <button className={`lm-btn ${lifestyle.sleep ? 'active-sleep' : ''}`} onClick={() => toggleLM('sleep')}>💤 Sleep</button>
+                            <button className={`lm-btn ${lifestyle.diet ? 'active-diet' : ''}`} onClick={() => toggleLM('diet')}>🥑 Diet</button>
+                            <button className={`lm-btn ${lifestyle.exercise ? 'active-exercise' : ''}`} onClick={() => toggleLM('exercise')}>🏃‍♀️ Exercise</button>
+                        </div>
+                        <div className="lm-impact-box">
+                            {lmImpactText}
+                        </div>
                     </div>
 
                 </div>
