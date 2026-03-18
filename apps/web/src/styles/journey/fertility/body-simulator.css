@@ -13,6 +13,7 @@
     margin-bottom: 0.6rem;
   }
 
+
   header h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(2.2rem, 5vw, 3.4rem);
@@ -986,7 +987,8 @@
     }
   }
 
-  </style>< !-- SEO Optimisation: Full inline-style elimination — Round 2 --><style id="si-utility-r2">.si-w5 {
+  /* SEO Optimisation: Full inline-style elimination — Round 2 */
+  .si-w5 {
     width: 5%
   }
 

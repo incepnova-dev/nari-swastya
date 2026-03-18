@@ -1,0 +1,106 @@
+.treatment-section {
+  padding: 4rem 0;
+  margin-bottom: 3rem;
+}
+
+.treatment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  perspective: 1000px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px) rotateX(2deg);
+  box-shadow: 0 20px 50px rgba(236, 64, 122, 0.25);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.glass-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, #fce4ec, #fff);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #d81b60;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 8px 16px rgba(236, 64, 122, 0.1);
+}
+
+.glass-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #2c3e50;
+}
+
+.treatment-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1.2rem;
+  flex-grow: 1;
+}
+
+.success-rate-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #d81b60;
+  margin-bottom: 0.5rem;
+}
+
+.success-meter {
+  background: #f5f5f5;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.success-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #ec407a, #d81b60);
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover .success-fill {
+  width: var(--success-rate);
+}
+
+.si-cta-center {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+@media (max-width: 1100px) {
+  .treatment-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .treatment-section { padding: 2rem 0; }
+  .treatment-grid { grid-template-columns: 1fr; }
+  .glass-card { padding: 1.5rem; }
+}

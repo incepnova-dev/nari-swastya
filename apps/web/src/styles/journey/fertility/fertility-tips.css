@@ -1,0 +1,150 @@
+.tips-section {
+  background: linear-gradient(142deg, #fef5f9 0%, #f5ecfa 38%, #fce4ec 68%, #f3e5f5 100%) !important;
+  box-shadow: 0 24px 70px rgba(216, 27, 96, 0.09), 0 4px 18px rgba(197, 163, 216, 0.11) !important;
+  border: 1.5px solid rgba(236, 64, 122, 0.08) !important;
+  position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  padding: 3rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.tips-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 52% 42% at 92% 8%, rgba(248, 187, 208, 0.26) 0%, transparent 60%),
+    radial-gradient(ellipse 46% 48% at 6% 90%, rgba(206, 147, 216, 0.20) 0%, transparent 56%),
+    radial-gradient(ellipse 55% 30% at 50% 0%, rgba(253, 232, 236, 0.20) 0%, transparent 52%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.tips-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tip-card {
+  background: rgba(255, 255, 255, 0.74) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border-radius: 24px;
+  padding: 2.2rem;
+  box-shadow: 0 8px 32px rgba(216, 27, 96, 0.08), 0 2px 8px rgba(197, 163, 216, 0.10) !important;
+  border: 1px solid rgba(236, 64, 122, 0.09) !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+}
+
+.tip-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ec407a, #d81b60, #ad1457);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
+.tip-card:hover::after {
+  transform: scaleX(1);
+}
+
+.tip-card:hover {
+  background: rgba(255, 248, 252, 0.90) !important;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 56px rgba(216, 27, 96, 0.14) !important;
+}
+
+.tip-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fce4ec, #f3e5f5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.tip-card:hover .tip-icon {
+  transform: rotate(10deg) scale(1.1);
+}
+
+.tip-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  color: #212121;
+}
+
+.tip-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  list-style-type: none;
+}
+
+.tip-card li {
+  position: relative;
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.tip-card li::before {
+  content: '•';
+  color: #ec407a;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .tips-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tips-section {
+    padding: 2rem 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .tips-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .tip-card {
+    padding: 1.8rem;
+  }
+  .tip-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .tip-card h3 {
+    font-size: 1.25rem;
+  }
+}
