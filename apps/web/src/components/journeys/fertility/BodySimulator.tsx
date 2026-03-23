@@ -4,10 +4,10 @@ import '../../../styles/journey/fertility/fertility-header.css';
 
 // --- DATA CONSTANTS ---
 const CYCLE_PHASES = {
-    menstrual: { name: 'Menstrual', days: [1, 5], icon: '🩸', color: 'var(--menstrual-red)', next: 'follicular' },
-    follicular: { name: 'Follicular', days: [6, 13], icon: '🌱', color: 'var(--ovulation-gold)', next: 'ovulation' },
-    ovulation: { name: 'Ovulation', days: [14, 15], icon: '✨', color: 'var(--fertility-green)', next: 'luteal' },
-    luteal: { name: 'Luteal', days: [16, 28], icon: '🌕', color: 'var(--luteal-blue)', next: 'menstrual' }
+    menstrual: { name: 'Menstrual', days: [1, 5], icon: '🩸', color: '#e91e63', next: 'follicular' },
+    follicular: { name: 'Follicular', days: [6, 13], icon: '🌱', color: '#4caf50', next: 'ovulation' },
+    ovulation: { name: 'Ovulation', days: [14, 15], icon: '✨', color: '#ffc107', next: 'luteal' },
+    luteal: { name: 'Luteal', days: [16, 28], icon: '🌕', color: '#00acc1', next: 'menstrual' }
 };
 
 const HORMONE_DATA = {
@@ -254,6 +254,7 @@ export const BodySimulator: React.FC = () => {
                         <button
                             key={key}
                             className={`phase-btn ${activePhase === key ? 'active' : ''}`}
+                            data-phase={key}
                             onClick={() => togglePhase(key)}
                         >
                             {data.icon} {data.name} · Day {data.days[0]}-{data.days[1]}

@@ -73,19 +73,24 @@
   }
 
   .phase-btn[data-phase="menstrual"].active {
-    background: #e8526a;
+    background: #e91e63;
+    box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
   }
-
+  
   .phase-btn[data-phase="follicular"].active {
-    background: #ba7ccf;
+    background: #4caf50;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
   }
-
+  
   .phase-btn[data-phase="ovulation"].active {
-    background: #f4a335;
+    background: #ffc107;
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.3);
+    color: #424242; /* Darker text for yellow bg */
   }
-
+  
   .phase-btn[data-phase="luteal"].active {
-    background: #5fbfb0;
+    background: #00acc1;
+    box-shadow: 0 4px 15px rgba(0, 172, 193, 0.3);
   }
 
   /* ── Body Simulator Section Container ── */
