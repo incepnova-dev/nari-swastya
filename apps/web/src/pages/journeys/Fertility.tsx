@@ -1,3 +1,7 @@
+/**
+ * Fertility Journey Page
+ * Orchestrates the various sections of the fertility path, from tracking to sanctuary.
+ */
 import React, { useEffect } from 'react';
 import { SiteHeader } from '../../components/SiteHeader';
 import { Footer } from '../../components/Footer';
