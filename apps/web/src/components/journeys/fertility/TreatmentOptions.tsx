@@ -1,3 +1,7 @@
+/**
+ * Treatment Options Lab Component
+ * Displays various fertility treatments with success rates and descriptions.
+ */
 import React from 'react';
 import '../../../styles/journey/fertility/treatment-options.css';
 
