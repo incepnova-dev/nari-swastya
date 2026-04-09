@@ -1,3 +1,9 @@
+/**
+ * Bio-Digital Body Twin / Fertility Simulator
+ * A complex interactive component that visualizes hormonal changes and physiological
+ * responses throughout the menstrual cycle. Features real-time hormonal graphs,
+ * anatomical visualizations, and lifestyle impact modifiers.
+ */
 import React, { useState, useEffect, useCallback } from 'react';
 import '../../../styles/journey/fertility/body-simulator.css';
 import '../../../styles/journey/fertility/fertility-header.css';
