@@ -1,3 +1,7 @@
+/**
+ * Call-to-Action Component for the Fertility Journey
+ * Encourages users to book a consultation and provides guidance on timing.
+ */
 import React from 'react';
 import '../../../styles/journey/fertility/fertility-cta.css';
 
