@@ -1,3 +1,7 @@
+/**
+ * Application Entry Point (Bootstrap)
+ * Initializes React, connects to the DOM, and sets up internationalization and global styles.
+ */
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from './App';
